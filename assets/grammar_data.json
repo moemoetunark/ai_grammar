@@ -1,0 +1,885 @@
+{
+  "basic": [
+    {
+      "categories": "am/is/are — ဖြစ်သည်/ရှိသည် — ပစ္စုပ္ပန်ကာလ",
+      "descriptions": "Learn the present forms of be: am, is and are. — ပစ္စုပ္ပန်ကာလတွင် am၊ is နှင့် are ပုံစံများကို လေ့လာပါ။",
+      "details": {
+        "title": "am / is / are",
+        "subtitle": "Learn the present forms of be: am, is and are.",
+        "introduction": [
+          "My name is Lisa.",
+          "I’m 22.",
+          "I’m not married.",
+          "I’m American, from Chicago.",
+          "My favourite colour is blue.",
+          "I’m a student.",
+          "I’m interested in art.",
+          "My father is a doctor.",
+          "I like football and swimming."
+        ],
+        "tables": [
+          {
+            "title": "Affirmative · အတည်ပြုဝါကျ",
+            "headers": [
+              "Subject",
+              "Form",
+              "Short form"
+            ],
+            "rows": [
+              [
+                "I",
+                "am",
+                "I’m"
+              ],
+              [
+                "he / she / it",
+                "is",
+                "he’s / she’s / it’s"
+              ],
+              [
+                "we / you / they",
+                "are",
+                "we’re / you’re / they’re"
+              ]
+            ]
+          },
+          {
+            "title": "Negative · အငြင်းဝါကျ",
+            "headers": [
+              "Subject",
+              "Negative form",
+              "Short form"
+            ],
+            "rows": [
+              [
+                "I",
+                "am not",
+                "I’m not"
+              ],
+              [
+                "he / she / it",
+                "is not",
+                "isn’t"
+              ],
+              [
+                "we / you / they",
+                "are not",
+                "aren’t"
+              ]
+            ]
+          }
+        ],
+        "examplesTitle": "Examples · ဥပမာများ",
+        "examples": [
+          [
+            "I’m cold. Can you close the window, please?",
+            "ကျွန်တော် အေးနေတယ်။ ပြတင်းပေါက်ပိတ်ပေးနိုင်မလား။"
+          ],
+          [
+            "I’m 32 years old. My sister is 29.",
+            "ကျွန်တော် အသက် ၃၂ နှစ်ပါ။ ညီမက ၂၉ နှစ်ပါ။"
+          ],
+          [
+            "Steve is ill. He’s in bed.",
+            "စတိဗ် နေမကောင်းပါ။ သူ အိပ်ရာထဲမှာပါ။"
+          ],
+          [
+            "It’s ten o’clock. You’re late again.",
+            "ဆယ်နာရီရှိပြီ။ မင်း ထပ်နောက်ကျပြန်ပြီ။"
+          ],
+          [
+            "Ann and I are good friends.",
+            "အန်းနဲ့ ကျွန်မ သူငယ်ချင်းကောင်းတွေပါ။"
+          ],
+          [
+            "Those people aren’t English. They’re Australian.",
+            "အဲဒီလူတွေ အင်္ဂလိပ်လူမျိုးမဟုတ်ပါ။ ဩစတြေးလျလူမျိုးတွေပါ။"
+          ]
+        ],
+        "notes": [
+          [
+            "I’m afraid of dogs.",
+            "ကျွန်တော် ခွေးတွေကို ကြောက်ပါတယ်။"
+          ],
+          [
+            "Your keys are on the table.",
+            "မင်းရဲ့သော့တွေ စားပွဲပေါ်မှာ ရှိတယ်။"
+          ]
+        ],
+        "questionTitle": "Questions · မေးခွန်းဖွဲ့ပုံ",
+        "questionNote": "Put am / is / are before the subject."
+      },
+      "exercises": {
+        "title": "Practice · လေ့ကျင့်ခန်းများ",
+        "groups": [
+          {
+            "title": "1.1 Write the short form (she’s / we’re etc.).",
+            "translation": "အတိုကောက်ပုံစံကို ရေးပါ။",
+            "items": [
+              "She is",
+              "they are",
+              "it is not",
+              "that is",
+              "I am not",
+              "you are not"
+            ]
+          },
+          {
+            "title": "1.2 Write am, is or are.",
+            "translation": "လစ်လပ်နေရာတွင် am၊ is သို့မဟုတ် are ကို ရေးပါ။",
+            "items": [
+              "The weather ___ nice today.",
+              "I ___ not rich.",
+              "This bag ___ heavy.",
+              "These bags ___ heavy.",
+              "Look! There ___ Carol.",
+              "My brother and I ___ good tennis players.",
+              "Emily ___ at home. Her children ___ at school.",
+              "I ___ a taxi driver. My sister ___ a nurse."
+            ]
+          },
+          {
+            "title": "1.3 Complete the sentences.",
+            "translation": "ဝါကျများကို ပြည့်စုံအောင် ဖြည့်ပါ။",
+            "items": [
+              "Steve is ill. ___ in bed.",
+              "I’m not hungry, but ___ thirsty.",
+              "Mr Thomas is a very old man. ___ 98.",
+              "These chairs aren’t beautiful, but ___ comfortable.",
+              "The weather is nice today. ___ warm and sunny.",
+              "___ late? “No, I’m not. I’m early.”",
+              "Catherine isn’t at home. ___ at work.",
+              "___ your coat? “Oh, thank you very much.”"
+            ]
+          },
+          {
+            "title": "1.4 Write sentences about yourself.",
+            "translation": "မိမိအကြောင်း ဝါကျများရေးပါ။",
+            "items": [
+              "My name?",
+              "Where are you from?",
+              "Age?",
+              "Job?",
+              "Favourite colour(s)?",
+              "What are you interested in?"
+            ]
+          },
+          {
+            "title": "1.5 Write sentences for the pictures.",
+            "translation": "Use: afraid · angry · cold · hot · hungry · thirsty",
+            "items": [
+              "A girl wants a drink.",
+              "Two people are angry.",
+              "A man is in the hot sun.",
+              "A person is shivering.",
+              "People are thinking about food.",
+              "A person is frightened by a storm."
+            ]
+          },
+          {
+            "title": "1.6 Write true sentences, positive or negative.",
+            "translation": "Use isn’t / aren’t, then I’m / I’m not.",
+            "items": [
+              "(it / hot today)",
+              "(it / windy today)",
+              "(my hands / cold)",
+              "(Brazil / a very big country)",
+              "(diamonds / cheap)",
+              "(Toronto / in the US)",
+              "(tired)",
+              "(hungry)",
+              "(a good swimmer)",
+              "(interested in football)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "categories": "am/is/are (questions) — ဖြစ်သည်/ရှိသည် မေးခွန်းပုံစံ",
+      "descriptions": "Form yes/no questions by putting am, is or are before the subject. — ဝါကျ၏ ကတ္တားရှေ့တွင် am၊ is သို့မဟုတ် are ထား၍ ဟုတ်/မဟုတ် မေးခွန်းဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I am doing (present continuous) — လက်ရှိလုပ်ဆောင်နေကြောင်း ပြပုံ",
+      "descriptions": "Use the present continuous for actions happening now or around now. — ယခုအချိန် သို့မဟုတ် ယခုကာလအတွင်း လုပ်ဆောင်နေမှုကို ဖော်ပြရန် ပစ္စုပ္ပန်ဆက်လက်ကာလကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "are you doing? (present continuous questions) — လက်ရှိလုပ်ဆောင်နေမှုကို မေးခွန်းမေးပုံ",
+      "descriptions": "Ask about actions happening now with am, is or are before the subject. — ကတ္တားရှေ့တွင် am၊ is သို့မဟုတ် are ထား၍ လက်ရှိလုပ်ဆောင်နေမှုကို မေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I do/work/like etc. (present simple) — ပုံမှန်လုပ်ဆောင်မှု၊ အလုပ်လုပ်မှု၊ နှစ်သက်မှုတို့ကို ပြပုံ",
+      "descriptions": "Use the present simple for habits, routines and general facts. — အလေ့အထ၊ နေ့စဉ်လုပ်ရိုးလုပ်စဉ်နှင့် ယေဘုယျအမှန်တရားများအတွက် ပစ္စုပ္ပန်ရိုးရိုးကာလကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I do not ... (present simple negative) — ပစ္စုပ္ပန်ရိုးရိုး အငြင်းဝါကျ",
+      "descriptions": "Make present simple sentences negative with do not or does not. — ပစ္စုပ္ပန်ရိုးရိုးဝါကျကို အငြင်းဝါကျလုပ်ရန် do not သို့မဟုတ် does not ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Do you ... ? (present simple questions) — ပစ္စုပ္ပန်ရိုးရိုး မေးခွန်းပုံစံ",
+      "descriptions": "Form present simple yes/no questions with do or does. — do သို့မဟုတ် does ဖြင့် ပစ္စုပ္ပန်ရိုးရိုး ဟုတ်/မဟုတ် မေးခွန်းများ ဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I am doing (present continuous) and I do (present simple) — ပစ္စုပ္ပန်ဆက်လက်ကာလနှင့် ပစ္စုပ္ပန်ရိုးရိုးကာလ နှိုင်းယှဉ်ပုံ",
+      "descriptions": "Compare actions happening now with regular habits and facts. — ယခုဖြစ်နေသော လုပ်ဆောင်မှုနှင့် ပုံမှန်လုပ်လေ့ရှိမှု၊ အမှန်တရားတို့ကို နှိုင်းယှဉ်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I have ... and I have got ... — ပိုင်ဆိုင်မှုကို ပြောပုံ",
+      "descriptions": "Talk about possession with have and have got. — ပိုင်ဆိုင်မှုကို ပြောရာတွင် have နှင့် have got ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "was/were — အတိတ်ကာလတွင် ဖြစ်ခဲ့/ရှိခဲ့ပုံ",
+      "descriptions": "Use was and were to describe past states and situations. — အတိတ်အခြေအနေများနှင့် အနေအထားများကို ဖော်ပြရန် was နှင့် were ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "worked/got/went etc. (past simple) — အတိတ်ရိုးရိုးကာလရှိ ကြိယာပုံစံများ",
+      "descriptions": "Use the past simple for finished actions and events. — ပြီးဆုံးသွားသော အတိတ်လုပ်ရပ်နှင့် ဖြစ်ရပ်များအတွက် အတိတ်ရိုးရိုးကာလကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I didn’t ... Did you ...? (past simple negative and questions) — အတိတ်ရိုးရိုး အငြင်းဝါကျနှင့် မေးခွန်းပုံစံ",
+      "descriptions": "Make past simple negatives and questions with did and the base verb. — did နှင့် ကြိယာမူလပုံစံကို သုံး၍ အတိတ်အငြင်းဝါကျနှင့် မေးခွန်းဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I was doing (past continuous) — အတိတ်တွင် လုပ်ဆောင်နေခဲ့ပုံ",
+      "descriptions": "Use the past continuous for an action in progress at a past time. — အတိတ်အချိန်တစ်ခုတွင် လုပ်ဆောင်နေဆဲဖြစ်သော လုပ်ရပ်ကို အတိတ်ဆက်လက်ကာလဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I was doing (past continuous) and I did (past simple) — အတိတ်ဆက်လက်ကာလနှင့် အတိတ်ရိုးရိုးကာလ",
+      "descriptions": "Choose between an action in progress and a completed past action. — အတိတ်တွင် လုပ်ဆောင်နေဆဲဖြစ်မှုနှင့် ပြီးဆုံးသွားသော လုပ်ရပ်ကို ခွဲခြားရွေးချယ်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I have done (present perfect 1) — ပစ္စုပ္ပန်ပြီးစီးကာလ (၁)",
+      "descriptions": "Use the present perfect to connect a past action or experience to the present. — အတိတ်လုပ်ရပ် သို့မဟုတ် အတွေ့အကြုံကို ပစ္စုပ္ပန်နှင့် ဆက်စပ်ဖော်ပြရန် ပစ္စုပ္ပန်ပြီးစီးကာလကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I’ve just ... I’ve already ... I haven’t ... yet (present perfect 2) — ပြီးခါစ၊ ပြီးနှင့်ပြီး၊ မပြီးသေးကြောင်း",
+      "descriptions": "Use just, already and yet to say when something has happened or has not happened. — တစ်ခုခု ဘယ်အချိန်ဖြစ်ခဲ့သည် သို့မဟုတ် မဖြစ်သေးကြောင်း ပြောရန် just၊ already နှင့် yet ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Have you ever ...? (present perfect 3) — ဘဝအတွေ့အကြုံကို မေးမြန်းပုံ",
+      "descriptions": "Ask whether someone has had a particular experience in their life. — တစ်စုံတစ်ဦး၏ ဘဝအတွေ့အကြုံကို မေးရန် Have you ever ပုံစံကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "How long have you ...? (present perfect 4) — လုပ်ဆောင်မှုကြာချိန်ကို မေးပုံ",
+      "descriptions": "Ask how long a situation or activity has continued up to now. — ယခုအထိ အခြေအနေ သို့မဟုတ် လုပ်ဆောင်မှုတစ်ခု ကြာမြင့်ချိန်ကို မေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "for, since, ago — အချိန်ကြာချိန်နှင့် စတင်ချိန်ပြစကားလုံးများ",
+      "descriptions": "Use for to give a duration, since to give a starting point, and ago for past time. — ကြာချိန်အတွက် for၊ စတင်ချိန်အတွက် since၊ အတိတ်ကာလအတွက် ago ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I have done (present perfect) and I did (past) — ပစ္စုပ္ပန်ပြီးစီးနှင့် အတိတ်ကာလ နှိုင်းယှဉ်ပုံ",
+      "descriptions": "Compare the present perfect with the past simple and their different time meanings. — ပစ္စုပ္ပန်နှင့် ဆက်စပ်မှု၊ အတိတ်အချိန်ကာလ ကွာခြားချက်ကို နှိုင်းယှဉ်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "is done / was done (passive 1) — ပစ္စုပ္ပန်၊ အတိတ် ကတ္တားမဲ့ဝါကျ (၁)",
+      "descriptions": "Form the passive when the action or result matters more than who did it. — လုပ်ဆောင်သူထက် လုပ်ရပ် သို့မဟုတ် ရလဒ်ကို အလေးပေးလိုသောအခါ ကတ္တားမဲ့ပုံစံကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "is being done / has been done (passive 2) — ဆက်လက်၊ ပြီးစီး ကတ္တားမဲ့ဝါကျ (၂)",
+      "descriptions": "Use passive forms to describe actions in progress or completed actions. — ဆက်လက်ဖြစ်နေသော သို့မဟုတ် ပြီးဆုံးပြီးသော လုပ်ရပ်များကို ကတ္တားမဲ့ပုံစံဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "be/have/do in present and past tenses — ပစ္စုပ္ပန်၊ အတိတ်ရှိ be/have/do ကြိယာများ",
+      "descriptions": "Review how be, have and do change in present and past tenses. — ပစ္စုပ္ပန်နှင့် အတိတ်ကာလတို့တွင် be၊ have၊ do ပြောင်းလဲပုံကို ပြန်လည်လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Regular and irregular verbs — ပုံမှန်နှင့် မမှန်ကြိယာများ",
+      "descriptions": "Learn the spelling and use of regular verbs and the forms of irregular verbs. — ပုံမှန်ကြိယာများ၏ စာလုံးပေါင်းနှင့် အသုံးပြုပုံ၊ မမှန်ကြိယာများ၏ ပုံစံများကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "What are you doing tomorrow? — မနက်ဖြန်အစီအစဉ်ကို ပြောပုံ",
+      "descriptions": "Use present forms to talk about future arrangements. — အနာဂတ်အစီအစဉ်များကို ပစ္စုပ္ပန်ပုံစံဖြင့် ပြောဆိုပုံကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I’m going to ... — ရည်ရွယ်ချက်ကို going to ဖြင့် ပြောပုံ",
+      "descriptions": "Use going to for plans, intentions and predictions based on evidence. — အစီအစဉ်၊ ရည်ရွယ်ချက်နှင့် အထောက်အထားပေါ်အခြေခံသည့် ခန့်မှန်းချက်များအတွက် going to ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "will/shall 1 — will/shall အသုံးပြုပုံ (၁)",
+      "descriptions": "Use will and shall for decisions, offers, promises and predictions. — ဆုံးဖြတ်ချက်၊ ကမ်းလှမ်းချက်၊ ကတိနှင့် ခန့်မှန်းချက်များအတွက် will နှင့် shall ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "will/shall 2 — will/shall အသုံးပြုပုံ (၂)",
+      "descriptions": "Practise further uses of will and shall in common situations. — နေ့စဉ်အခြေအနေများတွင် will နှင့် shall ကို ထပ်မံလေ့ကျင့်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "might — might ဖြင့် ဖြစ်နိုင်ခြေပြပုံ",
+      "descriptions": "Use might to say that something is possible but uncertain. — မသေချာသော်လည်း ဖြစ်နိုင်ခြေရှိသောအရာကို might ဖြင့် ပြောပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "can and could — can နှင့် could အသုံးပြုပုံ",
+      "descriptions": "Use can and could for ability, possibility and requests. — စွမ်းရည်၊ ဖြစ်နိုင်ခြေနှင့် တောင်းဆိုမှုများတွင် can နှင့် could ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "must / mustn’t / don’t need to — မဖြစ်မနေနှင့် မလိုအပ်ကြောင်း ပြပုံ",
+      "descriptions": "Use must for strong obligation, mustn’t for prohibition, and don’t need to for lack of necessity. — မဖြစ်မနေလိုအပ်မှုအတွက် must၊ တားမြစ်ချက်အတွက် mustn’t၊ မလိုအပ်မှုအတွက် don’t need to ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "should — အကြံပြုချက်ကို should ဖြင့် ပြောပုံ",
+      "descriptions": "Use should to give advice or say what is the right thing to do. — အကြံပေးရန် သို့မဟုတ် သင့်လျော်သောအရာကို ပြောရန် should ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I have to ... — လုပ်ရမည့်တာဝန်ကို ပြောပုံ",
+      "descriptions": "Use have to to talk about rules and obligations. — စည်းမျဉ်းနှင့် တာဝန်ဝတ္တရားများအကြောင်း ပြောရန် have to ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Would you like ...? / I’d like ... — ယဉ်ကျေးစွာ ကမ်းလှမ်းမေးမြန်း၊ တောင်းဆိုပုံ",
+      "descriptions": "Make polite offers and requests with would you like and say what you want with I’d like. — ယဉ်ကျေးစွာ ကမ်းလှမ်း၊ တောင်းဆိုရန် would you like ကို သုံးပြီး ကိုယ်လိုချင်သည်ကို I’d like ဖြင့် ပြောပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Do this! Don’t do that! Let’s do this! — အမိန့်၊ တားမြစ်၊ ဖိတ်ခေါ်ပုံ",
+      "descriptions": "Give instructions, tell someone not to do something, and suggest doing something together. — ညွှန်ကြားချက်ပေးခြင်း၊ တားမြစ်ခြင်းနှင့် အတူလုပ်ရန် အကြံပြုခြင်းတို့ကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I used to ... — အတိတ်က လုပ်လေ့ရှိခဲ့ပုံ",
+      "descriptions": "Use used to for past habits or situations that are no longer true. — ယခင်က လုပ်လေ့ရှိခဲ့သော်လည်း ယခုမလုပ်တော့သော အလေ့အထ၊ အခြေအနေကို used to ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "there is / there are — ရှိသည်ကို ပစ္စုပ္ပန်ကာလဖြင့် ပြောပုံ",
+      "descriptions": "Use there is and there are to say that something exists or is present now. — ယခုအချိန်တွင် တစ်စုံတစ်ရာ ရှိနေကြောင်း there is နှင့် there are ဖြင့် ပြောပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "there was/were / there has/have been — ရှိခဲ့သည်၊ ရှိလာခဲ့သည်ကို ပြောပုံ",
+      "descriptions": "Talk about existence in the past and situations that have continued until now. — အတိတ်တွင် ရှိခဲ့မှုနှင့် ယခုအထိ ဆက်လက်ရှိနေမှုကို ပြောပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "It ... — It အသုံးပြုပုံ",
+      "descriptions": "Learn common uses of it, including as a subject in sentences about time, weather and distance. — အချိန်၊ ရာသီဥတု၊ အကွာအဝေးစသည့် ဝါကျများတွင် it ကို ကတ္တားအဖြစ် သုံးပုံကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I am, I don’t etc. — အကူကြိယာ အတိုကောက်ပုံစံများ",
+      "descriptions": "Use auxiliary verbs in short replies and negative sentences. — အတိုချုံးအဖြေနှင့် အငြင်းဝါကျများတွင် အကူကြိယာများကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Have you? Are you? Don’t you? etc. — အကူကြိယာသုံး အတိုမေးခွန်းများ",
+      "descriptions": "Form short questions and question tags with auxiliary verbs. — အကူကြိယာများဖြင့် အတိုမေးခွန်းနှင့် မေးခွန်းတွဲများ ဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "too/either; so am I / neither do I etc. — တူညီ၊ မတူညီကြောင်း တုံ့ပြန်ပုံ",
+      "descriptions": "Agree or disagree using too, either, so and neither with an auxiliary verb. — အကူကြိယာဖြင့် too၊ either၊ so နှင့် neither ကို သုံးပြီး သဘောတူ၊ မတူကြောင်း ပြန်ဖြေပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "isn’t, haven’t, don’t etc. (negatives) — အငြင်းပုံစံ အကူကြိယာများ",
+      "descriptions": "Form negative verbs with contracted auxiliaries such as isn’t and haven’t. — isn’t၊ haven’t ကဲ့သို့ အတိုကောက် အကူကြိယာများဖြင့် အငြင်းပုံစံ ဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "is it ...? have you ...? do they ...? etc. (questions 1) — အကူကြိယာဖြင့် မေးခွန်းဖွဲ့ပုံ (၁)",
+      "descriptions": "Make yes/no questions by placing the auxiliary verb before the subject. — ကတ္တားရှေ့တွင် အကူကြိယာထား၍ ဟုတ်/မဟုတ် မေးခွန်းများ ဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Who saw you? Who did you see? (questions 2) — Who ကတ္တား/ကံ ဖြစ်သည့် မေးခွန်းများ (၂)",
+      "descriptions": "Ask about the person who does an action or the person affected by it. — လုပ်ရပ်ကို ပြုလုပ်သူ သို့မဟုတ် လုပ်ရပ်ခံရသူအကြောင်း မေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Who is she talking to? What is it like? (questions 3) — ဝိဘတ်ပါသော မေးခွန်းများ (၃)",
+      "descriptions": "Ask questions that end with a preposition and ask for descriptions. — ဝိဘတ်ဖြင့်ဆုံးသော မေးခွန်းနှင့် ဖော်ပြချက်မေးခွန်းများကို မေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "What ...? Which ...? How ...? (questions 4) — What၊ Which၊ How မေးခွန်းများ (၄)",
+      "descriptions": "Ask for information about things, choices, methods and amounts. — အရာဝတ္ထု၊ ရွေးချယ်မှု၊ နည်းလမ်းနှင့် ပမာဏအကြောင်း မေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "How long does it take ...? — ကြာချိန်ကို မေးပုံ",
+      "descriptions": "Ask how much time an activity requires using how long does it take. — လုပ်ဆောင်မှုတစ်ခုအတွက် အချိန်မည်မျှကြာသည်ကို How long does it take ဖြင့် မေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Do you know where ...? I don’t know what ... etc. — သွယ်ဝိုက်မေးခွန်းများ",
+      "descriptions": "Report questions indirectly after expressions such as do you know or I don’t know. — Do you know၊ I don’t know စသည့် စကားစုနောက်တွင် သွယ်ဝိုက်မေးခွန်းများ ဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "She said that ... / He told me that ... — သွယ်ဝိုက်ပြောစကား",
+      "descriptions": "Report what someone said using say, tell and a that-clause. — say၊ tell နှင့် that-clause ကို သုံး၍ တစ်စုံတစ်ဦး ပြောခဲ့သည်ကို ပြန်လည်ပြောပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "work/working, go/going, do/doing — ကြိယာနှင့် -ing သုံးပုံ",
+      "descriptions": "Use the -ing form after some verbs and in common expressions. — အချို့ကြိယာနောက်နှင့် အသုံးအနှုန်းများတွင် -ing ပုံစံကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "to ... (I want to do) and -ing (I enjoy doing) — to နှင့် -ing ရွေးချယ်သုံးပုံ",
+      "descriptions": "Choose between an infinitive with to and an -ing form after different verbs. — ကြိယာအလိုက် to ပါသော မူလပုံစံ သို့မဟုတ် -ing ပုံစံကို ရွေးချယ်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I want you to ... / I told you to ... — တစ်စုံတစ်ဦးကို လုပ်စေလို/ပြောခဲ့ပုံ",
+      "descriptions": "Use an object followed by to and an infinitive to describe what someone wants or tells another person to do. — တစ်စုံတစ်ဦးအား လုပ်စေလိုခြင်း သို့မဟုတ် လုပ်ရန် ပြောခဲ့ခြင်းကို object + to-infinitive ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I went to the shop to ... — ရည်ရွယ်ချက်ကို to ဖြင့် ပြပုံ",
+      "descriptions": "Use to and an infinitive to explain the purpose of an action. — လုပ်ရပ်တစ်ခု၏ ရည်ရွယ်ချက်ကို to နှင့် ကြိယာမူလပုံစံဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "go to ... / go on ... / go for ... / go -ing — go နှင့် တွဲသုံးသော စကားစုများ",
+      "descriptions": "Learn common expressions with go, including go to, go on, go for and go plus -ing. — go to၊ go on၊ go for နှင့် go + -ing ကဲ့သို့ go ပါသော အသုံးများကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "get — get ကြိယာအသုံးများ",
+      "descriptions": "Understand common meanings and phrases formed with get. — get ကြိယာ၏ အသုံးများသော အဓိပ္ပာယ်နှင့် စကားစုများကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "do and make — do နှင့် make သုံးပုံ",
+      "descriptions": "Choose do or make in common expressions. — အသုံးများသော စကားစုများတွင် do နှင့် make ကို မှန်ကန်စွာ ရွေးချယ်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "have — have ကြိယာအသုံးများ",
+      "descriptions": "Use have in common expressions for activities, experiences and possession. — လုပ်ဆောင်မှု၊ အတွေ့အကြုံနှင့် ပိုင်ဆိုင်မှုဆိုင်ရာ အသုံးအနှုန်းများတွင် have ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I/me, he/him, they/them etc. — နာမ်စား ကတ္တားနှင့် ကံပုံစံများ",
+      "descriptions": "Use subject and object pronouns such as I/me, he/him and they/them. — I/me၊ he/him၊ they/them ကဲ့သို့ ကတ္တားနှင့် ကံပုဒ်နာမ်စားများကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "my/his/their etc. — ပိုင်ဆိုင်မှုပြ စကားလုံးများ",
+      "descriptions": "Use my, his and their before nouns to show possession. — နာမ်တစ်ခု၏ ရှေ့တွင် my၊ his၊ their တို့ကို သုံး၍ ပိုင်ဆိုင်မှုကို ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Whose is this? It’s mine/yours/hers etc. — ပိုင်ဆိုင်သူကို မေးဖြေပုံ",
+      "descriptions": "Ask who owns something and answer with possessive pronouns such as mine and yours. — ပိုင်ရှင်ကို မေးပြီး mine၊ yours ကဲ့သို့ ပိုင်ဆိုင်မှုပြနာမ်စားဖြင့် ဖြေပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I/me/my/mine — နာမ်စားနှင့် ပိုင်ဆိုင်မှုပုံစံများ",
+      "descriptions": "Compare subject pronouns, object pronouns, possessive adjectives and possessive pronouns. — ကတ္တားနာမ်စား၊ ကံပုဒ်နာမ်စား၊ ပိုင်ဆိုင်မှုပြနာမ်စားများကို နှိုင်းယှဉ်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "myself/yourself/themselves etc. — ကိုယ်တိုင်ပြ နာမ်စားများ",
+      "descriptions": "Use reflexive pronouns when the subject and object are the same person. — ကတ္တားနှင့် ကံပုဒ်သည် လူတစ်ဦးတည်းဖြစ်သောအခါ reflexive pronoun ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "-’s (Kate’s camera / my brother’s car etc.) — ’s ဖြင့် ပိုင်ဆိုင်မှုဖော်ပြပုံ",
+      "descriptions": "Use apostrophe s to show that something belongs to a person or animal. — လူ သို့မဟုတ် တိရစ္ဆာန်တစ်ခု၏ ပိုင်ဆိုင်မှုကို ’s ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "a/an ... — a/an သုံးပုံ",
+      "descriptions": "Use a or an before a singular countable noun when it is not identified. — မသတ်မှတ်ရသေးသော တစ်ခုတည်းသော ရေတွက်နိုင်နာမ်၏ ရှေ့တွင် a သို့မဟုတ် an ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "train(s), bus(es) (singular and plural) — ဧကဝုစ်နှင့် ဗဟုဝုစ်နာမ်များ",
+      "descriptions": "Form regular singular and plural nouns, including common spelling changes. — ပုံမှန်ဧကဝုစ်၊ ဗဟုဝုစ်နာမ်နှင့် စာလုံးပေါင်းပြောင်းလဲမှုများကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "a bottle / some water (countable/uncountable 1) — ရေတွက်နိုင်/မနိုင် နာမ်များ (၁)",
+      "descriptions": "Use a bottle of with countable containers and some with uncountable substances. — ရေတွက်နိုင်သော ထည့်စရာအမည်နှင့် ရေတွက်မရသော အရာဝတ္ထုအတွက် some ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "a cake / some cake / some cakes (countable/uncountable 2) — ရေတွက်နိုင်/မနိုင် နာမ်များ (၂)",
+      "descriptions": "Distinguish one cake, some cake and multiple cakes by countability and meaning. — ကိတ်မုန့်တစ်ခု၊ ကိတ်မုန့်အနည်းငယ်နှင့် ကိတ်မုန့်အများအပြားတို့၏ အဓိပ္ပာယ်ကွာခြားချက်ကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "a/an and the — a/an နှင့် the သုံးပုံ",
+      "descriptions": "Choose between a/an for something not yet identified and the for something specific. — မသတ်မှတ်ရသေးသည့်အရာအတွက် a/an၊ သတ်မှတ်သိရှိပြီးသားအရာအတွက် the ကို ရွေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "the ... — the အသုံးပြုပုံ",
+      "descriptions": "Use the when the listener can identify which person or thing is meant. — နားထောင်သူက ဘယ်အရာကိုဆိုလိုသည် သိနိုင်သောအခါ the ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "go to work / go home / go to the cinema — နေရာအလိုက် article အသုံးပြုပုံ",
+      "descriptions": "Learn when English omits or uses the with common destinations and activities. — အသုံးများသော သွားရာနေရာနှင့် လုပ်ဆောင်မှုစကားစုများတွင် the သုံး/မသုံးပုံကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "I like music / I hate exams — အထွေထွေသဘောဖြင့် ပြောရာ article သုံးပုံ",
+      "descriptions": "Talk about things in general without using an article with plural or uncountable nouns. — အထွေထွေအကြောင်း ပြောရာတွင် ဗဟုဝုစ်နှင့် ရေတွက်မရနာမ်တို့ရှေ့ article မသုံးပုံကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "the ... (names of places) — နေရာအမည်နှင့် the သုံးပုံ",
+      "descriptions": "Learn which place names take the and which do not. — နေရာအမည်အချို့တွင် the သုံးပုံနှင့် မသုံးပုံကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "this/that/these/those — အနီးအဝေးပြ ညွှန်းနာမ်စားများ",
+      "descriptions": "Use this and these for nearby things, and that and those for things farther away. — နီးသောအရာအတွက် this/these၊ ဝေးသောအရာအတွက် that/those ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "one/ones — နာမ်အစား one/ones သုံးပုံ",
+      "descriptions": "Use one and ones to avoid repeating a countable noun. — ရေတွက်နိုင်သော နာမ်ကို ထပ်မပြောရစေရန် one/ones ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "some and any — some နှင့် any အသုံးပြုပုံ",
+      "descriptions": "Use some and any in statements, questions and offers. — ဝါကျအမျိုးအစားအလိုက် some နှင့် any ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "not ... any / no / none — မရှိကြောင်း any/no/none ဖြင့် ပြပုံ",
+      "descriptions": "Express absence using not any, no or none. — မရှိကြောင်းကို not any၊ no သို့မဟုတ် none ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "not ... anybody/anyone/anything; nobody/no-one/nothing — လူ/အရာမရှိကြောင်း အငြင်းနာမ်စား",
+      "descriptions": "Use negative indefinite pronouns to say that no person or thing is involved. — မည်သူမျှ သို့မဟုတ် မည်သည့်အရာမျှ မပါဝင်ကြောင်း အငြင်းနာမ်စားဖြင့် ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "somebody/anything/nowhere etc. — မသတ်မှတ်နာမ်စားများ",
+      "descriptions": "Use indefinite pronouns such as somebody, anything and nowhere. — somebody၊ anything၊ nowhere ကဲ့သို့ မသတ်မှတ်နာမ်စားများကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "every and all — every နှင့် all အသုံးပြုပုံ",
+      "descriptions": "Use every with singular nouns and all with plural or uncountable nouns. — ဧကဝုစ်နာမ်နှင့် every၊ ဗဟုဝုစ် သို့မဟုတ် ရေတွက်မရနာမ်နှင့် all ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "all, most, some, any, no/none — ပမာဏပြ စကားလုံးများ",
+      "descriptions": "Choose all, most, some, any, no or none to describe quantities. — ပမာဏဖော်ပြရန် all၊ most၊ some၊ any၊ no သို့မဟုတ် none ကို ရွေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "both, either, neither — နှစ်ခုလုံး၊ တစ်ခုခု၊ တစ်ခုမှမဟုတ်",
+      "descriptions": "Use both, either and neither when talking about two people or things. — လူ သို့မဟုတ် အရာနှစ်ခုအကြောင်း ပြောရာတွင် both၊ either၊ neither ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "a lot, much, many — များပြားမှုဖော်ပြ စကားလုံးများ",
+      "descriptions": "Choose a lot of, much or many according to the noun and sentence type. — နာမ်အမျိုးအစားနှင့် ဝါကျအလိုက် a lot of၊ much၊ many ကို ရွေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "(a) little / (a) few — အနည်းငယ်ဖော်ပြ စကားလုံးများ",
+      "descriptions": "Use little with uncountable nouns and few with plural countable nouns. — ရေတွက်မရနာမ်နှင့် little၊ ဗဟုဝုစ်ရေတွက်နိုင်နာမ်နှင့် few ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "old/nice/interesting etc. (adjectives) — နာမဝိသေသနများ",
+      "descriptions": "Use adjectives to describe people, things and situations. — လူ၊ အရာနှင့် အခြေအနေတို့ကို ဖော်ပြရန် နာမဝိသေသနများကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "quickly/badly/suddenly etc. (adverbs) — ကြိယာဝိသေသနများ",
+      "descriptions": "Use adverbs to describe how, when or where an action happens. — လုပ်ရပ်တစ်ခု မည်သို့၊ မည်သည့်အချိန်၊ မည်သည့်နေရာတွင် ဖြစ်သည်ကို ကြိယာဝိသေသနဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "old/older; expensive/more expensive — နှိုင်းယှဉ် နာမဝိသေသနများ",
+      "descriptions": "Form comparative adjectives to compare two people or things. — လူနှစ်ဦး သို့မဟုတ် အရာနှစ်ခုကို နှိုင်းယှဉ်ရန် comparative adjective ကို ဖွဲ့ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "older than ... / more expensive than ... — than ဖြင့် နှိုင်းယှဉ်ပုံ",
+      "descriptions": "Use than after a comparative to state the point of comparison. — နှိုင်းယှဉ်ရမည့်အရာကို ပြရန် comparative နောက်တွင် than ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "not as ... as — မတူညီမှု နှိုင်းယှဉ်ပုံ",
+      "descriptions": "Use not as ... as to say that two things are unequal. — အရာနှစ်ခု မတူညီကြောင်း not as ... as ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "the oldest / the most expensive — အသာလွန်ဆုံးပုံစံ",
+      "descriptions": "Use the superlative form to identify the top or bottom member of a group. — အုပ်စုထဲမှ အမြင့်ဆုံး သို့မဟုတ် အနိမ့်ဆုံးကို ဖော်ပြရန် superlative ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "enough — လုံလောက်မှုကို ပြပုံ",
+      "descriptions": "Use enough to say that an amount or quality is sufficient. — ပမာဏ သို့မဟုတ် အရည်အသွေး လုံလောက်ကြောင်း enough ဖြင့် ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "too — လွန်ကဲမှုကို ပြပုံ",
+      "descriptions": "Use too before an adjective or adverb to say that something is more than needed or wanted. — လိုအပ်သည်ထက် သို့မဟုတ် လိုချင်သည်ထက် ပိုလွန်ကြောင်း too ဖြင့် ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "He speaks English very well. (word order 1) — စကားလုံးအစီအစဉ် (၁)",
+      "descriptions": "Place words in a natural order in sentences, including adverbs of manner. — ဝါကျတွင် စကားလုံးများကို သဘာဝကျစွာ စီစဉ်ပြီး အပြုအမူပြ ကြိယာဝိသေသနကို နေရာမှန်ထားပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "always/usually/often etc. (word order 2) — ကြိမ်နှုန်းပြ စကားလုံး နေရာချထားပုံ (၂)",
+      "descriptions": "Place frequency adverbs such as always and often in the correct part of a sentence. — always၊ often ကဲ့သို့ ကြိမ်နှုန်းပြ ကြိယာဝိသေသနများကို ဝါကျ၏ သင့်လျော်သောနေရာတွင် ထားပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "still / yet / already — still၊ yet၊ already အသုံးပြုပုံ",
+      "descriptions": "Use still, yet and already to describe whether something continues or has happened by now. — အခြေအနေ ဆက်ဖြစ်နေခြင်း သို့မဟုတ် ယခုအချိန်အထိ ဖြစ်ပြီးခြင်းကို still၊ yet၊ already ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "Give me that book! Give it to me! — ဝါကျတွင် ကံပုဒ်စီစဉ်ပုံ",
+      "descriptions": "Use the correct word order when a sentence has both an indirect and a direct object. — ကံပုဒ်နှစ်ခုပါသော ဝါကျတွင် သွယ်ဝိုက်ကံနှင့် တိုက်ရိုက်ကံတို့၏ စကားလုံးအစီအစဉ်ကို မှန်ကန်စွာ သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "and, but, or, so, because — ဝါကျဆက် သမ္ဗန္ဓစကားလုံးများ",
+      "descriptions": "Join words and clauses with and, but, or, so and because. — and၊ but၊ or၊ so၊ because တို့ဖြင့် စကားလုံးနှင့် ဝါကျခွဲများကို ဆက်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "When ... / If you see ... etc. — အချိန်နှင့် အခြေအနေဝါကျများ",
+      "descriptions": "Use when and if clauses to talk about time and possible situations. — အချိန်နှင့် ဖြစ်နိုင်သော အခြေအနေများအကြောင်း ပြောရန် when နှင့် if ဝါကျခွဲများကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "If we go ... — If ဖြင့် ဖြစ်နိုင်သည့် အခြေအနေပြပုံ",
+      "descriptions": "Use if with the present tense to describe a possible future condition and its result. — ဖြစ်နိုင်သော အခြေအနေတစ်ခုနှင့် ရလဒ်ကို if ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "If I had ... / If we went ... etc. — စိတ်ကူးယဉ် အခြေအနေဝါကျများ",
+      "descriptions": "Use if with past forms to describe unreal or imagined situations. — စိတ်ကူးယဉ် သို့မဟုတ် အမှန်တကယ်မဟုတ်သော အခြေအနေများအတွက် if နှင့် အတိတ်ပုံစံကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "a person who ... / a thing that/which ... (relative clauses 1) — လူ/အရာကို ဖော်ပြသော ဆက်စပ်ဝါကျ (၁)",
+      "descriptions": "Use who, that and which to add information about a person or thing. — လူ သို့မဟုတ် အရာအကြောင်း အချက်အလက်ထပ်ဖြည့်ရန် who၊ that၊ which ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "the people we met / the hotel you stayed at (relative clauses 2) — ဆက်စပ်ဝါကျ (၂)",
+      "descriptions": "Make relative clauses shorter when the relative pronoun is the object. — ဆက်စပ်ဝါကျတွင် relative pronoun သည် ကံပုဒ်ဖြစ်သောအခါ ချန်လှပ်၍ ဝါကျတိုစေနိုင်သည်။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "at 8 o’clock / on Monday / in April — အချိန်ပြ at/on/in အသုံးပြုပုံ",
+      "descriptions": "Use at, on and in for clock times, days and longer periods. — နာရီအချိန်၊ နေ့ရက်နှင့် ပိုရှည်သောကာလများအတွက် at၊ on၊ in ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "from ... to / until / since / for — အချိန်ကာလပြ ဝိဘတ်များ",
+      "descriptions": "Use from ... to, until, since and for to describe when something starts, ends or continues. — စတင်ချိန်၊ ဆုံးချိန်နှင့် ကြာချိန်ဖော်ပြရန် from ... to၊ until၊ since၊ for ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "before / after / during / while — အချိန်ပြ ဝိဘတ်နှင့် သမ္ဗန္ဓများ",
+      "descriptions": "Talk about timing with before, after, during and while. — အချိန်နှင့် ဆက်စပ်၍ before၊ after၊ during၊ while ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "in / at / on (places 1) — နေရာပြ in/at/on (၁)",
+      "descriptions": "Use in, at and on for common place expressions such as cities, addresses and points. — မြို့၊ လိပ်စာနှင့် တိကျသောနေရာများအတွက် in၊ at၊ on ကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "in / at / on (places 2) — နေရာပြ in/at/on (၂)",
+      "descriptions": "Learn further place expressions with in, at and on. — နေရာနှင့်ဆိုင်သော in၊ at၊ on အသုံးများကို ထပ်မံလေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "to / in / at (places 3) — နေရာပြ to/in/at (၃)",
+      "descriptions": "Choose to, in or at when describing movement toward or arrival at a place. — နေရာတစ်ခုသို့ သွားခြင်း သို့မဟုတ် ရောက်ရှိခြင်းတွင် to၊ in၊ at ကို ရွေးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "under, behind, opposite etc. — တည်နေရာပြ ဝိဘတ်များ",
+      "descriptions": "Describe where something is with under, behind, opposite and similar prepositions. — အရာတစ်ခု ဘယ်နေရာတွင်ရှိသည်ကို under၊ behind၊ opposite ကဲ့သို့ ဝိဘတ်ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "up, over, through etc. — ရွေ့လျားမှု/ဦးတည်ရာပြ ဝိဘတ်များ",
+      "descriptions": "Describe movement and direction with up, over, through and related prepositions. — ဦးတည်ရွေ့လျားမှုကို up၊ over၊ through ကဲ့သို့ ဝိဘတ်ဖြင့် ဖော်ပြပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "on, at, by, with, about — အသုံးများသော ဝိဘတ်များ",
+      "descriptions": "Learn common meanings of on, at, by, with and about. — on၊ at၊ by၊ with၊ about တို့၏ အသုံးများသော အဓိပ္ပာယ်များကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "afraid of ..., good at ... etc. / preposition + -ing — နာမဝိသေသနနှင့် ဝိဘတ်တွဲသုံးပုံ၊ ဝိဘတ်နောက် -ing",
+      "descriptions": "Use the right preposition after adjectives and use an -ing form after a preposition. — နာမဝိသေသနနောက်တွင် သင့်လျော်သောဝိဘတ်ကို သုံးပြီး ဝိဘတ်နောက်တွင် -ing ပုံစံကို သုံးပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "listen to ..., look at ... etc. (verb + preposition) — ကြိယာနှင့် ဝိဘတ်တွဲသုံးပုံ",
+      "descriptions": "Learn which prepositions commonly follow verbs such as listen and look. — listen၊ look ကဲ့သို့ ကြိယာများနောက်တွင် တွဲသုံးသော ဝိဘတ်များကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "go in, fall off, run away etc. (phrasal verbs 1) — စကားစုကြိယာများ (၁)",
+      "descriptions": "Understand phrasal verbs whose meaning is formed by a verb and a particle. — ကြိယာနှင့် particle ပေါင်းစပ်၍ အဓိပ္ပာယ်ဖြစ်လာသော phrasal verbs များကို နားလည်ပါ။",
+      "details": "",
+      "exercises": ""
+    },
+    {
+      "categories": "put on your shoes / put your shoes on (phrasal verbs 2) — ကံပုဒ်နေရာပြောင်းနိုင်သော စကားစုကြိယာများ (၂)",
+      "descriptions": "Learn separable phrasal verbs and where to place their object. — ကံပုဒ်နေရာပြောင်းနိုင်သော phrasal verbs များနှင့် ကံပုဒ်ထားရမည့်နေရာကို လေ့လာပါ။",
+      "details": "",
+      "exercises": ""
+    }
+  ],
+  "intermediate": [],
+  "advanced": []
+}
