@@ -22,7 +22,8 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
   Future<void> _loadGrammarData() async {
     try {
-      final jsonString = await rootBundle.loadString('assets/grammar_data.json');
+      final jsonString =
+          await rootBundle.loadString('assets/grammar_data.json');
       final data = json.decode(jsonString) as Map<String, dynamic>;
       setState(() {
         _grammarData = data;
@@ -62,7 +63,8 @@ class _GrammarScreenState extends State<GrammarScreen> {
                         borderSide: BorderSide.none,
                       ),
                       filled: true,
-                      fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                      fillColor:
+                          Theme.of(context).colorScheme.surfaceContainerHighest,
                     ),
                     onChanged: (value) {
                       setState(() {
@@ -78,28 +80,35 @@ class _GrammarScreenState extends State<GrammarScreen> {
                           itemCount: filteredUnits.length,
                           itemBuilder: (context, index) {
                             final unit = filteredUnits[index];
-                            final category = unit['categories'] ?? 'Unit ${index + 1}';
+                            final category =
+                                unit['categories'] ?? 'Unit ${index + 1}';
                             final description = unit['descriptions'] ?? '';
                             return Card(
-                              margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 6),
                               elevation: 2,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: ListTile(
                                 leading: CircleAvatar(
-                                  backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
                                   child: Text(
                                     '${index + 1}',
                                     style: TextStyle(
-                                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ),
                                 title: Text(
                                   category,
-                                  style: const TextStyle(fontWeight: FontWeight.bold),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 subtitle: Padding(
                                   padding: const EdgeInsets.only(top: 4.0),
@@ -109,23 +118,18 @@ class _GrammarScreenState extends State<GrammarScreen> {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                                trailing: const Icon(Icons.arrow_forward_ios,
+                                    size: 16),
                                 onTap: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => GrammarDetailScreen(
                                         unitNumber: index + 1,
-                                        details: unit['details'] is Map
-                                            ? Map<String, dynamic>.from(
-                                                unit['details'] as Map,
-                                              )
-                                            : const {},
-                                        exercises: unit['exercises'] is Map
-                                            ? Map<String, dynamic>.from(
-                                                unit['exercises'] as Map,
-                                              )
-                                            : const {},
+                                        category: category,
+                                        description: description,
+                                        details: unit['details'],
+                                        exercises: unit['exercises'],
                                       ),
                                     ),
                                   );
@@ -143,12 +147,16 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
 class GrammarDetailScreen extends StatelessWidget {
   final int unitNumber;
-  final Map<String, dynamic> details;
-  final Map<String, dynamic> exercises;
+  final String category;
+  final String description;
+  final dynamic details;
+  final dynamic exercises;
 
   const GrammarDetailScreen({
     super.key,
     required this.unitNumber,
+    required this.category,
+    required this.description,
     required this.details,
     required this.exercises,
   });
@@ -159,19 +167,36 @@ class GrammarDetailScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Lesson $unitNumber'),
-          backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+          title: Text('Unit $unitNumber'),
+          backgroundColor:
+              Theme.of(context).colorScheme.surfaceContainerHighest,
           bottom: const TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.menu_book), text: 'Lesson details'),
-              Tab(icon: Icon(Icons.quiz_outlined), text: 'Exercises'),
+              Tab(
+                icon: Icon(Icons.description_outlined),
+                text: 'Details · အသေးစိတ်',
+              ),
+              Tab(
+                icon: Icon(Icons.assignment_turned_in_outlined),
+                text: 'Exercises · လေ့ကျင့်ခန်း',
+              ),
             ],
           ),
         ),
         body: TabBarView(
           children: [
-            _LessonContent(data: details),
-            _ExerciseContent(data: exercises),
+            _DetailsTabView(
+              unitNumber: unitNumber,
+              category: category,
+              description: description,
+              details: details,
+            ),
+            _ExercisesTabView(
+              unitNumber: unitNumber,
+              category: category,
+              description: description,
+              exercises: exercises,
+            ),
           ],
         ),
       ),
@@ -182,6 +207,172 @@ class GrammarDetailScreen extends StatelessWidget {
 const _ink = Color(0xFF352C2A);
 const _accent = Color(0xFFC44338);
 const _paper = Color(0xFFFFF9F6);
+
+class _DetailsTabView extends StatelessWidget {
+  final int unitNumber;
+  final String category;
+  final String description;
+  final dynamic details;
+
+  const _DetailsTabView({
+    required this.unitNumber,
+    required this.category,
+    required this.description,
+    required this.details,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (details is Map) {
+      return _LessonContent(data: Map<String, dynamic>.from(details as Map));
+    }
+
+    final rawString = details?.toString() ?? '';
+    final cleanText = rawString.replaceAll(RegExp(r'<[^>]*>'), ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
+
+    return Container(
+      color: const Color(0xFFF3EEE9),
+      child: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          _panel(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  category,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: _ink,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  description,
+                  style: const TextStyle(
+                    color: _accent,
+                    fontSize: 15,
+                    height: 1.4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (cleanText.isNotEmpty)
+            _panel(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Lesson Content · သင်ခန်းစာအကြောင်းအရာ',
+                    style: TextStyle(
+                      color: _accent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    cleanText,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      height: 1.5,
+                      color: _ink,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ExercisesTabView extends StatelessWidget {
+  final int unitNumber;
+  final String category;
+  final String description;
+  final dynamic exercises;
+
+  const _ExercisesTabView({
+    required this.unitNumber,
+    required this.category,
+    required this.description,
+    required this.exercises,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (exercises is Map) {
+      return _ExerciseContent(
+          data: Map<String, dynamic>.from(exercises as Map));
+    }
+
+    final rawString = exercises?.toString() ?? '';
+    final cleanText = rawString.replaceAll(RegExp(r'<[^>]*>'), ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
+
+    return Container(
+      color: const Color(0xFFF5F1ED),
+      child: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          _panel(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Unit $unitNumber Practice Exercises',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: _accent,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  description,
+                  style: const TextStyle(fontSize: 14, color: _ink),
+                ),
+              ],
+            ),
+          ),
+          if (cleanText.isNotEmpty)
+            _panel(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Practice Questions · လေ့ကျင့်ခန်း မေးခွန်းများ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: _accent,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    cleanText,
+                    style: const TextStyle(fontSize: 14, height: 1.5, color: _ink),
+                  ),
+                  const SizedBox(height: 16),
+                  const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Type your exercise answers here...',
+                      border: OutlineInputBorder(),
+                    ),
+                    minLines: 2,
+                    maxLines: 4,
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
 
 class _LessonContent extends StatelessWidget {
   final Map<String, dynamic> data;
@@ -198,21 +389,66 @@ class _LessonContent extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         children: [
           _panel(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(data['title'] ?? '', style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: _ink)),
-              Text(data['subtitle'] ?? '', style: const TextStyle(color: _accent, fontSize: 16, height: 1.4)),
-              const SizedBox(height: 8),
-              Wrap(spacing: 6, runSpacing: 6, children: [
-                for (final line in data['introduction'] as List? ?? [])
-                  Container(padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7), decoration: BoxDecoration(color: _paper, borderRadius: BorderRadius.circular(10), border: Border.all(color: const Color(0xFFF0DDD5))), child: Text('$line', style: const TextStyle(fontSize: 15, height: 1.4))),
-              ]),
-            ]),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(data['title'] ?? '',
+                    style: const TextStyle(
+                        fontSize: 23, fontWeight: FontWeight.bold, color: _ink)),
+                Text(data['subtitle'] ?? '',
+                    style: const TextStyle(
+                        color: _accent, fontSize: 16, height: 1.4)),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 6,
+                  children: [
+                    for (final line in data['introduction'] as List? ?? [])
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 7),
+                        decoration: BoxDecoration(
+                          color: _paper,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: const Color(0xFFF0DDD5)),
+                        ),
+                        child: Text(
+                          '$line',
+                          style: const TextStyle(fontSize: 15, height: 1.4),
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            ),
           ),
-          for (final table in tables) _GrammarTable(data: Map<String, dynamic>.from(table)),
+          for (final table in tables)
+            _GrammarTable(data: Map<String, dynamic>.from(table)),
           _sectionTitle(data['examplesTitle'] ?? 'Examples'),
-          for (final example in examples) _ExampleCard(english: '${example[0]}', translation: '${example[1]}'),
-          for (final note in notes) _ExampleCard(english: '${note[0]}', translation: '${note[1]}'),
-          _panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(data['questionTitle'] ?? 'Questions', style: const TextStyle(color: _accent, fontWeight: FontWeight.bold, fontSize: 17)), const SizedBox(height: 4), Text(data['questionNote'] ?? '', style: const TextStyle(fontSize: 16, height: 1.4))])),
+          for (final example in examples)
+            _ExampleCard(
+                english: '${example[0]}', translation: '${example[1]}'),
+          for (final note in notes)
+            _ExampleCard(english: '${note[0]}', translation: '${note[1]}'),
+          _panel(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  data['questionTitle'] ?? 'Questions',
+                  style: const TextStyle(
+                      color: _accent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  data['questionNote'] ?? '',
+                  style: const TextStyle(fontSize: 16, height: 1.4),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -222,13 +458,27 @@ class _LessonContent extends StatelessWidget {
 Widget _panel({required Widget child}) => Container(
       margin: const EdgeInsets.only(bottom: 9),
       padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: const [BoxShadow(color: Color(0x14633C32), blurRadius: 8, offset: Offset(0, 2))]),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+              color: Color(0x14633C32), blurRadius: 8, offset: Offset(0, 2))
+        ],
+      ),
       child: child,
     );
 
 Widget _sectionTitle(String title) => Padding(
       padding: const EdgeInsets.fromLTRB(3, 4, 3, 6),
-      child: Text(title, style: const TextStyle(color: _accent, fontWeight: FontWeight.bold, fontSize: 18, height: 1.35)),
+      child: Text(
+        title,
+        style: const TextStyle(
+            color: _accent,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            height: 1.35),
+      ),
     );
 
 class _GrammarTable extends StatelessWidget {
@@ -239,18 +489,56 @@ class _GrammarTable extends StatelessWidget {
   Widget build(BuildContext context) {
     final headers = (data['headers'] as List).cast<String>();
     final rows = (data['rows'] as List).cast<List>();
-    return _panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text('${data['title']}', style: const TextStyle(color: _accent, fontWeight: FontWeight.bold, fontSize: 16, height: 1.35)),
-      const SizedBox(height: 5),
-      Table(border: TableBorder.all(color: const Color(0xFFE6AAA0)), columnWidths: {0: const FlexColumnWidth(1.2), 1: const FlexColumnWidth(1), 2: const FlexColumnWidth(1.5)}, children: [
-        TableRow(decoration: const BoxDecoration(color: Color(0xFFFFF0EB)), children: headers.map((text) => _tableCell(text, bold: true)).toList()),
-        for (final row in rows) TableRow(children: row.map((text) => _tableCell('$text')).toList()),
-      ]),
-    ]));
+    return _panel(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('${data['title']}',
+              style: const TextStyle(
+                  color: _accent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  height: 1.35)),
+          const SizedBox(height: 5),
+          Table(
+            border: TableBorder.all(color: const Color(0xFFE6AAA0)),
+            columnWidths: const {
+              0: FlexColumnWidth(1.2),
+              1: FlexColumnWidth(1),
+              2: FlexColumnWidth(1.5)
+            },
+            children: [
+              TableRow(
+                decoration: const BoxDecoration(color: Color(0xFFFFF0EB)),
+                children: headers
+                    .map((text) => _tableCell(text, bold: true))
+                    .toList(),
+              ),
+              for (final row in rows)
+                TableRow(
+                  children:
+                      row.map((text) => _tableCell('$text')).toList(),
+                ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
-Widget _tableCell(String text, {bool bold = false}) => Padding(padding: const EdgeInsets.all(6), child: Text(text, style: TextStyle(fontSize: 14, height: 1.35, fontWeight: bold ? FontWeight.bold : FontWeight.normal, color: _ink)));
+Widget _tableCell(String text, {bool bold = false}) => Padding(
+      padding: const EdgeInsets.all(6),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 14,
+          height: 1.35,
+          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+          color: _ink,
+        ),
+      ),
+    );
 
 class _ExampleCard extends StatelessWidget {
   final String english;
@@ -261,8 +549,24 @@ class _ExampleCard extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         margin: const EdgeInsets.only(bottom: 6),
         padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 7),
-        decoration: const BoxDecoration(color: _paper, border: Border(left: BorderSide(color: Color(0xFFEB6955), width: 3))),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(english, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 15, height: 1.4)), const SizedBox(height: 4), Text(translation, style: const TextStyle(fontSize: 17, height: 1.6, color: Color(0xFF3F332F))) ]),
+        decoration: const BoxDecoration(
+          color: _paper,
+          border: Border(
+            left: BorderSide(color: Color(0xFFEB6955), width: 3),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(english,
+                style: const TextStyle(
+                    fontWeight: FontWeight.w600, fontSize: 15, height: 1.4)),
+            const SizedBox(height: 4),
+            Text(translation,
+                style: const TextStyle(
+                    fontSize: 17, height: 1.6, color: Color(0xFF3F332F))),
+          ],
+        ),
       );
 }
 
@@ -275,10 +579,16 @@ class _ExerciseContent extends StatelessWidget {
     final groups = (data['groups'] as List? ?? []).cast<Map>();
     return Container(
       color: const Color(0xFFF5F1ED),
-      child: ListView(padding: const EdgeInsets.all(12), children: [
-        Text(data['title'] ?? 'Practice', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: _accent)),
-        for (final group in groups) _ExerciseGroup(data: Map<String, dynamic>.from(group)),
-      ]),
+      child: ListView(
+        padding: const EdgeInsets.all(12),
+        children: [
+          Text(data['title'] ?? 'Practice',
+              style: const TextStyle(
+                  fontSize: 22, fontWeight: FontWeight.bold, color: _accent)),
+          for (final group in groups)
+            _ExerciseGroup(data: Map<String, dynamic>.from(group)),
+        ],
+      ),
     );
   }
 }
@@ -293,52 +603,74 @@ class _ExerciseGroup extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 8),
       padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(9), border: Border.all(color: const Color(0xFFEFDFD9))),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('${data['title']}', style: const TextStyle(fontWeight: FontWeight.bold, color: _accent, fontSize: 16, height: 1.4)),
-        if ('${data['translation'] ?? ''}'.isNotEmpty) Padding(padding: const EdgeInsets.only(top: 3, bottom: 7), child: Text('${data['translation']}', style: const TextStyle(fontSize: 14, height: 1.5, color: Color(0xFF625852)))),
-        for (var i = 0; i < items.length; i++)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 3),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 24,
-                  child: Text(
-                    '${i + 1}',
-                    style: const TextStyle(fontSize: 14, color: Color(0xFF705E57)),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(9),
+        border: Border.all(color: const Color(0xFFEFDFD9)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('${data['title']}',
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: _accent,
+                  fontSize: 16,
+                  height: 1.4)),
+          if ('${data['translation'] ?? ''}'.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 3, bottom: 7),
+              child: Text(
+                '${data['translation']}',
+                style: const TextStyle(
+                    fontSize: 14, height: 1.5, color: Color(0xFF625852)),
+              ),
+            ),
+          for (var i = 0; i < items.length; i++)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 3),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 24,
+                    child: Text(
+                      '${i + 1}',
+                      style: const TextStyle(
+                          fontSize: 14, color: Color(0xFF705E57)),
+                    ),
                   ),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Text(
-                    items[i],
-                    style: const TextStyle(fontSize: 16, height: 1.4, color: _ink),
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      items[i],
+                      style: const TextStyle(
+                          fontSize: 16, height: 1.4, color: _ink),
+                    ),
                   ),
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  flex: 2,
-                  child: TextField(
-                    minLines: 1,
-                    maxLines: 2,
-                    decoration: const InputDecoration(
-                      isDense: true,
-                      contentPadding: EdgeInsets.symmetric(vertical: 4),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFC88376)),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: _accent, width: 2),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    flex: 2,
+                    child: TextField(
+                      minLines: 1,
+                      maxLines: 2,
+                      decoration: const InputDecoration(
+                        isDense: true,
+                        contentPadding: EdgeInsets.symmetric(vertical: 4),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFC88376)),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: _accent, width: 2),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-      ]),
+        ],
+      ),
     );
   }
 }
