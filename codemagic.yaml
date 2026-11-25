@@ -1,15 +1,37 @@
 workflows:
-  simulator-workflow:
-    name: Build for simulator
+  ios-simulator-workflow:
+    name: iOS Simulator Workflow
+    instance_type: mac_mini_m2
+    max_build_duration: 30
     environment:
+      flutter: stable
       xcode: latest
     scripts:
-      - name: Build with Generic Destination
+      - name: Get Flutter packages
         script: |
-          xcodebuild build \
-            -project "yourproject.xcodeproj" \
-            -scheme "yourscheme" \
-            -sdk iphonesimulator \
-            -configuration Debug
+          flutter packages pub get
+      - name: Build iOS Simulator App
+        script: |
+          flutter build ios --simulator --debug
     artifacts:
-      - /Users/builder/Library/Developer/Xcode/DerivedData/**/*.app
+      - build/ios/iphonesimulator/*.app
+
+  android-workflow:
+    name: Android Workflow
+    instance_type: linux_x2
+    max_build_duration: 30
+    environment:
+      flutter: stable
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Build Android App Bundle
+        script: |
+          flutter build appbundle --release --android-skip-build-dependency-validation
+      - name: Build Android APK
+        script: |
+          flutter build apk --debug --android-skip-build-dependency-validation
+    artifacts:
+      - build/app/outputs/bundle/release/*.aab
+      - build/app/outputs/flutter-apk/*.apk
