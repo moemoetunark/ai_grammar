@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit 1: am/is/are </title>
+  <!-- Load Tailwind CSS for responsive utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load crisp English Serif/Sans and Myanmar Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Classic Textbook Variables & Styling */
+    :root {
+      --red-badge: #d91c1f;
+      --red-tab: #d61b1e;
+      --red-border: #c86464;
+      --salmon-header-start: #f59c7e;
+      --salmon-header-end: #f9bca5;
+      --salmon-sidebar: #f4a488;
+      --salmon-sidebar-light: #f8beaa;
+      --paper-bg: #fffdfb;
+      --page-surround: #ece8e3;
+      --ink-black: #1e1d1c;
+      --ink-muted: #57534e;
+      --mm-color: #1e3a5f;
+      --mm-bg: #f1f6fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--page-surround);
+      color: var(--ink-black);
+      font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-sans-ui {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .font-mm {
+      font-family: 'Noto Sans Myanmar', sans-serif;
+      line-height: 1.75;
+    }
+
+    /* Textbook Sheet Container */
+    .textbook-sheet {
+      max-width: 980px;
+      margin: 0 auto;
+      background-color: var(--paper-bg);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top Salmon Header Banner */
+    .unit-header-banner {
+      background: linear-gradient(90deg, var(--salmon-header-start) 0%, var(--salmon-header-end) 100%);
+      border-bottom: 2px solid #e48466;
+    }
+
+    .unit-red-square {
+      background: linear-gradient(145deg, #e51d20 0%, #b81215 100%);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    }
+
+    /* Left Margin Column on Desktop */
+    .left-margin-rail {
+      background: linear-gradient(180deg, var(--salmon-sidebar) 0%, var(--salmon-sidebar-light) 50%, var(--salmon-sidebar) 100%);
+      border-right: 1px solid #e6957a;
+    }
+
+    /* Red Section Tabs (A, B, C) */
+    .section-tab-desktop {
+      background: linear-gradient(90deg, #c81417 0%, #e42225 100%);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: right;
+      padding: 3px 10px 3px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      letter-spacing: 0.03em;
+    }
+
+    .section-badge-mobile {
+      background: linear-gradient(135deg, #d91c1f 0%, #b51215 100%);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 2px 12px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(217, 28, 31, 0.25);
+    }
+
+    /* Section A Frame Box */
+    .lisa-stage-box {
+      background: linear-gradient(180deg, #fcfbfa 0%, #f6f4f0 100%);
+      border: 1px solid #e7e2da;
+      box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.9), 0 3px 10px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+    }
+
+    /* Speech Bubbles in Section A */
+    .speech-bubble {
+      background: #ffffff;
+      border: 1.4px solid #4a4845;
+      border-radius: 22px;
+      padding: 7px 14px;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .speech-bubble:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.09);
+    }
+
+    /* Desktop Pointer Tails for Speech Bubbles */
+    @media (min-width: 768px) {
+      .tail-bottom-right::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        right: 26px;
+        width: 14px;
+        height: 11px;
+        background: #ffffff;
+        border-right: 1.4px solid #4a4845;
+        border-bottom: 1.4px solid #4a4845;
+        transform: skewX(28deg) rotate(32deg);
+      }
+      .tail-bottom-center::after {
+        content: "";
+        position: absolute;
+        bottom: -9px;
+        left: 42%;
+        width: 12px;
+        height: 10px;
+        background: #ffffff;
+        border-right: 1.4px solid #4a4845;
+        border-bottom: 1.4px solid #4a4845;
+        transform: rotate(45deg);
+      }
+      .tail-bottom-left::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 24px;
+        width: 14px;
+        height: 11px;
+        background: #ffffff;
+        border-left: 1.4px solid #4a4845;
+        border-bottom: 1.4px solid #4a4845;
+        transform: skewX(-28deg) rotate(-32deg);
+      }
+      .tail-right::after {
+        content: "";
+        position: absolute;
+        bottom: 6px;
+        right: -9px;
+        width: 12px;
+        height: 10px;
+        background: #ffffff;
+        border-top: 1.4px solid #4a4845;
+        border-right: 1.4px solid #4a4845;
+        transform: rotate(45deg);
+      }
+      .tail-left::after {
+        content: "";
+        position: absolute;
+        bottom: 6px;
+        left: -9px;
+        width: 12px;
+        height: 10px;
+        background: #ffffff;
+        border-bottom: 1.4px solid #4a4845;
+        border-left: 1.4px solid #4a4845;
+        transform: rotate(45deg);
+      }
+      .tail-top-right::after {
+        content: "";
+        position: absolute;
+        top: -9px;
+        right: 34px;
+        width: 13px;
+        height: 10px;
+        background: #ffffff;
+        border-top: 1.4px solid #4a4845;
+        border-left: 1.4px solid #4a4845;
+        transform: rotate(45deg);
+      }
+      .tail-top-left::after {
+        content: "";
+        position: absolute;
+        top: -9px;
+        left: 34px;
+        width: 13px;
+        height: 10px;
+        background: #ffffff;
+        border-top: 1.4px solid #4a4845;
+        border-right: 1.4px solid #4a4845;
+        transform: rotate(-45deg);
+      }
+    }
+
+    /* Classic Red-Bordered Grammar Tables */
+    .grammar-table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #fffefe;
+      font-size: 1.08rem;
+    }
+
+    .grammar-table td {
+      border: 1.2px solid var(--red-border);
+      padding: 6px 11px;
+      vertical-align: middle;
+    }
+
+    .grammar-table tr:first-child td {
+      background-color: #fff9f8;
+    }
+
+    /* Red Square Bullet */
+    .red-square-bullet {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border: 1.5px solid #d91c1f;
+      margin-top: 7px;
+      flex-shrink: 0;
+      background-color: transparent;
+    }
+
+    /* Burmese Translation Styling & Study Mode States */
+    .mm-translation {
+      color: var(--mm-color);
+      font-size: 0.88rem;
+      margin-top: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .mm-pill {
+      background-color: var(--mm-bg);
+      border-left: 2.5px solid #3b82f6;
+      padding: 2px 8px;
+      border-radius: 0 5px 5px 0;
+      display: inline-block;
+    }
+
+    /* Mode: English Only (Original Book Look) */
+    body.mode-en-only .mm-translation,
+    body.mode-en-only .mm-grammar-note,
+    body.mode-en-only .mm-table-sub {
+      display: none !important;
+    }
+
+    /* Mode: Self-Test (Blur Burmese until hovered/tapped) */
+    body.mode-self-test .mm-translation,
+    body.mode-self-test .mm-table-sub {
+      filter: blur(5px);
+      user-select: none;
+      cursor: pointer;
+      background-color: #e2e8f0;
+      border-radius: 4px;
+    }
+
+    body.mode-self-test .mm-translation.revealed,
+    body.mode-self-test .mm-translation:hover,
+    body.mode-self-test .mm-table-sub.revealed,
+    body.mode-self-test .mm-table-sub:hover {
+      filter: none;
+      user-select: auto;
+      background-color: transparent;
+    }
+
+    /* Curly Bracket SVG styling */
+    .brace-label {
+      font-style: italic;
+      color: #44403c;
+      font-size: 0.92rem;
+    }
+
+    /* ==================== TTS AUDIO STYLES ==================== */
+    .tts-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 9999px;
+      border: 1px solid #e7e5e4;
+      background-color: #ffffff;
+      color: #57534e;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.18s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      vertical-align: middle;
+    }
+
+    .tts-btn:hover {
+      background-color: #fef2f2;
+      border-color: #fca5a5;
+      color: #dc2626;
+      transform: scale(1.06);
+    }
+
+    .tts-btn:active {
+      transform: scale(0.95);
+    }
+
+    .tts-btn.is-playing {
+      background-color: #dc2626;
+      border-color: #b91c1c;
+      color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.22);
+    }
+
+    /* Active Highlight for Currently Spoken Item */
+    .tts-active-target {
+      background-color: #fffbeb !important;
+      box-shadow: 0 0 0 2px #f59e0b, 0 4px 12px rgba(245, 158, 11, 0.18) !important;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .speech-bubble.tts-active-target {
+      border-color: #d97706 !important;
+      border-radius: 22px !important;
+    }
+
+    /* Clickable Grammar Table Row for Audio */
+    .grammar-table tr[data-tts] {
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .grammar-table tr[data-tts]:hover td {
+      background-color: #fef2f2;
+    }
+
+    .grammar-table tr.tts-active-target td {
+      background-color: #fef3c7 !important;
+    }
+
+    /* Equalizer Bars Animation inside Active Speaker Button */
+    @keyframes eqBounce {
+      0%, 100% { transform: scaleY(0.35); }
+      50% { transform: scaleY(1); }
+    }
+
+    .eq-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 1.5px;
+      height: 11px;
+    }
+
+    .eq-bars span {
+      display: block;
+      width: 2px;
+      height: 100%;
+      background-color: currentColor;
+      border-radius: 1px;
+      animation: eqBounce 0.65s infinite ease-in-out;
+    }
+
+    .eq-bars span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .eq-bars span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    /* Print optimization */
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .no-print,
+      .tts-btn {
+        display: none !important;
+      }
+      .textbook-sheet {
+        box-shadow: none;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="mode-bilingual py-0 sm:py-5 px-0 sm:px-4">
+
+  <!-- Interactive Study Mode & TTS Audio Control Bar -->
+  <div class="no-print sticky top-0 z-30 bg-[#ece8e3]/95 backdrop-blur-md border-b border-stone-300/70 sm:border-none sm:bg-transparent sm:static max-w-[980px] mx-auto mb-3 px-3 sm:px-0 py-2.5 sm:py-0 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600"></span>
+      <span class="font-sans-ui text-xs sm:text-sm font-semibold text-stone-700">
+        Essential Grammar in Use • <span class="font-mm font-normal text-stone-600">အင်္ဂလိပ်သဒ္ဒါ (မြန်မာဘာသာပြန်)</span>
+      </span>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <!-- TTS Audio Controls -->
+      <div class="flex items-center gap-1 bg-white/95 border border-stone-300 p-1 rounded-full shadow-sm font-sans-ui text-xs">
+        <button id="btn-play-all" onclick="togglePlayAll()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-semibold bg-amber-500 hover:bg-amber-600 text-white transition shadow-sm" title="Listen to all Unit 1 examples in order">
+          <svg id="icon-play-all" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span id="label-play-all">Play All</span>
+        </button>
+
+        <button id="btn-speed" onclick="cycleSpeechRate()" class="px-2.5 py-1.5 rounded-full font-semibold text-stone-700 hover:bg-stone-100 transition" title="Toggle reading speed">
+          1.0x
+        </button>
+
+        <select id="voice-select" onchange="onVoiceChange()" aria-label="Select English Voice" class="hidden sm:inline-block max-w-[125px] truncate bg-stone-50 border border-stone-200 rounded-full px-2 py-1 text-[11px] text-stone-700 focus:outline-none focus:border-red-400">
+          <option value="">Default EN</option>
+        </select>
+      </div>
+
+      <!-- Study Mode Controls -->
+      <div class="flex items-center gap-1 bg-white/95 border border-stone-300 p-1 rounded-full shadow-sm font-sans-ui text-xs">
+        <button id="btn-bilingual" onclick="setStudyMode('bilingual')" class="px-3 py-1.5 rounded-full font-medium transition bg-red-600 text-white shadow-sm">
+          EN + မြန်မာ
+        </button>
+        <button id="btn-en-only" onclick="setStudyMode('en-only')" class="px-3 py-1.5 rounded-full font-medium text-stone-700 hover:bg-stone-100 transition">
+          Original EN
+        </button>
+        <button id="btn-self-test" onclick="setStudyMode('self-test')" class="px-3 py-1.5 rounded-full font-medium text-stone-700 hover:bg-stone-100 transition" title="Tap any blurred Burmese translation to check yourself">
+          Self-Test
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Banner for Speech Status / Unsupported Browser -->
+  <div id="tts-toast" class="no-print fixed bottom-4 right-4 z-50 hidden bg-stone-900 text-white font-sans-ui text-xs px-4 py-2.5 rounded-lg shadow-lg border border-stone-700"></div>
+
+  <!-- Main Textbook Page Sheet -->
+  <main class="textbook-sheet sm:rounded-lg">
+
+    <!-- ==================== TOP UNIT HEADER BANNER ==================== -->
+    <header class="unit-header-banner flex items-stretch">
+      <!-- Top-Left Red Unit 1 Badge -->
+      <div class="unit-red-square w-[76px] sm:w-[96px] shrink-0 flex flex-col items-center justify-center py-2.5 px-2 text-white border-r border-red-800/40 select-none">
+        <span class="text-base sm:text-xl font-semibold tracking-wide leading-none">Unit</span>
+        <span class="text-3xl sm:text-4xl font-bold leading-tight mt-0.5">1</span>
+      </div>
+
+      <!-- Main Unit Title -->
+      <div class="flex-1 flex flex-wrap items-center justify-between px-4 sm:px-7 py-2.5 gap-2">
+        <div>
+          <h1 class="text-3xl sm:text-[2.45rem] font-bold tracking-tight text-stone-900 leading-none">
+            am/is/are
+          </h1>
+          <p class="mm-translation font-mm text-xs sm:text-sm text-stone-800 font-medium mt-1">
+            ဖြစ်သည် / ရှိသည် / အခြေအနေပြ ကြိယာများ (Verb to be)
+          </p>
+        </div>
+        <span class="font-sans-ui text-[11px] uppercase tracking-widest text-stone-800/70 hidden sm:inline-block font-semibold">
+          Essential Grammar in Use
+        </span>
+      </div>
+    </header>
+
+    <!-- ==================== BODY GRID: LEFT SALMON MARGIN + CONTENT ==================== -->
+    <div class="flex flex-col md:flex-row">
+
+      <!-- Left Margin Sidebar (Visible on Desktop/Tablet md+) -->
+      <aside class="hidden md:flex md:w-[96px] shrink-0 left-margin-rail flex-col justify-between py-6 select-none" aria-hidden="true">
+        <div class="section-tab-desktop w-full">A</div>
+        <div class="section-tab-desktop w-full" style="margin-top: 295px;">B</div>
+        <div class="section-tab-desktop w-full" style="margin-top: 530px;">C</div>
+        <div class="h-16"></div>
+      </aside>
+
+      <!-- Main Textbook Content Area -->
+      <div class="flex-1 px-4 sm:px-7 py-5 sm:py-6 space-y-7">
+
+        <!-- ================================================================ -->
+        <!-- SECTION A: LISA & SPEECH BUBBLES                                 -->
+        <!-- ================================================================ -->
+        <section aria-labelledby="section-a-label">
+          <!-- Mobile Section Header -->
+          <div class="flex md:hidden items-center gap-2 mb-3">
+            <span id="section-a-label" class="section-badge-mobile">A</span>
+            <span class="font-sans-ui text-xs font-semibold text-stone-500 uppercase tracking-wider">Introduction &amp; Examples</span>
+          </div>
+
+          <div class="lisa-stage-box p-3 sm:p-5">
+            <!-- Desktop Layout: Authentic Radial Speech Bubbles Around Lisa SVG -->
+            <div class="hidden md:grid md:grid-cols-12 gap-3 items-center">
+
+              <!-- Left Column Bubbles (4 bubbles) -->
+              <div class="col-span-4 flex flex-col gap-3.5 items-end">
+                <!-- Bubble 1 -->
+                <div class="speech-bubble tail-bottom-right w-full max-w-[245px]" data-tts="My name is Lisa." data-seq="1">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px] leading-snug">My name <strong>is</strong> Lisa.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to My name is Lisa."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မနာမည်က လီဆာ ဖြစ်ပါတယ်။</p>
+                </div>
+
+                <!-- Bubble 2 -->
+                <div class="speech-bubble tail-right w-full max-w-[275px]" data-tts="I'm American. I'm from Chicago." data-seq="2">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px] leading-snug">I'<strong>m</strong> American. I'<strong>m</strong> from Chicago.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to I'm American. I'm from Chicago."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မက အမေရိကန်လူမျိုးပါ။ ချီကာဂိုမြို့က လာတာပါ။</p>
+                </div>
+
+                <!-- Bubble 3 -->
+                <div class="speech-bubble tail-top-right w-full max-w-[225px]" data-tts="I'm a student." data-seq="3">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px] leading-snug">I'<strong>m</strong> a student.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to I'm a student."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မက ကျောင်းသူတစ်ယောက်ပါ။</p>
+                </div>
+
+                <!-- Bubble 4 -->
+                <div class="speech-bubble tail-top-right w-full max-w-[275px]" data-tts="My father is a doctor and my mother is a journalist." data-seq="4">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15px] leading-snug">My father <strong>is</strong> a doctor and my mother <strong>is</strong> a journalist.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to My father is a doctor and my mother is a journalist."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မအဖေက ဆရာဝန်ဖြစ်ပြီး အမေက သတင်းထောက်တစ်ယောက်ပါ။</p>
+                </div>
+              </div>
+
+              <!-- Center Column: Top Bubble + Hand-Drawn Lisa Portrait SVG -->
+              <div class="col-span-4 flex flex-col items-center justify-center">
+                <!-- Top Center Bubble -->
+                <div class="speech-bubble tail-bottom-center mb-3 px-4" data-tts="I'm 22." data-seq="5">
+                  <div class="flex items-center justify-center gap-2">
+                    <p class="text-[15.5px] leading-snug text-center">I'<strong>m</strong> 22.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to I'm 22."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px] text-center">ကျွန်မ အသက် ၂၂ နှစ် ရှိပါပြီ။</p>
+                </div>
+
+                <!-- Hand-Drawn Style SVG Illustration of LISA -->
+                <div class="w-[185px] flex flex-col items-center">
+                  <svg viewBox="0 0 210 235" class="w-full h-auto drop-shadow-sm" role="img" aria-label="Hand-drawn illustration of Lisa smiling in a turtleneck sweater">
+                    <defs>
+                      <!-- Soft watercolor-like shading gradients -->
+                      <linearGradient id="lisaHairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f3d88c" />
+                        <stop offset="55%" stop-color="#e2be68" />
+                        <stop offset="100%" stop-color="#c49b45" />
+                      </linearGradient>
+                      <linearGradient id="lisaSkinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#fde8d7" />
+                        <stop offset="100%" stop-color="#f5d0b5" />
+                      </linearGradient>
+                      <linearGradient id="lisaSweaterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#dce4ee" />
+                        <stop offset="60%" stop-color="#bcc8d8" />
+                        <stop offset="100%" stop-color="#9aa9be" />
+                      </linearGradient>
+                    </defs>
+
+                    <!-- Back Hair Mass -->
+                    <path d="M58,82 C52,115 46,136 42,148 C56,151 68,149 77,145 L134,144 C144,148 156,149 167,145 C160,130 156,105 154,78 C151,42 126,24 103,25 C76,26 62,48 58,82 Z"
+                          fill="url(#lisaHairGrad)" stroke="#2c2a29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Hair Sketch Hatching Lines (Left & Right) -->
+                    <path d="M62,92 C58,116 53,134 49,147 M68,98 C65,120 60,136 57,148 M74,108 C71,126 68,138 66,147"
+                          stroke="#3b352c" stroke-width="1.2" fill="none" stroke-linecap="round" />
+                    <path d="M148,86 C151,110 155,130 160,144 M142,95 C144,115 148,132 152,145 M136,108 C138,124 140,136 143,145"
+                          stroke="#3b352c" stroke-width="1.2" fill="none" stroke-linecap="round" />
+
+                    <!-- Neck -->
+                    <path d="M92,122 L92,148 L119,148 L119,122 Z"
+                          fill="url(#lisaSkinGrad)" stroke="#2c2a29" stroke-width="1.8" />
+
+                    <!-- Turtleneck Sweater Shoulders & Torso -->
+                    <path d="M38,225 C40,185 52,163 82,156 L128,156 C158,163 170,185 174,225"
+                          fill="url(#lisaSweaterGrad)" stroke="#2c2a29" stroke-width="2.2" stroke-linecap="round" />
+                    <!-- Sweater Sleeve Seam Lines -->
+                    <path d="M66,172 C62,190 60,208 60,224 M144,172 C148,190 151,208 152,224"
+                          stroke="#2c2a29" stroke-width="1.6" fill="none" stroke-linecap="round" />
+                    <!-- Sweater Sketch Shading -->
+                    <path d="M46,204 L55,212 M44,212 L54,221 M158,196 L166,204 M156,206 L167,216"
+                          stroke="#5b6777" stroke-width="1.2" fill="none" stroke-linecap="round" />
+
+                    <!-- Ribbed Turtleneck Collar -->
+                    <path d="M84,144 C84,139 126,139 126,144 L129,163 C129,168 81,168 81,163 Z"
+                          fill="#cfd9e6" stroke="#2c2a29" stroke-width="1.9" />
+                    <!-- Collar Ribbing Vertical Strokes -->
+                    <path d="M91,143 L90,164 M98,142 L98,165 M106,142 L106,165 M114,142 L114,165 M121,143 L122,164"
+                          stroke="#3f4752" stroke-width="1.2" fill="none" />
+
+                    <!-- Face Shape -->
+                    <path d="M77,68 C75,95 82,122 104,126 C126,128 139,104 140,74 C140,48 124,38 106,38 C86,38 78,52 77,68 Z"
+                          fill="url(#lisaSkinGrad)" stroke="#2c2a29" stroke-width="2" />
+
+                    <!-- Left Ear -->
+                    <path d="M76,82 C70,82 69,96 76,99"
+                          fill="url(#lisaSkinGrad)" stroke="#2c2a29" stroke-width="1.7" stroke-linecap="round" />
+
+                    <!-- Front Hair Parting & Bangs -->
+                    <path d="M112,36 C96,42 82,60 75,88 C71,72 74,44 96,33 C115,24 142,32 147,62 C150,78 147,94 143,104 C142,78 136,52 114,40"
+                          fill="url(#lisaHairGrad)" stroke="#2c2a29" stroke-width="1.9" stroke-linejoin="round" />
+                    <!-- Crown Hair Parting Accent -->
+                    <path d="M106,31 C114,34 122,42 127,54 M99,34 C91,43 85,56 81,72"
+                          stroke="#2c2a29" stroke-width="1.3" fill="none" stroke-linecap="round" />
+
+                    <!-- Eyebrows -->
+                    <path d="M91,66 C96,62 103,62 107,65" stroke="#2c2a29" stroke-width="1.7" fill="none" stroke-linecap="round" />
+                    <path d="M118,64 C123,61 129,61 133,64" stroke="#2c2a29" stroke-width="1.7" fill="none" stroke-linecap="round" />
+
+                    <!-- Eyes -->
+                    <ellipse cx="99" cy="74" rx="3.2" ry="4" fill="#ffffff" stroke="#2c2a29" stroke-width="1.4" />
+                    <circle cx="100" cy="74" r="1.8" fill="#1e1d1c" />
+                    <ellipse cx="124" cy="73" rx="3.1" ry="3.9" fill="#ffffff" stroke="#2c2a29" stroke-width="1.4" />
+                    <circle cx="125" cy="73" r="1.8" fill="#1e1d1c" />
+
+                    <!-- Nose (Classic Murphy textbook pen line) -->
+                    <path d="M113,72 L117,91 C115,94 110,94 108,92"
+                          stroke="#2c2a29" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Friendly Open Smile -->
+                    <path d="M97,102 C104,106 116,105 123,100 C121,111 112,115 104,113 C99,111 97,106 97,102 Z"
+                          fill="#ffffff" stroke="#2c2a29" stroke-width="1.7" stroke-linejoin="round" />
+                    <!-- Cheek Dimple Lines -->
+                    <path d="M94,100 C93,102 93,104 95,105 M125,98 C126,100 126,102 124,103"
+                          stroke="#2c2a29" stroke-width="1.2" fill="none" stroke-linecap="round" />
+                  </svg>
+                  <span class="italic tracking-widest text-xs font-semibold text-stone-700 mt-1">LISA</span>
+                </div>
+              </div>
+
+              <!-- Right Column Bubbles (4 bubbles) -->
+              <div class="col-span-4 flex flex-col gap-3.5 items-start">
+                <!-- Bubble 5 -->
+                <div class="speech-bubble tail-bottom-left w-full max-w-[245px]" data-tts="I'm not married." data-seq="6">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px] leading-snug">I'<strong>m not</strong> married.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to I'm not married."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မ အိမ်ထောင်မရှိပါဘူး။</p>
+                </div>
+
+                <!-- Bubble 6 -->
+                <div class="speech-bubble tail-left w-full max-w-[270px]" data-tts="My favourite colour is blue." data-seq="7">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px] leading-snug">My favourite colour <strong>is</strong> blue.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to My favourite colour is blue."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မ အကြိုက်ဆုံးအရောင်က အပြာရောင်ပါ။</p>
+                </div>
+
+                <!-- Bubble 7 -->
+                <div class="speech-bubble tail-left w-full max-w-[275px]" data-tts="My favourite sports are football and swimming." data-seq="8">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15px] leading-snug">My favourite sports <strong>are</strong> football and swimming.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to My favourite sports are football and swimming."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မ အကြိုက်ဆုံး အားကစားတွေက ဘောလုံးနဲ့ ရေကူးခြင်း ဖြစ်ပါတယ်။</p>
+                </div>
+
+                <!-- Bubble 8 -->
+                <div class="speech-bubble tail-top-left w-full max-w-[255px]" data-tts="I'm interested in art." data-seq="9">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px] leading-snug">I'<strong>m</strong> interested in art.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to I'm interested in art."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[12px]">ကျွန်မ ပန်းချီအနုပညာကို စိတ်ဝင်စားပါတယ်။</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Layout (< 768px): Lisa Portrait Header + Clean 2-Column / 1-Column Speech Bubble Grid -->
+            <div class="md:hidden">
+              <div class="flex items-center gap-4 bg-white/80 rounded-xl p-3 border border-stone-200 mb-3.5">
+                <div class="w-24 shrink-0 flex flex-col items-center">
+                  <!-- Compact SVG Portrait of Lisa for Mobile -->
+                  <svg viewBox="0 0 210 235" class="w-full h-auto" role="img" aria-label="Illustration of Lisa">
+                    <path d="M58,82 C52,115 46,136 42,148 C56,151 68,149 77,145 L134,144 C144,148 156,149 167,145 C160,130 156,105 154,78 C151,42 126,24 103,25 C76,26 62,48 58,82 Z" fill="url(#lisaHairGrad)" stroke="#2c2a29" stroke-width="2.2" />
+                    <path d="M92,122 L92,148 L119,148 L119,122 Z" fill="url(#lisaSkinGrad)" stroke="#2c2a29" stroke-width="2" />
+                    <path d="M38,225 C40,185 52,163 82,156 L128,156 C158,163 170,185 174,225" fill="url(#lisaSweaterGrad)" stroke="#2c2a29" stroke-width="2.4" />
+                    <path d="M84,144 C84,139 126,139 126,144 L129,163 C129,168 81,168 81,163 Z" fill="#cfd9e6" stroke="#2c2a29" stroke-width="2" />
+                    <path d="M77,68 C75,95 82,122 104,126 C126,128 139,104 140,74 C140,48 124,38 106,38 C86,38 78,52 77,68 Z" fill="url(#lisaSkinGrad)" stroke="#2c2a29" stroke-width="2.2" />
+                    <path d="M112,36 C96,42 82,60 75,88 C71,72 74,44 96,33 C115,24 142,32 147,62 C150,78 147,94 143,104 C142,78 136,52 114,40" fill="url(#lisaHairGrad)" stroke="#2c2a29" stroke-width="2" />
+                    <path d="M91,66 C96,62 103,62 107,65 M118,64 C123,61 129,61 133,64" stroke="#2c2a29" stroke-width="2" fill="none" stroke-linecap="round" />
+                    <circle cx="99" cy="74" r="2.6" fill="#1e1d1c" />
+                    <circle cx="124" cy="73" r="2.6" fill="#1e1d1c" />
+                    <path d="M113,72 L117,91 C115,94 110,94 108,92" stroke="#2c2a29" stroke-width="1.9" fill="none" stroke-linecap="round" />
+                    <path d="M97,102 C104,106 116,105 123,100 C121,111 112,115 104,113 C99,111 97,106 97,102 Z" fill="#ffffff" stroke="#2c2a29" stroke-width="1.9" />
+                  </svg>
+                  <span class="italic tracking-widest text-[11px] font-bold text-stone-700">LISA</span>
+                </div>
+                <div class="flex-1 space-y-2">
+                  <div class="speech-bubble" data-tts="My name is Lisa.">
+                    <div class="flex items-start justify-between gap-2">
+                      <p class="text-base leading-snug">My name <strong>is</strong> Lisa.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to My name is Lisa."></button>
+                    </div>
+                    <p class="mm-translation font-mm text-xs">ကျွန်မနာမည်က လီဆာ ဖြစ်ပါတယ်။</p>
+                  </div>
+                  <div class="speech-bubble" data-tts="I'm 22. I'm not married.">
+                    <div class="flex items-start justify-between gap-2">
+                      <p class="text-base leading-snug">I'<strong>m</strong> 22. &nbsp; I'<strong>m not</strong> married.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to I'm 22. I'm not married."></button>
+                    </div>
+                    <p class="mm-translation font-mm text-xs">ကျွန်မ အသက် ၂၂ နှစ် ရှိပါပြီ။ အိမ်ထောင်မရှိပါဘူး။</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remaining Bubbles Grid on Mobile -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div class="speech-bubble" data-tts="I'm American. I'm from Chicago.">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px]">I'<strong>m</strong> American. I'<strong>m</strong> from Chicago.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-xs">ကျွန်မက အမေရိကန်လူမျိုးပါ။ ချီကာဂိုမြို့က လာတာပါ။</p>
+                </div>
+                <div class="speech-bubble" data-tts="My favourite colour is blue.">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px]">My favourite colour <strong>is</strong> blue.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-xs">ကျွန်မ အကြိုက်ဆုံးအရောင်က အပြာရောင်ပါ။</p>
+                </div>
+                <div class="speech-bubble" data-tts="I'm a student.">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px]">I'<strong>m</strong> a student.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-xs">ကျွန်မက ကျောင်းသူတစ်ယောက်ပါ။</p>
+                </div>
+                <div class="speech-bubble" data-tts="I'm interested in art.">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px]">I'<strong>m</strong> interested in art.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-xs">ကျွန်မ ပန်းချီအနုပညာကို စိတ်ဝင်စားပါတယ်။</p>
+                </div>
+                <div class="speech-bubble" data-tts="My favourite sports are football and swimming.">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px]">My favourite sports <strong>are</strong> football and swimming.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-xs">ကျွန်မ အကြိုက်ဆုံး အားကစားတွေက ဘောလုံးနဲ့ ရေကူးခြင်း ဖြစ်ပါတယ်။</p>
+                </div>
+                <div class="speech-bubble" data-tts="My father is a doctor and my mother is a journalist.">
+                  <div class="flex items-start justify-between gap-2">
+                    <p class="text-[15.5px]">My father <strong>is</strong> a doctor and my mother <strong>is</strong> a journalist.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-xs">ကျွန်မအဖေက ဆရာဝန်ဖြစ်ပြီး အမေက သတင်းထောက်တစ်ယောက်ပါ။</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- SECTION B: POSITIVE & NEGATIVE TABLES + EXAMPLES + DOG ILLUSTRATION -->
+        <!-- ================================================================ -->
+        <section aria-labelledby="section-b-label" class="pt-1">
+          <!-- Mobile Section Header -->
+          <div class="flex md:hidden items-center gap-2 mb-3">
+            <span id="section-b-label" class="section-badge-mobile">B</span>
+            <span class="font-sans-ui text-xs font-semibold text-stone-500 uppercase tracking-wider">Positive &amp; Negative Forms</span>
+          </div>
+
+          <!-- Concise Burmese Grammar Explanation Box -->
+          <div class="mm-grammar-note mb-4 bg-amber-50/80 border border-amber-200/90 rounded-lg px-3.5 py-2.5 text-stone-800">
+            <p class="font-mm text-xs sm:text-[13.5px] leading-relaxed">
+              <strong class="text-red-700 font-sans-ui">သဒ္ဒါမှတ်စု (Grammar Note):</strong>
+              နာမ်စား (Subject) အပေါ်မူတည်၍ <strong>am / is / are</strong> ကို အောက်ပါအတိုင်း တွဲသုံးရပါသည် —
+              <span class="font-semibold text-stone-900">I</span> နှင့် <strong>am</strong>၊
+              <span class="font-semibold text-stone-900">he / she / it</span> (တစ်ဦးတစ်ခု) နှင့် <strong>is</strong>၊
+              <span class="font-semibold text-stone-900">we / you / they</span> (အများ) နှင့် <strong>are</strong> တို့ကို အသုံးပြုပါသည်။
+            </p>
+          </div>
+
+          <!-- Two Red-Bordered Grammar Tables Side-by-Side -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start mb-6">
+
+            <!-- POSITIVE TABLE (5 columns on lg) -->
+            <div class="lg:col-span-5">
+              <div class="flex items-baseline justify-between mb-1.5">
+                <h2 class="italic text-lg font-semibold text-stone-800">positive <span class="no-print font-sans-ui not-italic text-[11px] font-normal text-stone-400 ml-1">(tap row to listen)</span></h2>
+                <span class="mm-table-sub font-mm text-xs text-blue-900 font-medium">အပြုသဘော (အဟုတ်ဝါကျ)</span>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="grammar-table">
+                  <tbody>
+                    <!-- Row 1: I -->
+                    <tr data-tts="I am. I'm." onclick="speakElement(this)" title="Click to listen: I am / I'm">
+                      <td class="text-right w-14 font-normal">I</td>
+                      <td class="font-bold w-16">am</td>
+                      <td>
+                        <div class="flex items-center justify-between gap-2">
+                          <span>(I'<strong>m</strong>)</span>
+                          <button type="button" class="tts-btn no-print" onclick="event.stopPropagation(); speakElement(this.closest('tr'))" aria-label="Listen to I am, I'm"></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Row 2: he / she / it -->
+                    <tr data-tts="He is, he's. She is, she's. It is, it's." onclick="speakElement(this)" title="Click to listen: he/she/it is">
+                      <td class="text-right leading-relaxed">
+                        he<br />she<br />it
+                      </td>
+                      <td class="font-bold align-middle">is</td>
+                      <td class="leading-relaxed">
+                        <div class="flex items-center justify-between gap-2">
+                          <div>
+                            (he'<strong>s</strong>)<br />
+                            (she'<strong>s</strong>)<br />
+                            (it'<strong>s</strong>)
+                          </div>
+                          <button type="button" class="tts-btn no-print" onclick="event.stopPropagation(); speakElement(this.closest('tr'))" aria-label="Listen to he is, she is, it is"></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Row 3: we / you / they -->
+                    <tr data-tts="We are, we're. You are, you're. They are, they're." onclick="speakElement(this)" title="Click to listen: we/you/they are">
+                      <td class="text-right leading-relaxed">
+                        we<br />you<br />they
+                      </td>
+                      <td class="font-bold align-middle">are</td>
+                      <td class="leading-relaxed">
+                        <div class="flex items-center justify-between gap-2">
+                          <div>
+                            (we'<strong>re</strong>)<br />
+                            (you'<strong>re</strong>)<br />
+                            (they'<strong>re</strong>)
+                          </div>
+                          <button type="button" class="tts-btn no-print" onclick="event.stopPropagation(); speakElement(this.closest('tr'))" aria-label="Listen to we are, you are, they are"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Curly Brace under 'short form' column -->
+              <div class="flex justify-end pr-3 mt-1">
+                <div class="flex flex-col items-center w-[42%]">
+                  <svg viewBox="0 0 120 14" class="w-full h-3 text-stone-600" fill="none" stroke="currentColor" stroke-width="1.3">
+                    <path d="M2,1 C2,7 10,7 30,7 L52,7 C57,7 60,10 60,13 C60,10 63,7 68,7 L90,7 C110,7 118,7 118,1" />
+                  </svg>
+                  <span class="brace-label">short form</span>
+                  <span class="mm-table-sub font-mm text-[11px] text-blue-900">အတိုကောက်ပုံစံ</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEGATIVE TABLE (7 columns on lg) -->
+            <div class="lg:col-span-7">
+              <div class="flex items-baseline justify-between mb-1.5">
+                <h2 class="italic text-lg font-semibold text-stone-800">negative <span class="no-print font-sans-ui not-italic text-[11px] font-normal text-stone-400 ml-1">(tap row to listen)</span></h2>
+                <span class="mm-table-sub font-mm text-xs text-blue-900 font-medium">အငြင်းသဘော (အငြင်းဝါကျ)</span>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="grammar-table">
+                  <tbody>
+                    <!-- Row 1: I am not -->
+                    <tr data-tts="I am not. I'm not." onclick="speakElement(this)" title="Click to listen: I am not / I'm not">
+                      <td class="text-right w-14">I</td>
+                      <td class="font-bold w-24 whitespace-nowrap">am not</td>
+                      <td>
+                        <div class="flex items-center justify-between gap-2">
+                          <span>(I'<strong>m not</strong>)</span>
+                          <button type="button" class="tts-btn no-print" onclick="event.stopPropagation(); speakElement(this.closest('tr'))" aria-label="Listen to I am not, I'm not"></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Row 2: he / she / it is not -->
+                    <tr data-tts="He is not, he's not, or he isn't. She is not, she's not, or she isn't. It is not, it's not, or it isn't." onclick="speakElement(this)" title="Click to listen: he/she/it is not">
+                      <td class="text-right leading-relaxed">
+                        he<br />she<br />it
+                      </td>
+                      <td class="font-bold align-middle whitespace-nowrap">is not</td>
+                      <td class="leading-relaxed whitespace-nowrap">
+                        <div class="flex items-center justify-between gap-2">
+                          <div>
+                            (he'<strong>s not</strong> &nbsp;<span class="italic text-stone-500 text-sm">or</span>&nbsp; he <strong>isn't</strong>)<br />
+                            (she'<strong>s not</strong> &nbsp;<span class="italic text-stone-500 text-sm">or</span>&nbsp; she <strong>isn't</strong>)<br />
+                            (it'<strong>s not</strong> &nbsp;<span class="italic text-stone-500 text-sm">or</span>&nbsp; it <strong>isn't</strong>)
+                          </div>
+                          <button type="button" class="tts-btn no-print" onclick="event.stopPropagation(); speakElement(this.closest('tr'))" aria-label="Listen to negative is not forms"></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Row 3: we / you / they are not -->
+                    <tr data-tts="We are not, we're not, or we aren't. You are not, you're not, or you aren't. They are not, they're not, or they aren't." onclick="speakElement(this)" title="Click to listen: we/you/they are not">
+                      <td class="text-right leading-relaxed">
+                        we<br />you<br />they
+                      </td>
+                      <td class="font-bold align-middle whitespace-nowrap">are not</td>
+                      <td class="leading-relaxed whitespace-nowrap">
+                        <div class="flex items-center justify-between gap-2">
+                          <div>
+                            (we'<strong>re not</strong> &nbsp;<span class="italic text-stone-500 text-sm">or</span>&nbsp; we <strong>aren't</strong>)<br />
+                            (you'<strong>re not</strong> &nbsp;<span class="italic text-stone-500 text-sm">or</span>&nbsp; you <strong>aren't</strong>)<br />
+                            (they'<strong>re not</strong> &nbsp;<span class="italic text-stone-500 text-sm">or</span>&nbsp; they <strong>aren't</strong>)
+                          </div>
+                          <button type="button" class="tts-btn no-print" onclick="event.stopPropagation(); speakElement(this.closest('tr'))" aria-label="Listen to negative are not forms"></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Curly Brace under 'short forms' column -->
+              <div class="flex justify-end pr-2 mt-1">
+                <div class="flex flex-col items-center w-[64%]">
+                  <svg viewBox="0 0 220 14" class="w-full h-3 text-stone-600" fill="none" stroke="currentColor" stroke-width="1.3">
+                    <path d="M2,1 C2,7 14,7 55,7 L102,7 C107,7 110,10 110,13 C110,10 113,7 118,7 L165,7 C206,7 218,7 218,1" />
+                  </svg>
+                  <span class="brace-label">short forms</span>
+                  <span class="mm-table-sub font-mm text-[11px] text-blue-900">အတိုကောက်ပုံစံများ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section B Example Sentences + Right-Side "I'm afraid of dogs" Illustration -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+
+            <!-- 12 Example Sentences (8 cols on lg) -->
+            <div class="lg:col-span-8 space-y-4">
+              <!-- Positive Examples Group (7 items) -->
+              <ul class="space-y-2.5 text-[16.5px] leading-snug">
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="I'm cold. Can you close the window, please?" data-seq="10">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>I'<strong>m</strong> cold. Can you close the window, please?</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ကျွန်တော် ချမ်းနေတယ်။ ကျေးဇူးပြုပြီး ပြတင်းပေါက် ပိတ်ပေးလို့ရမလား။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="I'm 32 years old. My sister is 29." data-seq="11">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>I'<strong>m</strong> 32 years old. My sister <strong>is</strong> 29.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ကျွန်တော် အသက် ၃၂ နှစ် ရှိပါပြီ။ ကျွန်တော့်ညီမက ၂၉ နှစ်ပါ။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Steve is ill. He's in bed." data-seq="12">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Steve <strong>is</strong> ill. He'<strong>s</strong> in bed.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">စတိဗ် နေမကောင်းဘူး။ သူ အိပ်ရာထဲမှာ လဲနေတယ်။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="My brother is afraid of dogs." data-seq="13">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>My brother <strong>is</strong> afraid of dogs.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ကျွန်တော့်အစ်ကိုက ခွေးတွေကို ကြောက်တယ်။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="It's ten o'clock. You're late again." data-seq="14">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>It'<strong>s</strong> ten o'clock. You'<strong>re</strong> late again.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ဆယ်နာရီ ထိုးနေပြီ။ မင်း ထပ်ပြီး နောက်ကျနေပြန်ပြီ။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Ann and I are good friends." data-seq="15">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Ann and I <strong>are</strong> good friends.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">အန်းနဲ့ ကျွန်တော်က သူငယ်ချင်းကောင်းတွေ ဖြစ်ကြတယ်။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Your keys are on the table." data-seq="16">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Your keys <strong>are</strong> on the table.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">မင်းရဲ့ သော့တွေ စားပွဲပေါ်မှာ ရှိတယ်။</p>
+                  </div>
+                </li>
+              </ul>
+
+              <!-- Negative Examples Group (5 items) -->
+              <ul class="space-y-2.5 text-[16.5px] leading-snug pt-1">
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="I'm tired, but I'm not hungry." data-seq="17">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>I'<strong>m</strong> tired, but I'<strong>m not</strong> hungry.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ကျွန်တော် ပင်ပန်းနေပေမယ့် ဗိုက်မဆာပါဘူး။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Tom isn't interested in politics. He's interested in music." data-seq="18">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Tom <strong>isn't</strong> interested in politics. He'<strong>s</strong> interested in music.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">တွမ်က နိုင်ငံရေးကို စိတ်မဝင်စားဘူး။ သူက ဂီတကို စိတ်ဝင်စားတာ။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Jane isn't a teacher. She's a student." data-seq="19">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Jane <strong>isn't</strong> a teacher. She'<strong>s</strong> a student.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ဂျိန်းက ဆရာမ မဟုတ်ဘူး။ သူမက ကျောင်းသူတစ်ယောက်ပါ။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Those people aren't English. They're Australian." data-seq="20">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Those people <strong>aren't</strong> English. They'<strong>re</strong> Australian.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">အဲဒီလူတွေက အင်္ဂလိပ်လူမျိုးတွေ မဟုတ်ကြဘူး။ သူတို့က ဩစတြေးလျလူမျိုးတွေပါ။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="It's sunny today, but it isn't warm." data-seq="21">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>It'<strong>s</strong> sunny today, but it <strong>isn't</strong> warm.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ဒီနေ့ နေသာပေမယ့် မနွေးဘူး (အေးနေတယ်)။</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right Side Illustration: Man Afraid of Barking Dogs (4 cols on lg) -->
+            <div class="lg:col-span-4 flex flex-col items-center justify-center bg-[#faf8f4] border border-stone-200/80 rounded-xl p-3.5 shadow-sm">
+              <!-- Speech Bubble -->
+              <div class="speech-bubble mb-2 text-center w-full max-w-[245px]" data-tts="I'm afraid of dogs.">
+                <div class="flex items-center justify-center gap-2">
+                  <p class="text-[15.5px] leading-snug">I'<strong>m</strong> afraid of dogs.</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to I'm afraid of dogs."></button>
+                </div>
+                <p class="mm-translation font-mm text-xs">ကျွန်တော် ခွေးတွေကို ကြောက်တယ်။</p>
+              </div>
+
+              <!-- Hand-Drawn Ink & Watercolor SVG: Startled Man & Two Dogs -->
+              <svg viewBox="0 0 260 220" class="w-full max-w-[260px] h-auto" role="img" aria-label="Illustration of a man with glasses backing away in fear from two barking dogs">
+                <defs>
+                  <linearGradient id="jacketBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#606d88" />
+                    <stop offset="100%" stop-color="#3a4358" />
+                  </linearGradient>
+                  <linearGradient id="trouserBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#4e5d7a" />
+                    <stop offset="100%" stop-color="#2c3547" />
+                  </linearGradient>
+                  <linearGradient id="dogTan" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#d8b58a" />
+                    <stop offset="100%" stop-color="#a87c4f" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Soft Ground Shadow Wash -->
+                <ellipse cx="132" cy="198" rx="108" ry="12" fill="#e5dec9" opacity="0.7" />
+
+                <!-- Motion / Tremble Lines Around Man -->
+                <path d="M22,68 C16,76 16,86 22,94 M16,74 C12,80 12,88 16,94" stroke="#475569" stroke-width="1.4" fill="none" stroke-linecap="round" />
+                <path d="M36,142 C30,152 30,164 38,174 M30,148 C25,156 25,166 32,174" stroke="#475569" stroke-width="1.4" fill="none" stroke-linecap="round" />
+                <path d="M62,196 L48,196 M68,201 L52,201" stroke="#475569" stroke-width="1.3" fill="none" stroke-linecap="round" />
+
+                <!-- MAN BACKING AWAY (Left) -->
+                <g transform="translate(8, 4)">
+                  <!-- Back Leg (Stepping back) -->
+                  <path d="M64,122 L52,162 L62,188 L75,186 L68,160 L82,126 Z"
+                        fill="url(#trouserBlue)" stroke="#1e293b" stroke-width="1.9" stroke-linejoin="round" />
+                  <!-- Back Shoe -->
+                  <path d="M61,187 L80,185 C84,187 84,193 78,194 L59,194 Z" fill="#1e293b" />
+
+                  <!-- Front Leg (Raised in fright) -->
+                  <path d="M80,120 L98,144 L92,175 L104,177 L114,143 L94,115 Z"
+                        fill="url(#trouserBlue)" stroke="#1e293b" stroke-width="1.9" stroke-linejoin="round" />
+                  <!-- Front Shoe -->
+                  <path d="M91,175 L112,176 C116,178 115,184 109,184 L89,183 Z" fill="#1e293b" />
+
+                  <!-- Jacket Torso -->
+                  <path d="M52,64 C44,82 48,108 58,125 L96,123 C102,102 98,76 86,60 Z"
+                        fill="url(#jacketBlue)" stroke="#1e293b" stroke-width="2" stroke-linejoin="round" />
+                  <!-- White Shirt Collar & Tie -->
+                  <path d="M76,62 L84,78 L72,74 Z" fill="#f8fafc" stroke="#1e293b" stroke-width="1.4" />
+
+                  <!-- Raised Startled Arm & Hand -->
+                  <path d="M58,72 L36,92 L46,104 L66,90"
+                        fill="url(#jacketBlue)" stroke="#1e293b" stroke-width="1.9" stroke-linejoin="round" />
+                  <!-- Hand -->
+                  <circle cx="34" cy="95" r="5.5" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.5" />
+
+                  <!-- Other Arm Pulled Back -->
+                  <path d="M84,74 L106,86 L98,97 L78,88"
+                        fill="url(#jacketBlue)" stroke="#1e293b" stroke-width="1.9" stroke-linejoin="round" />
+                  <circle cx="106" cy="90" r="5" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.5" />
+
+                  <!-- Head Tilted Back in Shock -->
+                  <ellipse cx="70" cy="44" rx="13" ry="16" transform="rotate(-12 70 44)"
+                           fill="#fbd5b5" stroke="#1e293b" stroke-width="1.9" />
+                  <!-- Hair -->
+                  <path d="M56,42 C54,30 64,24 75,27 C80,29 82,34 81,38 C74,34 64,35 56,42 Z"
+                        fill="#334155" stroke="#1e293b" stroke-width="1.6" />
+                  <!-- Glasses -->
+                  <circle cx="75" cy="42" r="4.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5" />
+                  <circle cx="76" cy="42" r="1.4" fill="#0f172a" />
+                  <line x1="64" y1="42" x2="70" y2="42" stroke="#1e293b" stroke-width="1.5" />
+                  <!-- Shocked Open Mouth -->
+                  <ellipse cx="77" cy="52" rx="3.2" ry="4.2" fill="#7f1d1d" stroke="#1e293b" stroke-width="1.3" />
+                  <!-- Sweat Drops -->
+                  <path d="M52,26 L48,20 M61,22 L60,15" stroke="#0284c7" stroke-width="1.6" stroke-linecap="round" />
+                </g>
+
+                <!-- BARKING LINES -->
+                <path d="M138,118 L128,112 M136,125 L125,125 M138,132 L129,138"
+                      stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M144,148 L133,144 M143,155 L132,157"
+                      stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" />
+
+                <!-- DOG 1 (Top-Right Spotted Dog) -->
+                <g transform="translate(142, 102)">
+                  <!-- Wagging Tail -->
+                  <path d="M78,24 C88,14 96,10 100,14" stroke="#292524" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                  <!-- Legs -->
+                  <path d="M26,44 L16,62 M36,46 L34,64 M64,44 L62,64 M74,42 L82,60"
+                        stroke="#292524" stroke-width="3" stroke-linecap="round" />
+                  <!-- Body -->
+                  <path d="M22,26 C35,20 62,20 78,26 C82,34 78,46 66,46 L30,46 C20,46 18,34 22,26 Z"
+                        fill="#f5f5f4" stroke="#292524" stroke-width="2" />
+                  <!-- Dark Spots -->
+                  <ellipse cx="48" cy="30" rx="9" ry="6" fill="#292524" />
+                  <circle cx="67" cy="36" r="5" fill="#78350f" />
+                  <!-- Head & Barking Snout -->
+                  <path d="M24,26 L12,14 L2,18 L4,24 L14,25 L4,30 L12,34 L26,34 Z"
+                        fill="#e7e5e4" stroke="#292524" stroke-width="1.9" stroke-linejoin="round" />
+                  <!-- Floppy Ear -->
+                  <path d="M22,16 C28,14 32,22 27,28 Z" fill="#292524" />
+                  <circle cx="13" cy="18" r="1.6" fill="#1c1917" />
+                </g>
+
+                <!-- DOG 2 (Bottom-Right Tan Dog) -->
+                <g transform="translate(146, 146)">
+                  <!-- Tail -->
+                  <path d="M72,22 C82,14 88,16 90,22" stroke="#292524" stroke-width="2.4" fill="none" stroke-linecap="round" />
+                  <!-- Legs -->
+                  <path d="M24,38 L16,52 M34,40 L34,54 M58,38 L56,54 M68,36 L74,52"
+                        stroke="#292524" stroke-width="2.8" stroke-linecap="round" />
+                  <!-- Body -->
+                  <path d="M20,22 C34,17 58,17 72,22 C76,30 72,40 60,40 L26,40 C18,40 16,30 20,22 Z"
+                        fill="url(#dogTan)" stroke="#292524" stroke-width="1.9" />
+                  <!-- Head & Open Barking Mouth -->
+                  <path d="M22,22 L12,11 L2,15 L4,20 L13,21 L4,26 L11,30 L24,29 Z"
+                        fill="url(#dogTan)" stroke="#292524" stroke-width="1.9" stroke-linejoin="round" />
+                  <path d="M20,12 C25,11 28,18 24,23 Z" fill="#57534e" />
+                  <circle cx="12" cy="15" r="1.5" fill="#1c1917" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- SECTION C: THAT'S / THERE'S / HERE'S + RECEPTION ILLUSTRATION    -->
+        <!-- ================================================================ -->
+        <section aria-labelledby="section-c-label" class="border-t border-stone-200 pt-5">
+          <!-- Mobile Section Header -->
+          <div class="flex md:hidden items-center gap-2 mb-3">
+            <span id="section-c-label" class="section-badge-mobile">C</span>
+            <span class="font-sans-ui text-xs font-semibold text-stone-500 uppercase tracking-wider">Common Contractions</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+
+            <!-- Left Column: Contraction Rule & 3 Examples (7 cols on lg) -->
+            <div class="lg:col-span-7 space-y-4">
+              <!-- Contraction Formula Banner -->
+              <div class="bg-[#fdf8f6] border border-red-200/80 rounded-lg px-3.5 py-2.5" data-tts="That's equals that is. There's equals there is. Here's equals here is.">
+                <div class="flex items-start justify-between gap-2">
+                  <div class="flex flex-wrap gap-x-6 gap-y-1 text-[17px] text-stone-900">
+                    <span>that'<strong>s</strong> = that <strong>is</strong></span>
+                    <span>there'<strong>s</strong> = there <strong>is</strong></span>
+                    <span>here'<strong>s</strong> = here <strong>is</strong></span>
+                  </div>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to contractions"></button>
+                </div>
+                <p class="mm-translation font-mm text-xs sm:text-[13px] text-blue-900 mt-1">
+                  <strong>that's</strong> (အဲဒါက...ဖြစ်တယ်) &nbsp;•&nbsp;
+                  <strong>there's</strong> (ဟိုမှာ...ရှိတယ်) &nbsp;•&nbsp;
+                  <strong>here's</strong> (ဒီမှာ...ပါ/ရှိပါတယ်)
+                </p>
+              </div>
+
+              <!-- 3 Red Square Bullet Examples -->
+              <ul class="space-y-3 text-[16.5px] leading-snug">
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Thank you. That's very kind of you." data-seq="22">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Thank you. That'<strong>s</strong> very kind of you.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ကျေးဇူးတင်ပါတယ်။ အဲဒါ မင်းဘက်က အရမ်းကြင်နာရာရောက်ပါတယ်။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Look! There's Chris." data-seq="23">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>Look! There'<strong>s</strong> Chris.</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">ကြည့်စမ်း! ဟိုမှာ ခရစ်စ် ရှိနေတယ်။</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Here's your key. Thank you." data-seq="24">
+                  <span class="red-square-bullet" aria-hidden="true"></span>
+                  <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <p>'Here'<strong>s</strong> your key.' &nbsp;&nbsp; 'Thank you.'</p>
+                      <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to example"></button>
+                    </div>
+                    <p class="mm-translation font-mm">'ဒီမှာ ခင်ဗျားရဲ့ သော့ပါ။' &nbsp;&nbsp; 'ကျေးဇူးတင်ပါတယ်။'</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right Column: Hotel Receptionist & Guest Illustration (5 cols on lg) -->
+            <div class="lg:col-span-5 bg-[#faf8f4] border border-stone-200/80 rounded-xl p-3.5 shadow-sm">
+              <!-- Speech Bubbles Row Above Illustration -->
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <div class="speech-bubble flex-1 text-center py-1.5 px-2.5" data-tts="Here's your key.">
+                  <div class="flex items-center justify-center gap-1.5">
+                    <p class="text-[14.5px] leading-tight">Here'<strong>s</strong> your key.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to Here's your key."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[11.5px]">ဒီမှာ ခင်ဗျားရဲ့ သော့ပါ။</p>
+                </div>
+                <div class="speech-bubble flex-1 text-center py-1.5 px-2.5" data-tts="Thank you.">
+                  <div class="flex items-center justify-center gap-1.5">
+                    <p class="text-[14.5px] leading-tight">Thank you.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen to Thank you."></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[11.5px]">ကျေးဇူးတင်ပါတယ်။</p>
+                </div>
+              </div>
+
+              <!-- Hand-Drawn Ink & Watercolor SVG: Hotel Receptionist & Guest -->
+              <svg viewBox="0 0 300 205" class="w-full h-auto" role="img" aria-label="Illustration of a hotel receptionist handing a key to a guest at the reception desk">
+                <defs>
+                  <linearGradient id="deskFrontGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f6ebc4" />
+                    <stop offset="60%" stop-color="#e4d29a" />
+                    <stop offset="100%" stop-color="#c9b478" />
+                  </linearGradient>
+                  <linearGradient id="glassDoorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#e0f2fe" />
+                    <stop offset="100%" stop-color="#bae6fd" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Soft Floor Wash -->
+                <ellipse cx="152" cy="192" rx="135" ry="10" fill="#e7e2d5" opacity="0.75" />
+
+                <!-- Background Wall Key Rack ("HOTEL") -->
+                <g transform="translate(18, 22)">
+                  <text x="24" y="-4" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#475569">HOTEL</text>
+                  <rect x="4" y="2" width="66" height="58" rx="2" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+                  <!-- Key Rack Grid -->
+                  <line x1="26" y1="2" x2="26" y2="60" stroke="#94a3b8" stroke-width="1" />
+                  <line x1="48" y1="2" x2="48" y2="60" stroke="#94a3b8" stroke-width="1" />
+                  <line x1="4" y1="21" x2="70" y2="21" stroke="#94a3b8" stroke-width="1" />
+                  <line x1="4" y1="40" x2="70" y2="40" stroke="#94a3b8" stroke-width="1" />
+                  <!-- Hanging Key Tags -->
+                  <rect x="11" y="7" width="6" height="9" rx="1" fill="#eab308" stroke="#475569" stroke-width="0.9" />
+                  <rect x="33" y="7" width="6" height="9" rx="1" fill="#ef4444" stroke="#475569" stroke-width="0.9" />
+                  <rect x="55" y="26" width="6" height="9" rx="1" fill="#3b82f6" stroke="#475569" stroke-width="0.9" />
+                  <rect x="11" y="45" width="6" height="9" rx="1" fill="#eab308" stroke="#475569" stroke-width="0.9" />
+                  <rect x="55" y="45" width="6" height="9" rx="1" fill="#10b981" stroke="#475569" stroke-width="0.9" />
+                </g>
+
+                <!-- Background Glass Door on Right -->
+                <g transform="translate(226, 20)">
+                  <rect x="0" y="0" width="54" height="122" fill="url(#glassDoorGrad)" stroke="#475569" stroke-width="1.6" />
+                  <line x1="10" y1="22" x2="42" y2="10" stroke="#ffffff" stroke-width="2.5" opacity="0.8" />
+                  <line x1="12" y1="32" x2="46" y2="19" stroke="#ffffff" stroke-width="1.5" opacity="0.7" />
+                  <rect x="44" y="56" width="4" height="14" rx="1" fill="#475569" />
+                </g>
+
+                <!-- RECEPTIONIST (Behind Desk) -->
+                <g transform="translate(86, 46)">
+                  <!-- Suit Jacket -->
+                  <path d="M10,56 C10,38 22,32 36,32 C50,32 62,38 64,56 L66,74 L8,74 Z"
+                        fill="#1e293b" stroke="#0f172a" stroke-width="1.8" />
+                  <!-- White Shirt V & Tie -->
+                  <path d="M29,33 L36,52 L43,33 Z" fill="#ffffff" />
+                  <path d="M35,36 L37,36 L38,50 L36,53 L34,50 Z" fill="#dc2626" />
+                  <!-- Head -->
+                  <ellipse cx="36" cy="18" rx="11" ry="13" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.7" />
+                  <!-- Hair -->
+                  <path d="M25,16 C25,6 34,3 43,7 C47,9 48,13 47,16 C41,12 31,12 25,16 Z"
+                        fill="#334155" stroke="#1e293b" stroke-width="1.5" />
+                  <!-- Eyes & Smile -->
+                  <circle cx="39" cy="17" r="1.4" fill="#0f172a" />
+                  <circle cx="44" cy="17" r="1.4" fill="#0f172a" />
+                  <path d="M37,24 C40,26 43,26 45,23" stroke="#1e293b" stroke-width="1.4" fill="none" stroke-linecap="round" />
+
+                  <!-- Extended Arm Handing Over Key -->
+                  <path d="M56,42 L86,38 L86,47 L56,52 Z" fill="#1e293b" stroke="#0f172a" stroke-width="1.7" />
+                  <!-- Hand -->
+                  <circle cx="89" cy="42" r="4.5" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.4" />
+                  <!-- Hotel Key & Tag -->
+                  <line x1="92" y1="42" x2="103" y2="42" stroke="#eab308" stroke-width="2.2" />
+                  <rect x="96" y="43" width="6" height="10" rx="1.5" fill="#dc2626" stroke="#1e293b" stroke-width="1" />
+                </g>
+
+                <!-- RECEPTION COUNTER / DESK -->
+                <g transform="translate(26, 114)">
+                  <!-- Desk Top Surface -->
+                  <polygon points="0,8 134,0 166,10 34,20" fill="#cbd5e1" stroke="#334155" stroke-width="1.7" stroke-linejoin="round" />
+                  <!-- Desk Left Side Panel -->
+                  <polygon points="0,8 34,20 34,76 0,60" fill="#94a3b8" stroke="#334155" stroke-width="1.7" stroke-linejoin="round" />
+                  <!-- Desk Front Panel -->
+                  <polygon points="34,20 166,10 166,64 34,76" fill="url(#deskFrontGrad)" stroke="#334155" stroke-width="1.7" stroke-linejoin="round" />
+                  <!-- Desk Register / Bell -->
+                  <rect x="14" y="1" width="16" height="10" rx="1" fill="#64748b" stroke="#1e293b" stroke-width="1.2" />
+                  <path d="M126,7 C126,3 134,3 134,7 Z" fill="#eab308" stroke="#1e293b" stroke-width="1.1" />
+                </g>
+
+                <!-- GUEST (Woman on Right Taking Key) -->
+                <g transform="translate(182, 46)">
+                  <!-- Briefcase on Floor Beside Her -->
+                  <rect x="-12" y="122" width="24" height="18" rx="2" fill="#78350f" stroke="#292524" stroke-width="1.6" />
+                  <path d="M-4,122 L-4,118 L4,118 L4,122" fill="none" stroke="#292524" stroke-width="1.5" />
+
+                  <!-- Legs & Shoes -->
+                  <rect x="24" y="102" width="6" height="34" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.5" />
+                  <rect x="33" y="102" width="6" height="34" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.5" />
+                  <path d="M19,136 L30,136 L30,141 L17,141 Z" fill="#1e293b" />
+                  <path d="M29,136 L40,136 L40,141 L27,141 Z" fill="#1e293b" />
+
+                  <!-- Skirt -->
+                  <path d="M21,72 L42,72 L45,104 L18,104 Z" fill="#334155" stroke="#1e293b" stroke-width="1.7" />
+
+                  <!-- Blazer / Jacket -->
+                  <path d="M19,36 C24,33 38,33 43,36 L45,74 L18,74 Z"
+                        fill="#7f3f38" stroke="#1e293b" stroke-width="1.8" stroke-linejoin="round" />
+
+                  <!-- Arm Reaching Out to Receive Key -->
+                  <path d="M22,42 L-2,47 L0,55 L24,52 Z" fill="#7f3f38" stroke="#1e293b" stroke-width="1.7" />
+                  <circle cx="-4" cy="51" r="4.2" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.4" />
+
+                  <!-- Head -->
+                  <ellipse cx="30" cy="18" rx="10" ry="12" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.7" />
+                  <!-- Short Bob Hair -->
+                  <path d="M20,16 C20,6 30,3 39,7 C44,10 45,20 43,27 L37,26 C38,19 36,13 28,12 C23,12 21,14 20,16 Z"
+                        fill="#44403c" stroke="#1e293b" stroke-width="1.6" />
+                  <!-- Face Details -->
+                  <circle cx="24" cy="17" r="1.4" fill="#0f172a" />
+                  <path d="M22,23 C24,25 27,25 29,23" stroke="#1e293b" stroke-width="1.4" fill="none" stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Subtle Textbook Page Footer -->
+    <footer class="border-t border-stone-200 bg-[#faf7f4] px-4 sm:px-7 py-2.5 flex flex-wrap items-center justify-between text-xs text-stone-500 font-sans-ui">
+      <span>Unit 1 • <strong>am/is/are</strong></span>
+      <span class="font-mm text-stone-600">အင်္ဂလိပ်သဒ္ဒါ အခြေခံ — ယူနစ် (၁)</span>
+    </footer>
+  </main>
+
+  <script>
+    /**
+     * Switches between Bilingual (EN + Burmese), English Only, and Self-Test modes.
+     * @param {'bilingual' | 'en-only' | 'self-test'} mode
+     */
+    function setStudyMode(mode) {
+      const body = document.body;
+      body.classList.remove('mode-bilingual', 'mode-en-only', 'mode-self-test');
+      body.classList.add('mode-' + mode);
+
+      // Reset any revealed items when switching modes
+      document.querySelectorAll('.revealed').forEach(el => el.classList.remove('revealed'));
+
+      // Update active button styling
+      const buttons = {
+        'bilingual': document.getElementById('btn-bilingual'),
+        'en-only': document.getElementById('btn-en-only'),
+        'self-test': document.getElementById('btn-self-test')
+      };
+
+      Object.keys(buttons).forEach(key => {
+        const btn = buttons[key];
+        if (!btn) return;
+        if (key === mode) {
+          btn.classList.add('bg-red-600', 'text-white', 'shadow-sm');
+          btn.classList.remove('text-stone-700', 'hover:bg-stone-100');
+        } else {
+          btn.classList.remove('bg-red-600', 'text-white', 'shadow-sm');
+          btn.classList.add('text-stone-700', 'hover:bg-stone-100');
+        }
+      });
+    }
+
+    // Allow mobile/desktop users to tap blurred Burmese translations in Self-Test mode to reveal them
+    document.addEventListener('click', function (e) {
+      if (!document.body.classList.contains('mode-self-test')) return;
+      const target = e.target.closest('.mm-translation, .mm-table-sub');
+      if (target) {
+        target.classList.toggle('revealed');
+      }
+    });
+
+    /* ======================================================================
+       TEXT-TO-SPEECH (TTS) ENGINE (Web Speech API)
+       ====================================================================== */
+    const SPEAKER_ICON_SVG = `
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      </svg>`;
+
+    const EQ_BARS_HTML = `<span class="eq-bars" aria-hidden="true"><span></span><span></span><span></span></span>`;
+
+    let speechRate = 1.0;
+    let selectedVoice = null;
+    let availableEnglishVoices = [];
+    let currentSpeakingEl = null;
+    let isPlayingAll = false;
+    let playAllQueue = [];
+    let playAllIndex = 0;
+    let usingFlutterBridge = false;
+
+    /**
+     * Checks if running inside a Flutter WebView with a 'FlutterTTS' JavaScriptChannel.
+     */
+    function hasFlutterTTSBridge() {
+      return (
+        typeof window.FlutterTTS !== 'undefined' &&
+        window.FlutterTTS !== null &&
+        typeof window.FlutterTTS.postMessage === 'function'
+      );
+    }
+
+    /**
+     * Called from Flutter (via runJavaScript) when native TTS finishes speaking an utterance.
+     */
+    window.onFlutterTTSComplete = function () {
+      clearActiveVisuals();
+      if (isPlayingAll) {
+        playAllIndex++;
+        setTimeout(playNextInQueue, 350);
+      }
+    };
+
+    /**
+     * Initializes speaker button icons and loads English voices (or Flutter TTS bridge).
+     */
+    function initTTS() {
+      document.querySelectorAll('.tts-btn').forEach(btn => {
+        btn.innerHTML = SPEAKER_ICON_SVG;
+      });
+
+      usingFlutterBridge = hasFlutterTTSBridge();
+      if (usingFlutterBridge) {
+        const voiceSelect = document.getElementById('voice-select');
+        if (voiceSelect) voiceSelect.classList.add('hidden');
+        return;
+      }
+
+      if (!('speechSynthesis' in window)) {
+        return;
+      }
+
+      loadVoices();
+      if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+      }
+    }
+
+    /**
+     * Populates available English voices and selects a natural UK/US voice by default.
+     */
+    function loadVoices() {
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices || !voices.length) return;
+
+      availableEnglishVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+      const voiceSelect = document.getElementById('voice-select');
+      if (!voiceSelect) return;
+
+      const previousValue = voiceSelect.value;
+      voiceSelect.innerHTML = '<option value="">Auto EN Voice</option>';
+
+      availableEnglishVoices.forEach((voice, idx) => {
+        const opt = document.createElement('option');
+        opt.value = String(idx);
+        const cleanName = voice.name.replace(/Microsoft |Google |Apple /g, '');
+        opt.textContent = `${cleanName} (${voice.lang})`;
+        voiceSelect.appendChild(opt);
+      });
+
+      if (previousValue !== '' && availableEnglishVoices[Number(previousValue)]) {
+        voiceSelect.value = previousValue;
+        selectedVoice = availableEnglishVoices[Number(previousValue)];
+      } else {
+        // Prefer British English (matching Essential Grammar in Use) or clear natural US English
+        const preferred = availableEnglishVoices.find(v =>
+          /Daniel|Kate|Serena|Google UK English|Samantha|Natural/i.test(v.name)
+        ) || availableEnglishVoices.find(v => v.lang === 'en-GB') || availableEnglishVoices[0];
+
+        if (preferred) {
+          selectedVoice = preferred;
+          const prefIndex = availableEnglishVoices.indexOf(preferred);
+          if (prefIndex >= 0) voiceSelect.value = String(prefIndex);
+        }
+      }
+    }
+
+    function onVoiceChange() {
+      const voiceSelect = document.getElementById('voice-select');
+      const idx = voiceSelect.value;
+      selectedVoice = idx === '' ? null : availableEnglishVoices[Number(idx)] || null;
+    }
+
+    /**
+     * Toggles reading speed between 1.0x (Normal) and 0.75x (Slow for learners).
+     */
+    function cycleSpeechRate() {
+      const btn = document.getElementById('btn-speed');
+      if (speechRate === 1.0) {
+        speechRate = 0.75;
+        btn.textContent = '0.75x';
+        btn.classList.add('bg-amber-100', 'text-amber-900');
+        showToast('Speed: 0.75x (Slow / ဖြည်းဖြည်းချင်း)');
+      } else {
+        speechRate = 1.0;
+        btn.textContent = '1.0x';
+        btn.classList.remove('bg-amber-100', 'text-amber-900');
+        showToast('Speed: 1.0x (Normal / ပုံမှန်)');
+      }
+      if (hasFlutterTTSBridge()) {
+        window.FlutterTTS.postMessage(JSON.stringify({
+          action: 'setRate',
+          rate: speechRate
+        }));
+      }
+    }
+
+    /**
+     * Speaks the text attached to a DOM element with visual highlighting.
+     * Uses Flutter's JavaScriptChannel when available, falling back to Web Speech API.
+     * Clicking the currently playing element stops playback.
+     */
+    function speakElement(el, fromQueue = false) {
+      const flutterAvailable = hasFlutterTTSBridge();
+      const webSpeechAvailable = ('speechSynthesis' in window);
+
+      if (!flutterAvailable && !webSpeechAvailable) {
+        showToast('Text-to-Speech is not supported in this browser.');
+        return;
+      }
+
+      if (!fromQueue && isPlayingAll) {
+        stopPlayAll();
+      }
+
+      // If clicking the same active item manually, toggle stop
+      if (!fromQueue && currentSpeakingEl === el) {
+        stopSpeech();
+        return;
+      }
+
+      const text = el.getAttribute('data-tts');
+      if (!text) return;
+
+      stopSpeech();
+
+      if (flutterAvailable) {
+        setActiveVisuals(el);
+        if (fromQueue) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        try {
+          window.FlutterTTS.postMessage(JSON.stringify({
+            action: 'speak',
+            text: text,
+            rate: speechRate,
+            lang: selectedVoice ? selectedVoice.lang : 'en-GB'
+          }));
+        } catch (err) {
+          clearActiveVisuals();
+          showToast('Unable to send audio to Flutter TTS.');
+        }
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = selectedVoice ? selectedVoice.lang : 'en-GB';
+      if (selectedVoice) utterance.voice = selectedVoice;
+      utterance.rate = speechRate;
+      utterance.pitch = 1.0;
+
+      utterance.onstart = () => {
+        setActiveVisuals(el);
+        if (fromQueue) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      };
+
+      utterance.onend = () => {
+        clearActiveVisuals();
+        if (isPlayingAll && fromQueue) {
+          playAllIndex++;
+          setTimeout(playNextInQueue, 350);
+        }
+      };
+
+      utterance.onerror = () => {
+        clearActiveVisuals();
+        if (isPlayingAll) {
+          stopPlayAll();
+        }
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    /**
+     * Plays all sequenced examples across Sections A, B, and C.
+     */
+    function togglePlayAll() {
+      if (!hasFlutterTTSBridge() && !('speechSynthesis' in window)) {
+        showToast('Text-to-Speech is not supported in this browser.');
+        return;
+      }
+
+      if (isPlayingAll) {
+        stopPlayAll();
+        return;
+      }
+
+      // Collect elements with data-seq sorted in textbook order (1..24)
+      playAllQueue = Array.from(document.querySelectorAll('[data-seq]'))
+        .sort((a, b) => Number(a.getAttribute('data-seq')) - Number(b.getAttribute('data-seq')));
+
+      if (!playAllQueue.length) return;
+
+      isPlayingAll = true;
+      playAllIndex = 0;
+      updatePlayAllButton(true);
+      playNextInQueue();
+    }
+
+    function playNextInQueue() {
+      if (!isPlayingAll) return;
+      if (playAllIndex >= playAllQueue.length) {
+        stopPlayAll();
+        showToast('Finished playing all Unit 1 examples.');
+        return;
+      }
+      speakElement(playAllQueue[playAllIndex], true);
+    }
+
+    function stopPlayAll() {
+      isPlayingAll = false;
+      playAllQueue = [];
+      playAllIndex = 0;
+      updatePlayAllButton(false);
+      stopSpeech();
+    }
+
+    function stopSpeech() {
+      if (hasFlutterTTSBridge()) {
+        try {
+          window.FlutterTTS.postMessage(JSON.stringify({ action: 'stop' }));
+        } catch (err) {
+          // Ignore bridge stop errors
+        }
+      }
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      clearActiveVisuals();
+    }
+
+    function setActiveVisuals(el) {
+      clearActiveVisuals();
+      currentSpeakingEl = el;
+      el.classList.add('tts-active-target');
+      const btn = el.querySelector('.tts-btn');
+      if (btn) {
+        btn.classList.add('is-playing');
+        btn.innerHTML = EQ_BARS_HTML;
+      }
+    }
+
+    function clearActiveVisuals() {
+      if (currentSpeakingEl) {
+        currentSpeakingEl.classList.remove('tts-active-target');
+        const btn = currentSpeakingEl.querySelector('.tts-btn');
+        if (btn) {
+          btn.classList.remove('is-playing');
+          btn.innerHTML = SPEAKER_ICON_SVG;
+        }
+        currentSpeakingEl = null;
+      }
+    }
+
+    function updatePlayAllButton(playing) {
+      const btn = document.getElementById('btn-play-all');
+      const icon = document.getElementById('icon-play-all');
+      const label = document.getElementById('label-play-all');
+      if (!btn || !icon || !label) return;
+
+      if (playing) {
+        btn.classList.remove('bg-amber-500', 'hover:bg-amber-600');
+        btn.classList.add('bg-red-600', 'hover:bg-red-700');
+        icon.innerHTML = '<rect x="6" y="6" width="12" height="12" rx="1"/>';
+        label.textContent = 'Stop';
+      } else {
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-amber-500', 'hover:bg-amber-600');
+        icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+        label.textContent = 'Play All';
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const toast = document.getElementById('tts-toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2400);
+    }
+
+    window.addEventListener('DOMContentLoaded', initTTS);
+    window.addEventListener('beforeunload', stopSpeech);
+  </script>
+</body>
+</html>

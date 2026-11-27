@@ -9,7 +9,10 @@ class SpeakingScreen extends StatefulWidget {
 
 class _SpeakingScreenState extends State<SpeakingScreen> {
   final List<Map<String, String>> _messages = [
-    {'sender': 'ai', 'text': 'Hello! I am your AI Speaking Partner. Let\'s practice English conversation. How are you today?'},
+    {
+      'sender': 'ai',
+      'text': 'Hello! I am your AI Speaking Partner. Let\'s practice English conversation. How are you today?'
+    },
   ];
   final TextEditingController _controller = TextEditingController();
   bool _isRecording = false;
@@ -19,14 +22,16 @@ class _SpeakingScreenState extends State<SpeakingScreen> {
     setState(() {
       _messages.add({'sender': 'user', 'text': text});
       _controller.clear();
-      // Simulate AI response
       Future.delayed(const Duration(milliseconds: 800), () {
-        setState(() {
-          _messages.add({
-            'sender': 'ai',
-            'text': 'That\'s great to hear! Tell me more about what you like to do in your free time.'
+        if (mounted) {
+          setState(() {
+            _messages.add({
+              'sender': 'ai',
+              'text':
+                  'That\'s wonderful! Tell me about your favorite hobbies or what you enjoy learning.'
+            });
           });
-        });
+        }
       });
     });
   }
@@ -34,19 +39,43 @@ class _SpeakingScreenState extends State<SpeakingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFE2E8F0),
       body: Column(
         children: [
+          // Vibrant Header Banner
           Container(
-            padding: const EdgeInsets.all(12),
-            color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFF00B0FF), Color(0xFF0091EA)],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withValues(alpha: 0.2),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
             child: Row(
               children: [
-                const Icon(Icons.mic, color: Colors.red),
-                const SizedBox(width: 8),
-                Expanded(
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.mic_rounded, color: Colors.white, size: 22),
+                ),
+                const SizedBox(width: 12),
+                const Expanded(
                   child: Text(
-                    'Tap the microphone to speak or chat with your AI English tutor.',
-                    style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                    'AI Speaking Tutor Active · Tap mic to talk',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 13,
+                    ),
                   ),
                 ),
               ],
@@ -60,23 +89,39 @@ class _SpeakingScreenState extends State<SpeakingScreen> {
                 final msg = _messages[index];
                 final isUser = msg['sender'] == 'user';
                 return Align(
-                  alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
+                  alignment:
+                      isUser ? Alignment.centerRight : Alignment.centerLeft,
                   child: Container(
                     margin: const EdgeInsets.symmetric(vertical: 6),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.78),
                     decoration: BoxDecoration(
-                      color: isUser
-                          ? Theme.of(context).colorScheme.primary
-                          : Theme.of(context).colorScheme.surfaceContainerHighest,
-                      borderRadius: BorderRadius.circular(16),
+                      gradient: isUser
+                          ? const LinearGradient(
+                              colors: [Color(0xFF6366F1), Color(0xFF4F46E5)],
+                            )
+                          : null,
+                      color: isUser ? null : Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      border: isUser
+                          ? null
+                          : Border.all(color: Colors.black.withValues(alpha: 0.06)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.06),
+                          blurRadius: 8,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
                     ),
                     child: Text(
                       msg['text']!,
                       style: TextStyle(
-                        color: isUser
-                            ? Theme.of(context).colorScheme.onPrimary
-                            : Theme.of(context).colorScheme.onSurfaceVariant,
+                        color: isUser ? Colors.white : const Color(0xFF1E293B),
+                        fontSize: 15,
+                        height: 1.4,
                       ),
                     ),
                   ),
@@ -85,43 +130,70 @@ class _SpeakingScreenState extends State<SpeakingScreen> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              boxShadow: const [
+              color: Colors.white,
+              boxShadow: [
                 BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 4,
-                  offset: Offset(0, -2),
+                  color: Colors.black.withValues(alpha: 0.06),
+                  blurRadius: 10,
+                  offset: const Offset(0, -4),
                 ),
               ],
             ),
             child: Row(
               children: [
-                IconButton(
-                  icon: Icon(_isRecording ? Icons.stop : Icons.mic, color: _isRecording ? Colors.red : Colors.blue),
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     setState(() {
                       _isRecording = !_isRecording;
                     });
                     if (!_isRecording) {
-                      _sendMessage('I like practicing English every day.');
+                      _sendMessage('I like practicing English conversation.');
                     }
                   },
-                ),
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: 'Type your message or tap mic...',
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 8),
+                  child: Container(
+                    width: 46,
+                    height: 46,
+                    decoration: BoxDecoration(
+                      color: _isRecording ? Colors.red : const Color(0xFF6366F1),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: (_isRecording ? Colors.red : const Color(0xFF6366F1))
+                              .withValues(alpha: 0.4),
+                          blurRadius: 8,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
                     ),
-                    onSubmitted: _sendMessage,
+                    child: Icon(
+                      _isRecording ? Icons.stop_rounded : Icons.mic_rounded,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF1F5F9),
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    child: TextField(
+                      controller: _controller,
+                      decoration: const InputDecoration(
+                        hintText: 'Type your message or tap mic...',
+                        border: InputBorder.none,
+                      ),
+                      onSubmitted: _sendMessage,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
                 IconButton(
-                  icon: const Icon(Icons.send),
+                  icon: const Icon(Icons.send_rounded, color: Color(0xFF6366F1)),
                   onPressed: () => _sendMessage(_controller.text),
                 ),
               ],

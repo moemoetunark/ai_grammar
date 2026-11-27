@@ -1,6 +1,11 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:just_audio/just_audio.dart';
+import '../services/preferences_service.dart';
 
 class GrammarScreen extends StatefulWidget {
   const GrammarScreen({super.key});
@@ -47,24 +52,27 @@ class _GrammarScreenState extends State<GrammarScreen> {
           description.contains(_searchQuery.toLowerCase());
     }).toList();
 
+    final user = PreferencesService().userProfile;
+
     return Scaffold(
+      backgroundColor: const Color(0xFFE2E8F0),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
+                // Search Bar
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Search grammar topics...',
-                      prefixIcon: const Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search, color: Color(0xFF6366F1)),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(16),
                         borderSide: BorderSide.none,
                       ),
                       filled: true,
-                      fillColor:
-                          Theme.of(context).colorScheme.surfaceContainerHighest,
+                      fillColor: Colors.white,
                     ),
                     onChanged: (value) {
                       setState(() {
@@ -77,63 +85,149 @@ class _GrammarScreenState extends State<GrammarScreen> {
                   child: filteredUnits.isEmpty
                       ? const Center(child: Text('No grammar topics found.'))
                       : ListView.builder(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           itemCount: filteredUnits.length,
                           itemBuilder: (context, index) {
                             final unit = filteredUnits[index];
+                            final unitNum = basicUnits.indexOf(unit) + 1;
                             final category =
-                                unit['categories'] ?? 'Unit ${index + 1}';
+                                unit['categories'] ?? 'Unit $unitNum';
                             final description = unit['descriptions'] ?? '';
-                            return Card(
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 6),
-                              elevation: 2,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                            final isCompleted =
+                                user.completedUnits.contains(unitNum);
+                            final isBookmarked =
+                                user.bookmarkedUnits.contains(unitNum);
+
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 12),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                border: Border.all(color: Colors.black.withValues(alpha: 0.05)),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Color(0x12000000),
+                                    blurRadius: 10,
+                                    offset: Offset(0, 4),
+                                  ),
+                                ],
                               ),
-                              child: ListTile(
-                                leading: CircleAvatar(
-                                  backgroundColor: Theme.of(context)
-                                      .colorScheme
-                                      .primaryContainer,
-                                  child: Text(
-                                    '${index + 1}',
-                                    style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimaryContainer,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                title: Text(
-                                  category,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                subtitle: Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    description,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                trailing: const Icon(Icons.arrow_forward_ios,
-                                    size: 16),
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => GrammarDetailScreen(
-                                        unitNumber: index + 1,
-                                        category: category,
-                                        description: description,
-                                        details: unit['details'],
-                                        exercises: unit['exercises'],
+                              child: Material(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(18),
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(18),
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => GrammarDetailScreen(
+                                          unitNumber: unitNum,
+                                          category: category,
+                                          description: description,
+                                          details: unit['details'],
+                                          exercises: unit['exercises'],
+                                        ),
                                       ),
+                                    );
+                                    setState(() {});
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Row(
+                                      children: [
+                                        // Unit Badge
+                                        Container(
+                                          width: 48,
+                                          height: 48,
+                                          decoration: BoxDecoration(
+                                            gradient: isCompleted
+                                                ? const LinearGradient(
+                                                    colors: [Color(0xFF10B981), Color(0xFF059669)],
+                                                  )
+                                                : const LinearGradient(
+                                                    colors: [Color(0xFF6366F1), Color(0xFF4F46E5)],
+                                                  ),
+                                            borderRadius: BorderRadius.circular(14),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: (isCompleted
+                                                        ? const Color(0xFF10B981)
+                                                        : const Color(0xFF6366F1))
+                                                    .withValues(alpha: 0.3),
+                                                blurRadius: 8,
+                                                offset: const Offset(0, 3),
+                                              ),
+                                            ],
+                                          ),
+                                          child: Center(
+                                            child: isCompleted
+                                                ? const Icon(Icons.check_rounded,
+                                                    color: Colors.white, size: 26)
+                                                : Text(
+                                                    '$unitNum',
+                                                    style: const TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight: FontWeight.w900,
+                                                      fontSize: 18,
+                                                    ),
+                                                  ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 16),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                category,
+                                                style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w800,
+                                                  color: Color(0xFF1E293B),
+                                                ),
+                                              ),
+                                              const SizedBox(height: 4),
+                                              Text(
+                                                description,
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Colors.grey[600],
+                                                  height: 1.3,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            IconButton(
+                                              icon: Icon(
+                                                isBookmarked
+                                                    ? Icons.bookmark_rounded
+                                                    : Icons.bookmark_border_rounded,
+                                                color: isBookmarked
+                                                    ? Colors.amber
+                                                    : Colors.grey[400],
+                                              ),
+                                              onPressed: () async {
+                                                await PreferencesService()
+                                                    .toggleUnitBookmark(unitNum);
+                                                setState(() {});
+                                              },
+                                            ),
+                                            const Icon(Icons.arrow_forward_ios_rounded,
+                                                size: 16, color: Colors.grey),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  );
-                                },
+                                  ),
+                                ),
                               ),
                             );
                           },
@@ -145,7 +239,56 @@ class _GrammarScreenState extends State<GrammarScreen> {
   }
 }
 
-class GrammarDetailScreen extends StatelessWidget {
+class InlineAdBannerCard extends StatelessWidget {
+  const InlineAdBannerCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 64,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Theme.of(context)
+              .colorScheme
+              .outlineVariant
+              .withValues(alpha: 0.5),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: const Text(
+              'Ad',
+              style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+          ),
+          const SizedBox(width: 12),
+          const Icon(Icons.ads_click, size: 18, color: Colors.grey),
+          const SizedBox(width: 8),
+          const Text(
+            'AdMob Inline Adaptive Banner',
+            style: TextStyle(
+                fontSize: 13, fontWeight: FontWeight.w500, color: Colors.grey),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class GrammarDetailScreen extends StatefulWidget {
   final int unitNumber;
   final String category;
   final String description;
@@ -162,53 +305,48 @@ class GrammarDetailScreen extends StatelessWidget {
   });
 
   @override
+  State<GrammarDetailScreen> createState() => _GrammarDetailScreenState();
+}
+
+class _GrammarDetailScreenState extends State<GrammarDetailScreen> {
+  @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Unit $unitNumber'),
-          backgroundColor:
-              Theme.of(context).colorScheme.surfaceContainerHighest,
-          bottom: const TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(Icons.description_outlined),
-                text: 'Details · အသေးစိတ်',
-              ),
-              Tab(
-                icon: Icon(Icons.assignment_turned_in_outlined),
-                text: 'Exercises · လေ့ကျင့်ခန်း',
-              ),
-            ],
+    final isBookmarked = PreferencesService()
+        .userProfile
+        .bookmarkedUnits
+        .contains(widget.unitNumber);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Unit ${widget.unitNumber}: ${widget.category}'),
+        backgroundColor:
+            Theme.of(context).colorScheme.surfaceContainerHighest,
+        actions: [
+          IconButton(
+            icon: Icon(
+              isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+              color: isBookmarked ? Colors.amber : null,
+            ),
+            onPressed: () async {
+              await PreferencesService()
+                  .toggleUnitBookmark(widget.unitNumber);
+              setState(() {});
+            },
           ),
-        ),
-        body: TabBarView(
-          children: [
-            _DetailsTabView(
-              unitNumber: unitNumber,
-              category: category,
-              description: description,
-              details: details,
-            ),
-            _ExercisesTabView(
-              unitNumber: unitNumber,
-              category: category,
-              description: description,
-              exercises: exercises,
-            ),
-          ],
-        ),
+          const SizedBox(width: 8),
+        ],
+      ),
+      body: _DetailsTabView(
+        unitNumber: widget.unitNumber,
+        category: widget.category,
+        description: widget.description,
+        details: widget.details,
       ),
     );
   }
 }
 
-const _ink = Color(0xFF352C2A);
-const _accent = Color(0xFFC44338);
-const _paper = Color(0xFFFFF9F6);
-
-class _DetailsTabView extends StatelessWidget {
+class _DetailsTabView extends StatefulWidget {
   final int unitNumber;
   final String category;
   final String description;
@@ -222,455 +360,106 @@ class _DetailsTabView extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    if (details is Map) {
-      return _LessonContent(data: Map<String, dynamic>.from(details as Map));
-    }
-
-    final rawString = details?.toString() ?? '';
-    final cleanText = rawString.replaceAll(RegExp(r'<[^>]*>'), ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
-
-    return Container(
-      color: const Color(0xFFF3EEE9),
-      child: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          _panel(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  category,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: _ink,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  description,
-                  style: const TextStyle(
-                    color: _accent,
-                    fontSize: 15,
-                    height: 1.4,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          if (cleanText.isNotEmpty)
-            _panel(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Lesson Content · သင်ခန်းစာအကြောင်းအရာ',
-                    style: TextStyle(
-                      color: _accent,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    cleanText,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      height: 1.5,
-                      color: _ink,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-        ],
-      ),
-    );
-  }
+  State<_DetailsTabView> createState() => _DetailsTabViewState();
 }
 
-class _ExercisesTabView extends StatelessWidget {
-  final int unitNumber;
-  final String category;
-  final String description;
-  final dynamic exercises;
-
-  const _ExercisesTabView({
-    required this.unitNumber,
-    required this.category,
-    required this.description,
-    required this.exercises,
-  });
+class _DetailsTabViewState extends State<_DetailsTabView> {
+  late final WebViewController _controller;
+  bool _isLoadingHtml = true;
+  final AudioPlayer _audioPlayer = AudioPlayer();
 
   @override
-  Widget build(BuildContext context) {
-    if (exercises is Map) {
-      return _ExerciseContent(
-          data: Map<String, dynamic>.from(exercises as Map));
-    }
-
-    final rawString = exercises?.toString() ?? '';
-    final cleanText = rawString.replaceAll(RegExp(r'<[^>]*>'), ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
-
-    return Container(
-      color: const Color(0xFFF5F1ED),
-      child: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          _panel(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Unit $unitNumber Practice Exercises',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: _accent,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  description,
-                  style: const TextStyle(fontSize: 14, color: _ink),
-                ),
-              ],
-            ),
-          ),
-          if (cleanText.isNotEmpty)
-            _panel(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Practice Questions · လေ့ကျင့်ခန်း မေးခွန်းများ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: _accent,
-                      fontSize: 16,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    cleanText,
-                    style: const TextStyle(fontSize: 14, height: 1.5, color: _ink),
-                  ),
-                  const SizedBox(height: 16),
-                  const TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Type your exercise answers here...',
-                      border: OutlineInputBorder(),
-                    ),
-                    minLines: 2,
-                    maxLines: 4,
-                  ),
-                ],
-              ),
-            ),
-        ],
-      ),
-    );
+  void initState() {
+    super.initState();
+    _initWebView();
   }
-}
-
-class _LessonContent extends StatelessWidget {
-  final Map<String, dynamic> data;
-  const _LessonContent({required this.data});
 
   @override
-  Widget build(BuildContext context) {
-    final tables = (data['tables'] as List? ?? []).cast<Map>();
-    final examples = (data['examples'] as List? ?? []).cast<List>();
-    final notes = (data['notes'] as List? ?? []).cast<List>();
-    return Container(
-      color: const Color(0xFFF3EEE9),
-      child: ListView(
-        padding: const EdgeInsets.all(12),
-        children: [
-          _panel(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(data['title'] ?? '',
-                    style: const TextStyle(
-                        fontSize: 23, fontWeight: FontWeight.bold, color: _ink)),
-                Text(data['subtitle'] ?? '',
-                    style: const TextStyle(
-                        color: _accent, fontSize: 16, height: 1.4)),
-                const SizedBox(height: 8),
-                Wrap(
-                  spacing: 6,
-                  runSpacing: 6,
-                  children: [
-                    for (final line in data['introduction'] as List? ?? [])
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 7),
-                        decoration: BoxDecoration(
-                          color: _paper,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: const Color(0xFFF0DDD5)),
-                        ),
-                        child: Text(
-                          '$line',
-                          style: const TextStyle(fontSize: 15, height: 1.4),
-                        ),
-                      ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          for (final table in tables)
-            _GrammarTable(data: Map<String, dynamic>.from(table)),
-          _sectionTitle(data['examplesTitle'] ?? 'Examples'),
-          for (final example in examples)
-            _ExampleCard(
-                english: '${example[0]}', translation: '${example[1]}'),
-          for (final note in notes)
-            _ExampleCard(english: '${note[0]}', translation: '${note[1]}'),
-          _panel(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  data['questionTitle'] ?? 'Questions',
-                  style: const TextStyle(
-                      color: _accent,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  data['questionNote'] ?? '',
-                  style: const TextStyle(fontSize: 16, height: 1.4),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
   }
-}
 
-Widget _panel({required Widget child}) => Container(
-      margin: const EdgeInsets.only(bottom: 9),
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
-          BoxShadow(
-              color: Color(0x14633C32), blurRadius: 8, offset: Offset(0, 2))
-        ],
-      ),
-      child: child,
-    );
-
-Widget _sectionTitle(String title) => Padding(
-      padding: const EdgeInsets.fromLTRB(3, 4, 3, 6),
-      child: Text(
-        title,
-        style: const TextStyle(
-            color: _accent,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            height: 1.35),
-      ),
-    );
-
-class _GrammarTable extends StatelessWidget {
-  final Map<String, dynamic> data;
-  const _GrammarTable({required this.data});
-
-  @override
-  Widget build(BuildContext context) {
-    final headers = (data['headers'] as List).cast<String>();
-    final rows = (data['rows'] as List).cast<List>();
-    return _panel(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('${data['title']}',
-              style: const TextStyle(
-                  color: _accent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  height: 1.35)),
-          const SizedBox(height: 5),
-          Table(
-            border: TableBorder.all(color: const Color(0xFFE6AAA0)),
-            columnWidths: const {
-              0: FlexColumnWidth(1.2),
-              1: FlexColumnWidth(1),
-              2: FlexColumnWidth(1.5)
-            },
-            children: [
-              TableRow(
-                decoration: const BoxDecoration(color: Color(0xFFFFF0EB)),
-                children: headers
-                    .map((text) => _tableCell(text, bold: true))
-                    .toList(),
-              ),
-              for (final row in rows)
-                TableRow(
-                  children:
-                      row.map((text) => _tableCell('$text')).toList(),
-                ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-Widget _tableCell(String text, {bool bold = false}) => Padding(
-      padding: const EdgeInsets.all(6),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 14,
-          height: 1.35,
-          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-          color: _ink,
-        ),
-      ),
-    );
-
-class _ExampleCard extends StatelessWidget {
-  final String english;
-  final String translation;
-  const _ExampleCard({required this.english, required this.translation});
-
-  @override
-  Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.only(bottom: 6),
-        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 7),
-        decoration: const BoxDecoration(
-          color: _paper,
-          border: Border(
-            left: BorderSide(color: Color(0xFFEB6955), width: 3),
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(english,
-                style: const TextStyle(
-                    fontWeight: FontWeight.w600, fontSize: 15, height: 1.4)),
-            const SizedBox(height: 4),
-            Text(translation,
-                style: const TextStyle(
-                    fontSize: 17, height: 1.6, color: Color(0xFF3F332F))),
-          ],
-        ),
+  Future<void> _initWebView() async {
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..addJavaScriptChannel(
+        'FlutterTTS',
+        onMessageReceived: (JavaScriptMessage msg) async {
+          try {
+            final data = jsonDecode(msg.message) as Map<String, dynamic>;
+            final text = data['text'] ?? '';
+            if (text.isNotEmpty) {
+              final encoded = Uri.encodeComponent(text);
+              await _audioPlayer.setUrl(
+                  'https://translate.google.com/translate_tts?ie=UTF-8&q=$encoded&tl=en&client=tw-ob');
+              await _audioPlayer.play();
+            }
+          } catch (_) {}
+        },
       );
-}
 
-class _ExerciseContent extends StatelessWidget {
-  final Map<String, dynamic> data;
-  const _ExerciseContent({required this.data});
-
-  @override
-  Widget build(BuildContext context) {
-    final groups = (data['groups'] as List? ?? []).cast<Map>();
-    return Container(
-      color: const Color(0xFFF5F1ED),
-      child: ListView(
-        padding: const EdgeInsets.all(12),
-        children: [
-          Text(data['title'] ?? 'Practice',
-              style: const TextStyle(
-                  fontSize: 22, fontWeight: FontWeight.bold, color: _accent)),
-          for (final group in groups)
-            _ExerciseGroup(data: Map<String, dynamic>.from(group)),
-        ],
-      ),
-    );
+    try {
+      final htmlPath = 'assets/html/unit_${widget.unitNumber}.html';
+      final htmlString = await rootBundle.loadString(htmlPath);
+      await _controller.loadHtmlString(htmlString);
+      if (mounted) {
+        setState(() {
+          _isLoadingHtml = false;
+        });
+      }
+    } catch (_) {
+      final fallbackHtml = '''
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body { font-family: sans-serif; padding: 20px; background-color: #F8FAFC; color: #1E293B; line-height: 1.6; }
+            h1 { color: #6366F1; font-size: 22px; }
+            .card { background: white; padding: 18px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-top: 16px; }
+            .btn { background: #6366F1; color: white; border: none; padding: 10px 16px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+          </style>
+        </head>
+        <body>
+          <h1>Unit ${widget.unitNumber}: ${widget.category}</h1>
+          <div class="card">
+            <p>${widget.description}</p>
+            <button class="btn" onclick="speakText('${widget.category}. ${widget.description}')">🔊 Pronounce Title</button>
+          </div>
+          <script>
+            function speakText(text) {
+              if (window.FlutterTTS) {
+                window.FlutterTTS.postMessage(JSON.stringify({ action: 'speak', text: text }));
+              }
+            }
+          </script>
+        </body>
+        </html>
+      ''';
+      await _controller.loadHtmlString(fallbackHtml);
+      if (mounted) {
+        setState(() {
+          _isLoadingHtml = false;
+        });
+      }
+    }
   }
-}
-
-class _ExerciseGroup extends StatelessWidget {
-  final Map<String, dynamic> data;
-  const _ExerciseGroup({required this.data});
 
   @override
   Widget build(BuildContext context) {
-    final items = (data['items'] as List? ?? []).cast<String>();
-    return Container(
-      margin: const EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(9),
-        border: Border.all(color: const Color(0xFFEFDFD9)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('${data['title']}',
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: _accent,
-                  fontSize: 16,
-                  height: 1.4)),
-          if ('${data['translation'] ?? ''}'.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(top: 3, bottom: 7),
-              child: Text(
-                '${data['translation']}',
-                style: const TextStyle(
-                    fontSize: 14, height: 1.5, color: Color(0xFF625852)),
-              ),
-            ),
-          for (var i = 0; i < items.length; i++)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 3),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 24,
-                    child: Text(
-                      '${i + 1}',
-                      style: const TextStyle(
-                          fontSize: 14, color: Color(0xFF705E57)),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: Text(
-                      items[i],
-                      style: const TextStyle(
-                          fontSize: 16, height: 1.4, color: _ink),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    flex: 2,
-                    child: TextField(
-                      minLines: 1,
-                      maxLines: 2,
-                      decoration: const InputDecoration(
-                        isDense: true,
-                        contentPadding: EdgeInsets.symmetric(vertical: 4),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFC88376)),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: _accent, width: 2),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-        ],
-      ),
+    if (_isLoadingHtml) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    return WebViewWidget(
+      controller: _controller,
+      gestureRecognizers: {
+        Factory<VerticalDragGestureRecognizer>(
+          () => VerticalDragGestureRecognizer(),
+        ),
+      },
     );
   }
 }

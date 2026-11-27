@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit 2: am/is/are (questions) — Essential Grammar in Use (English & Burmese)</title>
+  <!-- Load Tailwind CSS for responsive utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load English Serif/Sans and Myanmar Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Classic Textbook Variables & Styling */
+    :root {
+      --red-badge: #d91c1f;
+      --red-tab: #d61b1e;
+      --red-border: #c86464;
+      --salmon-header-start: #f59c7e;
+      --salmon-header-end: #f9bca5;
+      --salmon-sidebar: #f4a488;
+      --salmon-sidebar-light: #f8beaa;
+      --paper-bg: #fffdfb;
+      --page-surround: #ece8e3;
+      --ink-black: #1e1d1c;
+      --ink-muted: #57534e;
+      --mm-color: #1e3a5f;
+      --mm-bg: #f1f6fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--page-surround);
+      color: var(--ink-black);
+      font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-sans-ui {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .font-mm {
+      font-family: 'Noto Sans Myanmar', sans-serif;
+      line-height: 1.75;
+    }
+
+    /* Textbook Sheet Container */
+    .textbook-sheet {
+      max-width: 980px;
+      margin: 0 auto;
+      background-color: var(--paper-bg);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top Salmon Header Banner */
+    .unit-header-banner {
+      background: linear-gradient(90deg, var(--salmon-header-start) 0%, var(--salmon-header-end) 100%);
+      border-bottom: 2px solid #e48466;
+    }
+
+    .unit-red-square {
+      background: linear-gradient(145deg, #e51d20 0%, #b81215 100%);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    }
+
+    /* Left Margin Column on Desktop */
+    .left-margin-rail {
+      background: linear-gradient(180deg, var(--salmon-sidebar) 0%, var(--salmon-sidebar-light) 50%, var(--salmon-sidebar) 100%);
+      border-right: 1px solid #e6957a;
+    }
+
+    /* Red Section Tabs (A, B, C) */
+    .section-tab-desktop {
+      background: linear-gradient(90deg, #c81417 0%, #e42225 100%);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: right;
+      padding: 3px 10px 3px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      letter-spacing: 0.03em;
+    }
+
+    .section-badge-mobile {
+      background: linear-gradient(135deg, #d91c1f 0%, #b51215 100%);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 2px 12px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(217, 28, 31, 0.25);
+    }
+
+    /* Section A Dialogue Stage */
+    .dialogue-stage-box {
+      background: linear-gradient(180deg, #fcfbfa 0%, #f6f4f0 100%);
+      border: 1px solid #e7e2da;
+      box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.9), 0 3px 10px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+    }
+
+    /* Speech Bubbles */
+    .speech-bubble {
+      background: #ffffff;
+      border: 1.4px solid #4a4845;
+      border-radius: 20px;
+      padding: 6px 13px;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .speech-bubble:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Desktop Pointer Tails for Dialogue Bubbles */
+    @media (min-width: 768px) {
+      .tail-to-left::after {
+        content: "";
+        position: absolute;
+        bottom: 6px;
+        left: -9px;
+        width: 11px;
+        height: 9px;
+        background: #ffffff;
+        border-bottom: 1.4px solid #4a4845;
+        border-left: 1.4px solid #4a4845;
+        transform: rotate(45deg);
+      }
+      .tail-to-right::after {
+        content: "";
+        position: absolute;
+        bottom: 6px;
+        right: -9px;
+        width: 11px;
+        height: 9px;
+        background: #ffffff;
+        border-top: 1.4px solid #4a4845;
+        border-right: 1.4px solid #4a4845;
+        transform: rotate(45deg);
+      }
+    }
+
+    /* Classic Red-Bordered Grammar Tables */
+    .grammar-table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #fffefe;
+      font-size: 1.05rem;
+    }
+
+    .grammar-table td {
+      border: 1.2px solid var(--red-border);
+      padding: 5px 10px;
+      vertical-align: middle;
+    }
+
+    .grammar-table tr[data-tts] {
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .grammar-table tr[data-tts]:hover td {
+      background-color: #fef2f2;
+    }
+
+    .grammar-table tr.tts-active-target td {
+      background-color: #fef3c7 !important;
+    }
+
+    /* Red Square Bullet */
+    .red-square-bullet {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border: 1.5px solid #d91c1f;
+      margin-top: 7px;
+      flex-shrink: 0;
+      background-color: transparent;
+    }
+
+    /* Burmese Translation Styling & Study Mode States */
+    .mm-translation {
+      color: var(--mm-color);
+      font-size: 0.88rem;
+      margin-top: 2px;
+      transition: all 0.25s ease;
+    }
+
+    /* Mode: English Only (Original Book Look) */
+    body.mode-en-only .mm-translation,
+    body.mode-en-only .mm-grammar-note,
+    body.mode-en-only .mm-table-sub {
+      display: none !important;
+    }
+
+    /* Mode: Self-Test (Blur Burmese until hovered/tapped) */
+    body.mode-self-test .mm-translation,
+    body.mode-self-test .mm-table-sub {
+      filter: blur(5px);
+      user-select: none;
+      cursor: pointer;
+      background-color: #e2e8f0;
+      border-radius: 4px;
+    }
+
+    body.mode-self-test .mm-translation.revealed,
+    body.mode-self-test .mm-translation:hover,
+    body.mode-self-test .mm-table-sub.revealed,
+    body.mode-self-test .mm-table-sub:hover {
+      filter: none;
+      user-select: auto;
+      background-color: transparent;
+    }
+
+    /* ==================== TTS AUDIO STYLES ==================== */
+    .tts-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 9999px;
+      border: 1px solid #e7e5e4;
+      background-color: #ffffff;
+      color: #57534e;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.18s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      vertical-align: middle;
+    }
+
+    .tts-btn:hover {
+      background-color: #fef2f2;
+      border-color: #fca5a5;
+      color: #dc2626;
+      transform: scale(1.06);
+    }
+
+    .tts-btn:active {
+      transform: scale(0.95);
+    }
+
+    .tts-btn.is-playing {
+      background-color: #dc2626;
+      border-color: #b91c1c;
+      color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.22);
+    }
+
+    .tts-active-target {
+      background-color: #fffbeb !important;
+      box-shadow: 0 0 0 2px #f59e0b, 0 4px 12px rgba(245, 158, 11, 0.18) !important;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .speech-bubble.tts-active-target {
+      border-color: #d97706 !important;
+      border-radius: 20px !important;
+    }
+
+    @keyframes eqBounce {
+      0%, 100% { transform: scaleY(0.35); }
+      50% { transform: scaleY(1); }
+    }
+
+    .eq-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 1.5px;
+      height: 11px;
+    }
+
+    .eq-bars span {
+      display: block;
+      width: 2px;
+      height: 100%;
+      background-color: currentColor;
+      border-radius: 1px;
+      animation: eqBounce 0.65s infinite ease-in-out;
+    }
+
+    .eq-bars span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .eq-bars span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    /* Print optimization */
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .no-print,
+      .tts-btn {
+        display: none !important;
+      }
+      .textbook-sheet {
+        box-shadow: none;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="mode-bilingual py-0 sm:py-5 px-0 sm:px-4">
+
+  <!-- Interactive Study Mode & TTS Audio Control Bar -->
+  <div class="no-print sticky top-0 z-30 bg-[#ece8e3]/95 backdrop-blur-md border-b border-stone-300/70 sm:border-none sm:bg-transparent sm:static max-w-[980px] mx-auto mb-3 px-3 sm:px-0 py-2.5 sm:py-0 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600"></span>
+      <span class="font-sans-ui text-xs sm:text-sm font-semibold text-stone-700">
+        Essential Grammar in Use • <span class="font-mm font-normal text-stone-600">မေးခွန်းဝါကျများ (မြန်မာဘာသာပြန်)</span>
+      </span>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <!-- TTS Audio Controls -->
+      <div class="flex items-center gap-1 bg-white/95 border border-stone-300 p-1 rounded-full shadow-sm font-sans-ui text-xs">
+        <button id="btn-play-all" onclick="togglePlayAll()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-semibold bg-amber-500 hover:bg-amber-600 text-white transition shadow-sm" title="Listen to all Unit 2 examples in order">
+          <svg id="icon-play-all" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span id="label-play-all">Play All</span>
+        </button>
+
+        <button id="btn-speed" onclick="cycleSpeechRate()" class="px-2.5 py-1.5 rounded-full font-semibold text-stone-700 hover:bg-stone-100 transition" title="Toggle reading speed">
+          1.0x
+        </button>
+
+        <select id="voice-select" onchange="onVoiceChange()" aria-label="Select English Voice" class="hidden sm:inline-block max-w-[125px] truncate bg-stone-50 border border-stone-200 rounded-full px-2 py-1 text-[11px] text-stone-700 focus:outline-none focus:border-red-400">
+          <option value="">Default EN</option>
+        </select>
+      </div>
+
+      <!-- Study Mode Controls -->
+      <div class="flex items-center gap-1 bg-white/95 border border-stone-300 p-1 rounded-full shadow-sm font-sans-ui text-xs">
+        <button id="btn-bilingual" onclick="setStudyMode('bilingual')" class="px-3 py-1.5 rounded-full font-medium transition bg-red-600 text-white shadow-sm">
+          EN + မြန်မာ
+        </button>
+        <button id="btn-en-only" onclick="setStudyMode('en-only')" class="px-3 py-1.5 rounded-full font-medium text-stone-700 hover:bg-stone-100 transition">
+          Original EN
+        </button>
+        <button id="btn-self-test" onclick="setStudyMode('self-test')" class="px-3 py-1.5 rounded-full font-medium text-stone-700 hover:bg-stone-100 transition" title="Tap any blurred Burmese translation to check yourself">
+          Self-Test
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Banner for Speech Status / Unsupported Browser -->
+  <div id="tts-toast" class="no-print fixed bottom-4 right-4 z-50 hidden bg-stone-900 text-white font-sans-ui text-xs px-4 py-2.5 rounded-lg shadow-lg border border-stone-700"></div>
+
+  <!-- Main Textbook Page Sheet -->
+  <main class="textbook-sheet sm:rounded-lg">
+
+    <!-- ==================== TOP UNIT HEADER BANNER ==================== -->
+    <header class="unit-header-banner flex items-stretch">
+      <!-- Top-Left Red Unit 2 Badge -->
+      <div class="unit-red-square w-[76px] sm:w-[96px] shrink-0 flex flex-col items-center justify-center py-2.5 px-2 text-white border-r border-red-800/40 select-none">
+        <span class="text-base sm:text-xl font-semibold tracking-wide leading-none">Unit</span>
+        <span class="text-3xl sm:text-4xl font-bold leading-tight mt-0.5">2</span>
+      </div>
+
+      <!-- Main Unit Title -->
+      <div class="flex-1 flex flex-wrap items-center justify-between px-4 sm:px-7 py-2.5 gap-2">
+        <div>
+          <h1 class="text-2xl sm:text-[2.25rem] font-bold tracking-tight text-stone-900 leading-none">
+            am/is/are <span class="font-normal text-stone-800">(questions)</span>
+          </h1>
+          <p class="mm-translation font-mm text-xs sm:text-sm text-stone-800 font-medium mt-1">
+            ဖြစ်လား / ရှိလား — မေးခွန်းဝါကျများ (Questions with am/is/are)
+          </p>
+        </div>
+        <span class="font-sans-ui text-[11px] uppercase tracking-widest text-stone-800/70 hidden sm:inline-block font-semibold">
+          Essential Grammar in Use
+        </span>
+      </div>
+    </header>
+
+    <!-- ==================== BODY GRID: LEFT SALMON MARGIN + CONTENT ==================== -->
+    <div class="flex flex-col md:flex-row">
+
+      <!-- Left Margin Sidebar (Visible on Desktop/Tablet md+) -->
+      <aside class="hidden md:flex md:w-[96px] shrink-0 left-margin-rail flex-col justify-between py-6 select-none" aria-hidden="true">
+        <div class="section-tab-desktop w-full">A</div>
+        <div class="section-tab-desktop w-full" style="margin-top: 390px;">B</div>
+        <div class="section-tab-desktop w-full" style="margin-top: 290px;">C</div>
+        <div class="h-24"></div>
+      </aside>
+
+      <!-- Main Textbook Content Area -->
+      <div class="flex-1 px-4 sm:px-7 py-5 sm:py-6 space-y-7">
+
+        <!-- ================================================================ -->
+        <!-- SECTION A: POSITIVE VS QUESTION TABLES + DIALOGUE + EXAMPLES      -->
+        <!-- ================================================================ -->
+        <section aria-labelledby="section-a-label">
+          <!-- Mobile Section Header -->
+          <div class="flex md:hidden items-center gap-2 mb-3">
+            <span id="section-a-label" class="section-badge-mobile">A</span>
+            <span class="font-sans-ui text-xs font-semibold text-stone-500 uppercase tracking-wider">Yes/No Questions</span>
+          </div>
+
+          <!-- Concise Burmese Grammar Explanation Box -->
+          <div class="mm-grammar-note mb-4 bg-amber-50/80 border border-amber-200/90 rounded-lg px-3.5 py-2.5 text-stone-800">
+            <p class="font-mm text-xs sm:text-[13.5px] leading-relaxed">
+              <strong class="text-red-700 font-sans-ui">သဒ္ဒါမှတ်စု (Question Word Order):</strong>
+              အပြုဝါကျတွင် <strong>I am / He is / They are</strong> ဟု သုံးသော်လည်း မေးခွန်းဝါကျ (Question) ဖွဲ့ရာတွင်
+              <strong>am / is / are</strong> ကို နာမ်စား (Subject) ရှေ့သို့ ပြောင်းထားရပါသည် —
+              <strong>Am I ...? / Is he ...? / Are they ...?</strong>
+            </p>
+          </div>
+
+          <!-- Top Row of Section A: Positive Table, Question Table, and Dialogue Illustration -->
+          <div class="dialogue-stage-box p-3.5 sm:p-4 mb-5">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+
+              <!-- Positive & Question Mini Tables (5 cols on lg) -->
+              <div class="lg:col-span-5 grid grid-cols-2 gap-3">
+                <!-- Positive Table -->
+                <div>
+                  <div class="flex flex-col mb-1">
+                    <span class="italic text-base font-semibold text-stone-800">positive</span>
+                    <span class="mm-table-sub font-mm text-[11px] text-blue-900">အပြုပုံစံ</span>
+                  </div>
+                  <table class="grammar-table text-[15px]">
+                    <tbody>
+                      <tr data-tts="I am" onclick="speakElement(this)">
+                        <td class="text-right w-11">I</td>
+                        <td class="font-bold">am</td>
+                      </tr>
+                      <tr data-tts="he is, she is, it is" onclick="speakElement(this)">
+                        <td class="text-right leading-snug">he<br />she<br />it</td>
+                        <td class="font-bold">is</td>
+                      </tr>
+                      <tr data-tts="we are, you are, they are" onclick="speakElement(this)">
+                        <td class="text-right leading-snug">we<br />you<br />they</td>
+                        <td class="font-bold">are</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Question Table -->
+                <div>
+                  <div class="flex flex-col mb-1">
+                    <span class="italic text-base font-semibold text-stone-800">question</span>
+                    <span class="mm-table-sub font-mm text-[11px] text-blue-900">မေးခွန်းပုံစံ</span>
+                  </div>
+                  <table class="grammar-table text-[15px]">
+                    <tbody>
+                      <tr data-tts="Am I?" onclick="speakElement(this)">
+                        <td class="font-bold w-12">am</td>
+                        <td>I?</td>
+                      </tr>
+                      <tr data-tts="Is he? Is she? Is it?" onclick="speakElement(this)">
+                        <td class="font-bold">is</td>
+                        <td class="leading-snug">he?<br />she?<br />it?</td>
+                      </tr>
+                      <tr data-tts="Are we? Are you? Are they?" onclick="speakElement(this)">
+                        <td class="font-bold">are</td>
+                        <td class="leading-snug">we?<br />you?<br />they?</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Dialogue Illustration: Woman Asking Questions & Man Answering (7 cols on lg) -->
+              <div class="lg:col-span-7">
+                <div class="grid grid-cols-12 gap-2 items-center">
+
+                  <!-- Left Character SVG (Woman Asking Questions) -->
+                  <div class="col-span-3 sm:col-span-2 flex flex-col items-center">
+                    <svg viewBox="0 0 110 175" class="w-full max-w-[95px] h-auto" role="img" aria-label="Woman asking questions">
+                      <defs>
+                        <linearGradient id="interviewerShirt" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#60a5fa" />
+                          <stop offset="100%" stop-color="#1d4ed8" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Hair Back -->
+                      <path d="M26,48 C18,68 18,92 28,108 L62,106 C68,84 64,52 52,36 Z" fill="#1e293b" stroke="#0f172a" stroke-width="1.8" />
+                      <!-- Neck & Shoulders -->
+                      <path d="M44,82 L44,98 L62,98 L62,82 Z" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.5" />
+                      <path d="M22,162 C24,116 34,98 54,98 C74,98 84,116 86,162 Z" fill="url(#interviewerShirt)" stroke="#1e293b" stroke-width="1.8" />
+                      <!-- Head -->
+                      <ellipse cx="56" cy="58" rx="15" ry="18" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.8" />
+                      <!-- Hair Bangs -->
+                      <path d="M41,54 C42,38 56,34 68,42 C72,45 73,50 71,53 C64,46 50,46 41,54 Z" fill="#1e293b" stroke="#0f172a" stroke-width="1.6" />
+                      <!-- Face Facing Right -->
+                      <circle cx="63" cy="56" r="1.7" fill="#0f172a" />
+                      <path d="M67,58 L70,65 L66,66" stroke="#1e293b" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                      <path d="M61,72 C64,74 67,74 69,71" stroke="#1e293b" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                    </svg>
+                  </div>
+
+                  <!-- Center Speech Bubbles Column -->
+                  <div class="col-span-6 sm:col-span-8 space-y-2">
+                    <!-- Q1 -->
+                    <div class="speech-bubble tail-to-left" data-tts="What's your name?" data-seq="1">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight"><strong>What's</strong> your name?</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">မင်းနာမည် ဘယ်လိုခေါ်လဲ။</p>
+                    </div>
+
+                    <!-- A1 -->
+                    <div class="speech-bubble tail-to-right ml-5 sm:ml-10" data-tts="David." data-seq="2">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight">David.</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">ဒေးဗစ်ပါ။</p>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="speech-bubble tail-to-left" data-tts="Are you married?" data-seq="3">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight"><strong>Are</strong> you married?</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">မင်း အိမ်ထောင်ရှိလား။</p>
+                    </div>
+
+                    <!-- A2 -->
+                    <div class="speech-bubble tail-to-right ml-5 sm:ml-10" data-tts="No, I'm single." data-seq="4">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight">No, I'<strong>m</strong> single.</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">မရှိပါဘူး၊ ကျွန်တော် တစ်ကိုယ်တည်းပါ။</p>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="speech-bubble tail-to-left" data-tts="How old are you?" data-seq="5">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight"><strong>How</strong> old <strong>are</strong> you?</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">မင်း အသက် ဘယ်လောက်လဲ။</p>
+                    </div>
+
+                    <!-- A3 -->
+                    <div class="speech-bubble tail-to-right ml-5 sm:ml-10" data-tts="25." data-seq="6">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight">25.</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">၂၅ နှစ်ပါ။</p>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="speech-bubble tail-to-left" data-tts="Are you a student?" data-seq="7">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight"><strong>Are</strong> you a student?</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">မင်းက ကျောင်းသားလား။</p>
+                    </div>
+
+                    <!-- A4 -->
+                    <div class="speech-bubble tail-to-right ml-5 sm:ml-10" data-tts="Yes, I am." data-seq="8">
+                      <div class="flex items-center justify-between gap-1.5">
+                        <p class="text-[14.5px] leading-tight">Yes, I <strong>am</strong>.</p>
+                        <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                      </div>
+                      <p class="mm-translation font-mm text-[11.5px]">ဟုတ်ကဲ့၊ ကျွန်တော် ကျောင်းသားပါ။</p>
+                    </div>
+                  </div>
+
+                  <!-- Right Character SVG (Man David Answering) -->
+                  <div class="col-span-3 sm:col-span-2 flex flex-col items-center">
+                    <svg viewBox="0 0 110 175" class="w-full max-w-[95px] h-auto" role="img" aria-label="Young man named David answering questions">
+                      <defs>
+                        <linearGradient id="davidShirt" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#f8fafc" />
+                          <stop offset="100%" stop-color="#cbd5e1" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Neck & T-Shirt -->
+                      <path d="M46,82 L46,98 L64,98 L64,82 Z" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.5" />
+                      <path d="M24,162 C26,116 36,98 55,98 C74,98 84,116 86,162 Z" fill="url(#davidShirt)" stroke="#1e293b" stroke-width="1.8" />
+                      <!-- Head -->
+                      <ellipse cx="54" cy="58" rx="15" ry="18" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.8" />
+                      <!-- Short Dark Hair -->
+                      <path d="M39,52 C40,36 56,33 69,41 C71,44 70,48 67,49 C59,43 47,44 39,52 Z" fill="#1c1917" stroke="#0f172a" stroke-width="1.6" />
+                      <!-- Face Facing Left -->
+                      <circle cx="47" cy="56" r="1.7" fill="#0f172a" />
+                      <path d="M43,58 L40,65 L44,66" stroke="#1e293b" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                      <path d="M43,72 C46,74 49,74 51,71" stroke="#1e293b" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                    </svg>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Section A Bullet Examples -->
+          <ul class="space-y-2.5 text-[16.5px] leading-snug">
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Am I late? No, you're on time." data-seq="9">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Am I</strong> late?' &nbsp;&nbsp; 'No, you'<strong>re</strong> on time.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'ကျွန်တော် နောက်ကျနေလား။' &nbsp;&nbsp; 'မကျပါဘူး၊ မင်း အချိန်ကိုက်ပဲ။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Is your mother at home? No, she's out." data-seq="10">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Is</strong> your mother at home?' &nbsp;&nbsp; 'No, she'<strong>s</strong> out.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်းအမေ အိမ်မှာ ရှိလား။' &nbsp;&nbsp; 'မရှိဘူး၊ သူမ အပြင်သွားနေတယ်။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Are your parents at home? No, they're out." data-seq="11">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Are</strong> your parents at home?' &nbsp;&nbsp; 'No, they'<strong>re</strong> out.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်းမိဘတွေ အိမ်မှာ ရှိလား။' &nbsp;&nbsp; 'မရှိကြဘူး၊ သူတို့ အပြင်သွားကြတယ်။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Is it cold in your room? Yes, a little." data-seq="12">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Is it</strong> cold in your room?' &nbsp;&nbsp; 'Yes, a little.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်းအခန်းထဲမှာ အေးလား။' &nbsp;&nbsp; 'ဟုတ်တယ်၊ နည်းနည်းတော့ အေးတယ်။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Your shoes are nice. Are they new?" data-seq="13">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>Your shoes <strong>are</strong> nice. <strong>Are they</strong> new?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">မင်းဖိနပ်တွေ လှတယ်။ အသစ်တွေလား။</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- "We say:" Word Order Note -->
+          <div class="mt-3.5 space-y-2 text-[16.5px] leading-snug">
+            <p class="font-semibold text-stone-800">We say: <span class="mm-translation font-mm text-xs font-normal ml-1">(ကျွန်ုပ်တို့ ဤသို့ပြောပါသည် —)</span></p>
+            <ul class="space-y-2 pl-1">
+              <li class="flex items-start gap-2.5 p-1 rounded-lg transition" data-tts="Is she at home? Is your mother at home?" data-seq="14">
+                <span class="red-square-bullet" aria-hidden="true"></span>
+                <div class="flex-1">
+                  <div class="flex items-start justify-between gap-2">
+                    <p><strong>Is she</strong> at home? / <strong>Is your mother</strong> at home? <span class="italic text-stone-600 text-[15px]">(not Is at home your mother?)</span></p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm">သူမ အိမ်မှာ ရှိလား။ / မင်းအမေ အိမ်မှာ ရှိလား။ <span class="text-red-700">(Is at home your mother? ဟု မသုံးရပါ။)</span></p>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-2.5 p-1 rounded-lg transition" data-tts="Are they new? Are your shoes new?" data-seq="15">
+                <span class="red-square-bullet" aria-hidden="true"></span>
+                <div class="flex-1">
+                  <div class="flex items-start justify-between gap-2">
+                    <p><strong>Are they</strong> new? / <strong>Are your shoes</strong> new? <span class="italic text-stone-600 text-[15px]">(not Are new your shoes?)</span></p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm">အဲဒါတွေ အသစ်လား။ / မင်းဖိနပ်တွေ အသစ်လား။ <span class="text-red-700">(Are new your shoes? ဟု မသုံးရပါ။)</span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- SECTION B: WHERE / WHAT / WHO / HOW / WHY QUESTIONS              -->
+        <!-- ================================================================ -->
+        <section aria-labelledby="section-b-label" class="border-t border-stone-200 pt-5">
+          <!-- Mobile Section Header -->
+          <div class="flex md:hidden items-center gap-2 mb-3">
+            <span id="section-b-label" class="section-badge-mobile">B</span>
+            <span class="font-sans-ui text-xs font-semibold text-stone-500 uppercase tracking-wider">Wh- &amp; How Questions</span>
+          </div>
+
+          <div class="mb-3">
+            <h2 class="text-[18.5px] font-bold text-stone-900">
+              <strong>Where</strong> ...? / <strong>What</strong> ...? / <strong>Who</strong> ...? / <strong>How</strong> ...? / <strong>Why</strong> ...?
+            </h2>
+            <p class="mm-translation font-mm text-xs sm:text-[13px]">
+              <strong>Where</strong> (ဘယ်မှာ/ဘယ်က) • <strong>What</strong> (ဘာ/ဘယ်အရာ) • <strong>Who</strong> (ဘယ်သူ) • <strong>How</strong> (ဘယ်လို/ဘယ်လောက်) • <strong>Why</strong> (ဘာကြောင့်)
+            </p>
+          </div>
+
+          <ul class="space-y-2.5 text-[16.5px] leading-snug">
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Where is your mother? Is she at home?" data-seq="16">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p><strong>Where is</strong> your mother? Is she at home?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">မင်းအမေ ဘယ်မှာလဲ။ သူမ အိမ်မှာ ရှိလား။</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Where are you from? Canada." data-seq="17">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Where are</strong> you from?' &nbsp;&nbsp; 'Canada.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်း ဘယ်က လာတာလဲ။' &nbsp;&nbsp; 'ကနေဒါကပါ။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="What colour is your car? It's red." data-seq="18">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>What colour is</strong> your car?' &nbsp;&nbsp; 'It'<strong>s</strong> red.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်းကားက ဘာအရောင်လဲ။' &nbsp;&nbsp; 'အနီရောင်ပါ။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="How old is Joe? He's 24." data-seq="19">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>How old is</strong> Joe?' &nbsp;&nbsp; 'He'<strong>s</strong> 24.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'ဂျိုး အသက် ဘယ်လောက်လဲ။' &nbsp;&nbsp; 'သူ ၂၄ နှစ်ပါ။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="How are your parents? Are they well?" data-seq="20">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p><strong>How are</strong> your parents? Are they well?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">မင်းမိဘတွေ နေကောင်းကြလား။ ကျန်းမာရေး ကောင်းကြရဲ့လား။</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="These postcards are nice. How much are they?" data-seq="21">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>These postcards are nice. <strong>How much are</strong> they?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">ဒီပို့စ်ကတ်လေးတွေ လှတယ်။ ဘယ်လောက်ကျလဲ။</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="This hotel isn't very good. Why is it so expensive?" data-seq="22">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>This hotel isn't very good. <strong>Why is</strong> it so expensive?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">ဒီဟိုတယ်က သိပ်မကောင်းဘူး။ ဘာကြောင့် ဒီလောက် ဈေးကြီးနေတာလဲ။</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Question Contractions Banner -->
+          <div class="mt-4 bg-[#fdf8f6] border border-red-200/80 rounded-lg px-3.5 py-2.5" data-tts="What's equals what is. Who's equals who is. How's equals how is. Where's equals where is.">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex flex-wrap gap-x-5 gap-y-1 text-[16.5px] text-stone-900">
+                <span><strong>what's</strong> = what <strong>is</strong></span>
+                <span><strong>who's</strong> = who <strong>is</strong></span>
+                <span><strong>how's</strong> = how <strong>is</strong></span>
+                <span><strong>where's</strong> = where <strong>is</strong></span>
+              </div>
+              <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+            </div>
+            <p class="mm-translation font-mm text-xs text-blue-900 mt-1">
+              မေးခွန်းစကားလုံးများနှင့် <strong>is</strong> ကို အတိုကောက်ပေါင်းစပ်ပုံ
+            </p>
+          </div>
+
+          <!-- 2x2 Grid of Short Contraction Questions -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 text-[16.5px]">
+            <div class="flex items-start gap-2.5 p-1.5 rounded-lg transition" data-tts="What's the time?" data-seq="23">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <p><strong>What's</strong> the time?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm text-xs">အချိန် ဘယ်လောက်ရှိပြီလဲ။</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5 p-1.5 rounded-lg transition" data-tts="Who's that man?" data-seq="24">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <p><strong>Who's</strong> that man?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm text-xs">ဟိုလူက ဘယ်သူလဲ။</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5 p-1.5 rounded-lg transition" data-tts="Where's Lucy?" data-seq="25">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <p><strong>Where's</strong> Lucy?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm text-xs">လူစီ ဘယ်မှာလဲ။</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5 p-1.5 rounded-lg transition" data-tts="How's your father?" data-seq="26">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <p><strong>How's</strong> your father?</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm text-xs">မင်းအဖေ နေကောင်းလား။</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- SECTION C: SHORT ANSWERS + "THAT'S MY SEAT" ILLUSTRATION        -->
+        <!-- ================================================================ -->
+        <section aria-labelledby="section-c-label" class="border-t border-stone-200 pt-5">
+          <!-- Mobile Section Header -->
+          <div class="flex md:hidden items-center gap-2 mb-3">
+            <span id="section-c-label" class="section-badge-mobile">C</span>
+            <span class="font-sans-ui text-xs font-semibold text-stone-500 uppercase tracking-wider">Short Answers</span>
+          </div>
+
+          <div class="flex items-baseline justify-between mb-2">
+            <h2 class="italic text-lg font-semibold text-stone-800">Short answers <span class="no-print font-sans-ui not-italic text-[11px] font-normal text-stone-400 ml-1">(tap row to listen)</span></h2>
+            <span class="mm-table-sub font-mm text-xs text-blue-900 font-medium">အဖြေတိုများ</span>
+          </div>
+
+          <!-- Short Answers Tables + "That's my seat." Cartoon Illustration -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center mb-5">
+
+            <!-- Three Red-Bordered Short Answer Tables (8 cols on lg) -->
+            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center">
+
+              <!-- Yes, Short Answer Table (4 cols) -->
+              <div class="sm:col-span-4">
+                <table class="grammar-table text-[15px]">
+                  <tbody>
+                    <tr data-tts="Yes, I am." onclick="speakElement(this)">
+                      <td rowspan="3" class="font-semibold text-stone-800 align-middle">Yes,</td>
+                      <td class="text-right">I</td>
+                      <td class="font-bold">am.</td>
+                    </tr>
+                    <tr data-tts="Yes, he is. Yes, she is. Yes, it is." onclick="speakElement(this)">
+                      <td class="text-right leading-snug">he<br />she<br />it</td>
+                      <td class="font-bold">is.</td>
+                    </tr>
+                    <tr data-tts="Yes, we are. Yes, you are. Yes, they are." onclick="speakElement(this)">
+                      <td class="text-right leading-snug">we<br />you<br />they</td>
+                      <td class="font-bold">are.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- No, I'm not / he's not Table (4.5 cols) -->
+              <div class="sm:col-span-5">
+                <table class="grammar-table text-[15px]">
+                  <tbody>
+                    <tr data-tts="No, I'm not." onclick="speakElement(this)">
+                      <td rowspan="3" class="font-semibold text-stone-800 align-middle">No,</td>
+                      <td class="text-right">I'<strong>m</strong></td>
+                      <td rowspan="3" class="font-bold align-middle">not.</td>
+                    </tr>
+                    <tr data-tts="No, he's not. No, she's not. No, it's not." onclick="speakElement(this)">
+                      <td class="text-right leading-snug">he'<strong>s</strong><br />she'<strong>s</strong><br />it'<strong>s</strong></td>
+                    </tr>
+                    <tr data-tts="No, we're not. No, you're not. No, they're not." onclick="speakElement(this)">
+                      <td class="text-right leading-snug">we'<strong>re</strong><br />you'<strong>re</strong><br />they'<strong>re</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- "or No, he isn't / they aren't" Table (3.5 cols) -->
+              <div class="sm:col-span-3 flex items-center gap-1.5">
+                <span class="italic text-stone-600 text-sm hidden sm:inline">or</span>
+                <table class="grammar-table text-[15px]">
+                  <tbody>
+                    <tr data-tts="No, he isn't. No, she isn't. No, it isn't." onclick="speakElement(this)">
+                      <td rowspan="2" class="font-semibold text-stone-800 align-middle">No,</td>
+                      <td class="text-right leading-snug">he<br />she<br />it</td>
+                      <td class="font-bold">isn't.</td>
+                    </tr>
+                    <tr data-tts="No, we aren't. No, you aren't. No, they aren't." onclick="speakElement(this)">
+                      <td class="text-right leading-snug">we<br />you<br />they</td>
+                      <td class="font-bold">aren't.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Right Side Illustration: "That's my seat." / "No, it isn't." (4 cols on lg) -->
+            <div class="lg:col-span-4 bg-[#faf8f4] border border-stone-200/80 rounded-xl p-3 shadow-sm">
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <div class="speech-bubble flex-1 text-center py-1 px-2" data-tts="That's my seat.">
+                  <div class="flex items-center justify-center gap-1">
+                    <p class="text-[14px] leading-tight">That'<strong>s</strong> my seat.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[11px]">အဲဒါ ကျွန်တော့်ထိုင်ခုံပါ။</p>
+                </div>
+                <div class="speech-bubble flex-1 text-center py-1 px-2" data-tts="No, it isn't.">
+                  <div class="flex items-center justify-center gap-1">
+                    <p class="text-[14px] leading-tight">No, it <strong>isn't</strong>.</p>
+                    <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                  </div>
+                  <p class="mm-translation font-mm text-[11px]">မဟုတ်ပါဘူး။</p>
+                </div>
+              </div>
+
+              <!-- Hand-Drawn Style SVG: Standing Man Pointing & Seated Man on Chair -->
+              <svg viewBox="0 0 250 185" class="w-full h-auto" role="img" aria-label="Illustration of a standing man claiming a seat while a man sits on a chair">
+                <!-- Floor Shadow -->
+                <ellipse cx="128" cy="172" rx="105" ry="9" fill="#e5dec9" opacity="0.75" />
+
+                <!-- Standing Man on Left -->
+                <g transform="translate(28, 22)">
+                  <!-- Trousers & Shoes -->
+                  <path d="M22,92 L18,142 L29,142 L34,98 L40,142 L51,142 L46,92 Z" fill="#334155" stroke="#0f172a" stroke-width="1.8" />
+                  <path d="M15,142 L30,142 L30,147 L13,147 Z" fill="#0f172a" />
+                  <path d="M39,142 L54,142 L54,147 L37,147 Z" fill="#0f172a" />
+                  <!-- Jacket -->
+                  <path d="M16,44 C22,38 42,38 48,44 L52,94 L14,94 Z" fill="#4f6d9a" stroke="#1e293b" stroke-width="1.8" />
+                  <!-- Pointing Right Arm -->
+                  <path d="M46,52 L76,60 L74,68 L45,62 Z" fill="#4f6d9a" stroke="#1e293b" stroke-width="1.7" />
+                  <circle cx="79" cy="64" r="4" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.3" />
+                  <line x1="83" y1="64" x2="90" y2="64" stroke="#fbd5b5" stroke-width="2.5" stroke-linecap="round" />
+                  <!-- Head -->
+                  <ellipse cx="32" cy="22" rx="11" ry="13" fill="#fbd5b5" stroke="#1e293b" stroke-width="1.7" />
+                  <path d="M21,18 C22,8 34,6 43,12 C44,15 42,18 39,18 C33,14 26,15 21,18 Z" fill="#1e293b" />
+                  <circle cx="37" cy="21" r="1.5" fill="#0f172a" />
+                  <path d="M34,29 L40,29" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" />
+                </g>
+
+                <!-- Chair & Seated Man on Right -->
+                <g transform="translate(140, 48)">
+                  <!-- Chair Backrest & Legs -->
+                  <rect x="34" y="28" width="6" height="94" fill="#92400e" stroke="#451a03" stroke-width="1.5" />
+                  <rect x="6" y="76" width="38" height="6" rx="1" fill="#b45309" stroke="#451a03" stroke-width="1.5" />
+                  <line x1="10" y1="82" x2="8" y2="122" stroke="#451a03" stroke-width="2.5" />
+                  <line x1="36" y1="82" x2="38" y2="122" stroke="#451a03" stroke-width="2.5" />
+
+                  <!-- Seated Man Legs & Shoes -->
+                  <path d="M12,76 L-4,114 L8,118 L24,80 Z" fill="#3f3f46" stroke="#18181b" stroke-width="1.7" />
+                  <path d="M-8,114 L9,119 L7,124 L-10,119 Z" fill="#18181b" />
+
+                  <!-- Seated Man Sweater -->
+                  <path d="M10,36 C16,32 28,32 32,36 L34,76 L8,76 Z" fill="#7c2d12" stroke="#18181b" stroke-width="1.8" />
+                  <!-- Folded Arms -->
+                  <path d="M10,44 L22,56 L12,62" fill="none" stroke="#18181b" stroke-width="2.2" stroke-linecap="round" />
+
+                  <!-- Seated Man Head -->
+                  <ellipse cx="18" cy="18" rx="10" ry="11.5" fill="#fbd5b5" stroke="#18181b" stroke-width="1.7" />
+                  <path d="M8,15 C9,6 20,4 27,10 C28,13 26,15 24,15 C18,12 12,12 8,15 Z" fill="#27272a" />
+                  <circle cx="13" cy="17" r="1.4" fill="#0f172a" />
+                  <path d="M11,24 L16,24" stroke="#18181b" stroke-width="1.4" stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Section C Short Answer Examples -->
+          <ul class="space-y-2.5 text-[16.5px] leading-snug">
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Are you tired? Yes, I am." data-seq="27">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Are</strong> you tired?' &nbsp;&nbsp; '<strong>Yes, I am</strong>.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်း ပင်ပန်းနေလား။' &nbsp;&nbsp; 'ဟုတ်ကဲ့၊ ပင်ပန်းပါတယ်။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Are you hungry? No, I'm not, but I'm thirsty." data-seq="28">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Are</strong> you hungry?' &nbsp;&nbsp; '<strong>No, I'm not</strong>, but I'<strong>m</strong> thirsty.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်း ဗိုက်ဆာလား။' &nbsp;&nbsp; 'မဆာပါဘူး၊ ဒါပေမဲ့ ရေငတ်နေတယ်။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Is your friend English? Yes, he is." data-seq="29">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Is</strong> your friend English?' &nbsp;&nbsp; '<strong>Yes, he is</strong>.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'မင်းသူငယ်ချင်းက အင်္ဂလိပ်လူမျိုးလား။' &nbsp;&nbsp; 'ဟုတ်ကဲ့၊ ဟုတ်ပါတယ်။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="Are these your keys? Yes, they are." data-seq="30">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>Are</strong> these your keys?' &nbsp;&nbsp; '<strong>Yes, they are</strong>.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'ဒါတွေက မင်းသော့တွေလား။' &nbsp;&nbsp; 'ဟုတ်ကဲ့၊ ဟုတ်ပါတယ်။'</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-2.5 p-1.5 -ml-1.5 rounded-lg transition" data-tts="That's my seat. No, it isn't." data-seq="31">
+              <span class="red-square-bullet" aria-hidden="true"></span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p>'<strong>That's</strong> my seat.' &nbsp;&nbsp; '<strong>No, it isn't</strong>.'</p>
+                  <button type="button" class="tts-btn no-print" onclick="speakElement(this.closest('[data-tts]'))" aria-label="Listen"></button>
+                </div>
+                <p class="mm-translation font-mm">'အဲဒါ ကျွန်တော့်ထိုင်ခုံပါ။' &nbsp;&nbsp; 'မဟုတ်ပါဘူး။'</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Subtle Textbook Page Footer -->
+    <footer class="border-t border-stone-200 bg-[#faf7f4] px-4 sm:px-7 py-2.5 flex flex-wrap items-center justify-between text-xs text-stone-500 font-sans-ui">
+      <span>Unit 2 • <strong>am/is/are (questions)</strong></span>
+      <span class="font-mm text-stone-600">အင်္ဂလိပ်သဒ္ဒါ အခြေခံ — ယူနစ် (၂)</span>
+    </footer>
+  </main>
+
+  <script>
+    /**
+     * Switches between Bilingual (EN + Burmese), English Only, and Self-Test modes.
+     * @param {'bilingual' | 'en-only' | 'self-test'} mode
+     */
+    function setStudyMode(mode) {
+      const body = document.body;
+      body.classList.remove('mode-bilingual', 'mode-en-only', 'mode-self-test');
+      body.classList.add('mode-' + mode);
+
+      document.querySelectorAll('.revealed').forEach(el => el.classList.remove('revealed'));
+
+      const buttons = {
+        'bilingual': document.getElementById('btn-bilingual'),
+        'en-only': document.getElementById('btn-en-only'),
+        'self-test': document.getElementById('btn-self-test')
+      };
+
+      Object.keys(buttons).forEach(key => {
+        const btn = buttons[key];
+        if (!btn) return;
+        if (key === mode) {
+          btn.classList.add('bg-red-600', 'text-white', 'shadow-sm');
+          btn.classList.remove('text-stone-700', 'hover:bg-stone-100');
+        } else {
+          btn.classList.remove('bg-red-600', 'text-white', 'shadow-sm');
+          btn.classList.add('text-stone-700', 'hover:bg-stone-100');
+        }
+      });
+    }
+
+    // Allow mobile/desktop users to tap blurred Burmese translations in Self-Test mode to reveal them
+    document.addEventListener('click', function (e) {
+      if (!document.body.classList.contains('mode-self-test')) return;
+      const target = e.target.closest('.mm-translation, .mm-table-sub');
+      if (target) {
+        target.classList.toggle('revealed');
+      }
+    });
+
+    /* ======================================================================
+       TEXT-TO-SPEECH (TTS) ENGINE (Flutter JavaScriptChannel + Web Speech API)
+       ====================================================================== */
+    const SPEAKER_ICON_SVG = `
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      </svg>`;
+
+    const EQ_BARS_HTML = `<span class="eq-bars" aria-hidden="true"><span></span><span></span><span></span></span>`;
+
+    let speechRate = 1.0;
+    let selectedVoice = null;
+    let availableEnglishVoices = [];
+    let currentSpeakingEl = null;
+    let isPlayingAll = false;
+    let playAllQueue = [];
+    let playAllIndex = 0;
+
+    function hasFlutterTTSBridge() {
+      return (
+        typeof window.FlutterTTS !== 'undefined' &&
+        window.FlutterTTS !== null &&
+        typeof window.FlutterTTS.postMessage === 'function'
+      );
+    }
+
+    window.onFlutterTTSComplete = function () {
+      clearActiveVisuals();
+      if (isPlayingAll) {
+        playAllIndex++;
+        setTimeout(playNextInQueue, 350);
+      }
+    };
+
+    function initTTS() {
+      document.querySelectorAll('.tts-btn').forEach(btn => {
+        btn.innerHTML = SPEAKER_ICON_SVG;
+      });
+
+      if (hasFlutterTTSBridge()) {
+        const voiceSelect = document.getElementById('voice-select');
+        if (voiceSelect) voiceSelect.classList.add('hidden');
+        return;
+      }
+
+      if (!('speechSynthesis' in window)) return;
+
+      loadVoices();
+      if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+      }
+    }
+
+    function loadVoices() {
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices || !voices.length) return;
+
+      availableEnglishVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+      const voiceSelect = document.getElementById('voice-select');
+      if (!voiceSelect) return;
+
+      const previousValue = voiceSelect.value;
+      voiceSelect.innerHTML = '<option value="">Auto EN Voice</option>';
+
+      availableEnglishVoices.forEach((voice, idx) => {
+        const opt = document.createElement('option');
+        opt.value = String(idx);
+        const cleanName = voice.name.replace(/Microsoft |Google |Apple /g, '');
+        opt.textContent = `${cleanName} (${voice.lang})`;
+        voiceSelect.appendChild(opt);
+      });
+
+      if (previousValue !== '' && availableEnglishVoices[Number(previousValue)]) {
+        voiceSelect.value = previousValue;
+        selectedVoice = availableEnglishVoices[Number(previousValue)];
+      } else {
+        const preferred = availableEnglishVoices.find(v =>
+          /Daniel|Kate|Serena|Google UK English|Samantha|Natural/i.test(v.name)
+        ) || availableEnglishVoices.find(v => v.lang === 'en-GB') || availableEnglishVoices[0];
+
+        if (preferred) {
+          selectedVoice = preferred;
+          const prefIndex = availableEnglishVoices.indexOf(preferred);
+          if (prefIndex >= 0) voiceSelect.value = String(prefIndex);
+        }
+      }
+    }
+
+    function onVoiceChange() {
+      const voiceSelect = document.getElementById('voice-select');
+      const idx = voiceSelect.value;
+      selectedVoice = idx === '' ? null : availableEnglishVoices[Number(idx)] || null;
+    }
+
+    function cycleSpeechRate() {
+      const btn = document.getElementById('btn-speed');
+      if (speechRate === 1.0) {
+        speechRate = 0.75;
+        btn.textContent = '0.75x';
+        btn.classList.add('bg-amber-100', 'text-amber-900');
+        showToast('Speed: 0.75x (Slow / ဖြည်းဖြည်းချင်း)');
+      } else {
+        speechRate = 1.0;
+        btn.textContent = '1.0x';
+        btn.classList.remove('bg-amber-100', 'text-amber-900');
+        showToast('Speed: 1.0x (Normal / ပုံမှန်)');
+      }
+      if (hasFlutterTTSBridge()) {
+        window.FlutterTTS.postMessage(JSON.stringify({
+          action: 'setRate',
+          rate: speechRate
+        }));
+      }
+    }
+
+    function speakElement(el, fromQueue = false) {
+      const flutterAvailable = hasFlutterTTSBridge();
+      const webSpeechAvailable = ('speechSynthesis' in window);
+
+      if (!flutterAvailable && !webSpeechAvailable) {
+        showToast('Text-to-Speech is not supported in this browser.');
+        return;
+      }
+
+      if (!fromQueue && isPlayingAll) {
+        stopPlayAll();
+      }
+
+      if (!fromQueue && currentSpeakingEl === el) {
+        stopSpeech();
+        return;
+      }
+
+      const text = el.getAttribute('data-tts');
+      if (!text) return;
+
+      stopSpeech();
+
+      if (flutterAvailable) {
+        setActiveVisuals(el);
+        if (fromQueue) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        try {
+          window.FlutterTTS.postMessage(JSON.stringify({
+            action: 'speak',
+            text: text,
+            rate: speechRate,
+            lang: selectedVoice ? selectedVoice.lang : 'en-GB'
+          }));
+        } catch (err) {
+          clearActiveVisuals();
+          showToast('Unable to send audio to Flutter TTS.');
+        }
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = selectedVoice ? selectedVoice.lang : 'en-GB';
+      if (selectedVoice) utterance.voice = selectedVoice;
+      utterance.rate = speechRate;
+      utterance.pitch = 1.0;
+
+      utterance.onstart = () => {
+        setActiveVisuals(el);
+        if (fromQueue) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      };
+
+      utterance.onend = () => {
+        clearActiveVisuals();
+        if (isPlayingAll && fromQueue) {
+          playAllIndex++;
+          setTimeout(playNextInQueue, 350);
+        }
+      };
+
+      utterance.onerror = () => {
+        clearActiveVisuals();
+        if (isPlayingAll) {
+          stopPlayAll();
+        }
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function togglePlayAll() {
+      if (!hasFlutterTTSBridge() && !('speechSynthesis' in window)) {
+        showToast('Text-to-Speech is not supported in this browser.');
+        return;
+      }
+
+      if (isPlayingAll) {
+        stopPlayAll();
+        return;
+      }
+
+      playAllQueue = Array.from(document.querySelectorAll('[data-seq]'))
+        .sort((a, b) => Number(a.getAttribute('data-seq')) - Number(b.getAttribute('data-seq')));
+
+      if (!playAllQueue.length) return;
+
+      isPlayingAll = true;
+      playAllIndex = 0;
+      updatePlayAllButton(true);
+      playNextInQueue();
+    }
+
+    function playNextInQueue() {
+      if (!isPlayingAll) return;
+      if (playAllIndex >= playAllQueue.length) {
+        stopPlayAll();
+        showToast('Finished playing all Unit 2 examples.');
+        return;
+      }
+      speakElement(playAllQueue[playAllIndex], true);
+    }
+
+    function stopPlayAll() {
+      isPlayingAll = false;
+      playAllQueue = [];
+      playAllIndex = 0;
+      updatePlayAllButton(false);
+      stopSpeech();
+    }
+
+    function stopSpeech() {
+      if (hasFlutterTTSBridge()) {
+        try {
+          window.FlutterTTS.postMessage(JSON.stringify({ action: 'stop' }));
+        } catch (err) {
+          // Ignore bridge stop errors
+        }
+      }
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      clearActiveVisuals();
+    }
+
+    function setActiveVisuals(el) {
+      clearActiveVisuals();
+      currentSpeakingEl = el;
+      el.classList.add('tts-active-target');
+      const btn = el.querySelector('.tts-btn');
+      if (btn) {
+        btn.classList.add('is-playing');
+        btn.innerHTML = EQ_BARS_HTML;
+      }
+    }
+
+    function clearActiveVisuals() {
+      if (currentSpeakingEl) {
+        currentSpeakingEl.classList.remove('tts-active-target');
+        const btn = currentSpeakingEl.querySelector('.tts-btn');
+        if (btn) {
+          btn.classList.remove('is-playing');
+          btn.innerHTML = SPEAKER_ICON_SVG;
+        }
+        currentSpeakingEl = null;
+      }
+    }
+
+    function updatePlayAllButton(playing) {
+      const btn = document.getElementById('btn-play-all');
+      const icon = document.getElementById('icon-play-all');
+      const label = document.getElementById('label-play-all');
+      if (!btn || !icon || !label) return;
+
+      if (playing) {
+        btn.classList.remove('bg-amber-500', 'hover:bg-amber-600');
+        btn.classList.add('bg-red-600', 'hover:bg-red-700');
+        icon.innerHTML = '<rect x="6" y="6" width="12" height="12" rx="1"/>';
+        label.textContent = 'Stop';
+      } else {
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-amber-500', 'hover:bg-amber-600');
+        icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+        label.textContent = 'Play All';
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const toast = document.getElementById('tts-toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2400);
+    }
+
+    window.addEventListener('DOMContentLoaded', initTTS);
+    window.addEventListener('beforeunload', stopSpeech);
+  </script>
+</body>
+</html>
